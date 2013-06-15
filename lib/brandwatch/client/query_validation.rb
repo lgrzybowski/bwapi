@@ -1,0 +1,27 @@
+module Brandwatch
+  class Client
+    module QueryValidation
+
+      # Check to see if a query string is valid
+      #
+      # @param opts [Hash] options hash of parameters
+      # @option opts [String] query Query string
+      # @option opts [Array] language Languages for query string
+      # @return [Hashie::Mash] Query string validation results
+      def query_validation opts={}
+        get "queryvalidation", opts
+      end
+
+      # Check to see if a search within query string is valid
+      #
+      # @param opts [Hash] options hash of parameters
+      # @option opts [String] query Query string
+      # @option opts [Array] language Languages for query string
+      # @return [Hashie::Mash] Query string validation results
+      def search_within opts={}
+        get "query-validation/searchwithin", opts
+      end
+
+    end
+  end
+end
