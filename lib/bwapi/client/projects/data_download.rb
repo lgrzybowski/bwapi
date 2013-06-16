@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module DataDownload
@@ -6,11 +6,11 @@ module Brandwatch
         # Get all data downloads in project
         #
         # @param id [Integer] Id of project
-        # @option opts [Integer] :page Page of projects to retrieve
-        # @option opts [Integer] :pageSize Results per page of results
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All data downloads in project
         def data_downloads id, opts={}
-          get "projects/#{id}/datadownload"
+          get "projects/#{id}/datadownload", opts
         end
 
         # Get a specific data download in project
@@ -40,7 +40,7 @@ module Brandwatch
         # @option opts [Array] additionalColumns The additional columns for the data download
         # @return [Hashie::Mash] New data download
         def create_datadownload id, opts={}
-          get "projects/#{id}/datadownload"
+          get "projects/#{id}/datadownload", opts
         end
 
       end

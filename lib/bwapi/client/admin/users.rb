@@ -1,4 +1,4 @@
-require 'bwapi/client/admin/sharing'
+require 'bwapi/client/admin/users/sharing'
 
 module BWAPI
   class Client
@@ -86,16 +86,9 @@ module BWAPI
           alias :update_user :update_client_user
 
 
-          def users_sharing id
-          end
-
-          def update_users_sharing id
-          end
+          include BWAPI::Client::Admin::Clients::Users::Sharing
 
         end
-
-        include BWAPI::Client::Admin::Sharing
-
       end
     end
   end

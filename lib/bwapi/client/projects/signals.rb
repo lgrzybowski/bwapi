@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Signals
@@ -15,8 +15,8 @@ module Brandwatch
         # @option opts [Integer] projectId Project id of the signal
         # @option opts [Hash] filter The filter(s) to apply
         # @return [Hashie::Mash] All signals for user in project
-        def signals id, opts={}
-          get "projects/#{id}/signals"
+        def signals id, opts
+          get "projects/#{id}/signals", opts
         end
 
         # Set the vote type and comment of a signal for a given user
@@ -30,7 +30,7 @@ module Brandwatch
         # @option opts [Integer] projectId Project id of the signal
         # @return [Hashie::Mash] Update signal for given user
         def set_signal_vote id, opts
-          post "projects/#{project_id}/signals/vote"
+          post "projects/#{project_id}/signals/vote", opts
         end
 
       end

@@ -1,12 +1,17 @@
-module Brandwatch
+module BWAPI
   class Client
     module Logout
 
-      def oauth_token_destroy
-        get "logout"
-        @access_token = nil
+      # Logout user
+      #
+      # @return [Hashie::Mash] Logout information
+      def logout
+        begin
+          get "logout"
+        ensure
+          @access_token = nil
+        end
       end
-      alias :logout :oauth_token_destroy
 
     end
   end

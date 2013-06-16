@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Categories
@@ -6,8 +6,9 @@ module Brandwatch
         # Get all categories in project
         #
         # @param id [Integer] Id of project
-        # @option opts [Integer] :page Page of projects to retrieve
-        # @option opts [Integer] :pageSize Results per page of results
+        # @param opts [Hash] options hash of parameters
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All categories in project
         def categories id, opts={}
           get "projects/#{id}/categories", opts
@@ -18,7 +19,7 @@ module Brandwatch
         # Get a specific category in project
         #
         # @param project_id [Integer] Id of project
-        # @param category_id [Integer] Id of query group
+        # @param category_id [Integer] Id of category
         # @return [Hashie::Mash] Specific category
         #def get_category project_id, category_id
         #  get "projects/#{project_id}/categories/#{category_id}", opts

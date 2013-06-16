@@ -1,21 +1,23 @@
 require 'faraday'
 
-module Brandwatch
+module BWAPI
   module Configuration
 
     OPTION_KEYS = [
+      :api_endpoint,
+      :adapter,
       :username,
       :password,
-      :grant,
+      :grant_type,
       :access_token,
-      :refresh_token,
       :client_id,
-      :client_secret,
-      :api_endpoint
+      :client_secret
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
-    DEFAULT_API_ENDPOINT  = 'https://newapi.brandwatch.com/'
+    DEFAULT_API_ENDPOINT  = 'http://newapi.rel.brandwatch.com/'
+    DEFAULT_GRANT_TYPE    = 'password'
+    DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
 
     attr_accessor *OPTION_KEYS
 
@@ -38,9 +40,9 @@ module Brandwatch
       self.api_endpoint        = DEFAULT_API_ENDPOINT
       self.username            = nil
       self.password            = nil
+      self.grant_type          = DEFAULT_GRANT_TYPE
       self.access_token        = nil
-      self.refresh_token       = nil
-      self.client_id           = nil
+      self.client_id           = DEFAULT_CLIENT_ID
       self.client_secret       = nil
     end
 

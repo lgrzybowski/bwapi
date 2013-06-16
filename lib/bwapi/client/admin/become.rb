@@ -1,4 +1,4 @@
-module BWAPIs
+module BWAPI
   class Client
     module Admin
       module Clients

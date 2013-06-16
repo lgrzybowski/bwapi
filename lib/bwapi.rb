@@ -1,14 +1,13 @@
-require 'pry'
+require 'bwapi/configuration'
+require 'bwapi/error'
+require 'bwapi/client'
 
-require 'brandwatch/configuration'
-require 'brandwatch/client'
-
-module Brandwatch
+module BWAPI
   extend Configuration
   class << self
 
     def new opts={}
-      Brandwatch::Client.new(opts)
+      BWAPI::Client.new opts
     end
 
   end

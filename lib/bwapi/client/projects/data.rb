@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Data
@@ -35,8 +35,8 @@ module Brandwatch
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
-        # @option opts [Integer] :page Page of projects to retrieve
-        # @option opts [Integer] :pageSize Results per page of results
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] :orderBy Parameter to sort by
         # @option opts [String] :orderDirection Direction of sort
         # @option opts [Integer] :orderByCategory Category to sort by when orderBy category

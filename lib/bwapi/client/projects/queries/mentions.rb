@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Queries
@@ -13,8 +13,8 @@ module Brandwatch
           def get_query_mention_content project_id, query_id, mention_id
             get "projects/#{project_id}/queries/#{query_id}/mentions/#{mention_id}/content"
           end
-          :query_mention_content :get_query_mention_content
-          :mention_content :get_query_mention_content
+          alias :query_mention_content :get_query_mention_content
+          alias :mention_content :get_query_mention_content
 
           # Update query mention
           #

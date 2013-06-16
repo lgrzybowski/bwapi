@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Tags
@@ -6,11 +6,11 @@ module Brandwatch
         # Get all tags in project
         #
         # @param id [Integer] Id of project
-        # @option opts [Integer] :page Page of projects to retrieve
-        # @option opts [Integer] :pageSize Results per page of results
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All tags in project
         def tags id, opts={}
-          get "projects/#{project_id}/tags"
+          get "projects/#{id}/tags", opts
         end
 
         # Get a specific tag in project
@@ -21,16 +21,17 @@ module Brandwatch
         def get_tag project_id, tag_id
           get "projects/#{project_id}/tags/#{tag_id}"
         end
+        alias :tag :get_tag
 
         # Create a new tag in project
         #
         # @param id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [String] id Id of the tag
+        # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] New tag
-        def create_tag id, opts={}
-          post "projects/#{project_id}/tags"
+        def create_tag id, opts
+          post "projects/#{id}/tags", opts
         end
 
         # Update an existing tag in project
@@ -38,11 +39,11 @@ module Brandwatch
         # @param project_id [Integer] Id of project
         # @param tag_id [Integer] Id of tag
         # @param opts [Hash] options hash of parameters
-        # @option opts [String] id Id of the tag
+        # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] Updated tag
-        def update_tag project_id, tag_id, opts={}
-          put "projects/#{project_id}/tags/#{tag_id}"
+        def update_tag project_id, tag_id, opts
+          put "projects/#{project_id}/tags/#{tag_id}", opts
         end
 
         # Delete an existing tag in project
@@ -51,7 +52,7 @@ module Brandwatch
         # @param tag_id [Integer] Id of tag
         # @return [Hashie::Mash] Deleted tag
         def delete_tag project_id, tag_id
-          deleted "projects/#{project_id}/tags/#{tag_id}"
+          delete "projects/#{project_id}/tags/#{tag_id}"
         end
 
       end

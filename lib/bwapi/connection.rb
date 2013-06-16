@@ -1,21 +1,29 @@
 require 'faraday_middleware'
+require 'faraday/response/brandwatch_error'
+require 'faraday/utils/utils'
 
-module Brandwatch
+module BWAPI
   module Connection
+    private
 
-    def connection
-      connection = Faraday::Connection.new(url: base_uri) do |builder|
-        builder.request   :json
-        builder.response  :xml, :content_type => /\xml$/
-        builder.response  :json, :content_type => /\bjson$/
-        builder.use Faraday::Response::MultiJson
-        builder.use Faraday::Response::Mashify
-        builder.adapter adapter
+    def connection opts={}
+      connection = Faraday.new(opts) do |conn|
+
+        if opts[:force_urlencoded]
+          conn.request :url_encoded
+        else
+          conn.request :json
+        end
+
+        conn.request :json
+        conn.use Faraday::Response::BrandwatchError
+        conn.use FaradayMiddleware::FollowRedirects
+        conn.use FaradayMiddleware::Mashify
+        conn.use FaradayMiddleware::ParseJson, :content_type => /\bjson$/
+        conn.adapter adapter
       end
 
       connection
-
-      binding.pry
     end
 
   end

@@ -1,13 +1,28 @@
-require_relative 'brandwatch/connection'
+require 'bwapi/authentication'
+require 'bwapi/connection'
+require 'bwapi/request'
 
-module Brandwatch
+require 'bwapi/client/admin'
+require 'bwapi/client/brandwatch'
+require 'bwapi/client/client'
+require 'bwapi/client/logout'
+require 'bwapi/client/me'
+require 'bwapi/client/oauth'
+require 'bwapi/client/ping'
+require 'bwapi/client/sso'
+require 'bwapi/client/projects'
+require 'bwapi/client/query_validation'
+require 'bwapi/client/test_search'
+require 'bwapi/client/user'
+
+module BWAPI
   class Client
 
     attr_accessor *Configuration::OPTION_KEYS
 
     def initialize opts={}
-      # Merge options password
-      opts = Brandwatch.options.merge opts
+      # Merge opts
+      opts = BWAPI.options.merge opts
 
       # Create instance variables
       Configuration::OPTION_KEYS.each do |k|
@@ -15,5 +30,21 @@ module Brandwatch
       end
     end
 
+    include BWAPI::Authentication
+    include BWAPI::Connection
+    include BWAPI::Request
+
+    include BWAPI::Client::Admin
+    include BWAPI::Client::Brandwatch
+    include BWAPI::Client::Client
+    include BWAPI::Client::Logout
+    include BWAPI::Client::Me
+    include BWAPI::Client::OAuth
+    include BWAPI::Client::Ping
+    include BWAPI::Client::Projects
+    include BWAPI::Client::SSO
+    include BWAPI::Client::QueryValidation
+    include BWAPI::Client::TestSearch
+    include BWAPI::Client::User
   end
 end

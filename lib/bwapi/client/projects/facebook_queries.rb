@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module FacebookQueries
@@ -19,7 +19,7 @@ module Brandwatch
         def get_facebook_queries project_id, query_id
           get "projects/#{project_id}/facebookqueries/#{query_id}"
         end
-        alias :facebook_query
+        alias :facebook_query :get_facebook_queries
 
         # Update an existing facebook query in project
         #

@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Client
 

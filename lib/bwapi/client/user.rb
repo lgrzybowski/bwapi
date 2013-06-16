@@ -1,6 +1,6 @@
-require 'brandwatch/client/user/notifications'
+require 'bwapi/client/user/notifications'
 
-module Brandwatch
+module BWAPI
   class Client
     module User
 
@@ -47,13 +47,12 @@ module Brandwatch
       # Get users ui role
       #
       # @return [String] Users ui role
-      def user_role
-        me.uiRole
+      def ui_role
+        user.uiRole
       end
+
+      include BWAPI::Client::User::Notifications
 
     end
   end
-
-  include Brandwatch::Client::User::Notifications
-
 end

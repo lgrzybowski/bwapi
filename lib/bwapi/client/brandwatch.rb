@@ -1,7 +1,7 @@
-require 'brandwatch/client/brandwatch/become'
-require 'brandwatch/client/brandwatch/client_modules'
+require 'bwapi/client/brandwatch/become'
+require 'bwapi/client/brandwatch/client_modules'
 
-module Brandwatch
+module BWAPI
   class Client
     module Brandwatch
 
@@ -31,12 +31,12 @@ module Brandwatch
       # @option opts [Array] additionalColumns The additional columns for the data download
       # @return [Hashie::Mash] New data download
       def brandwatch_data_download id, opts
-        post "brandwatch/#{project_id}/datadownload"
+        post "brandwatch/#{project_id}/datadownload", opts
       end
 
-    end
+      include BWAPI::Client::Brandwatch::Become
+      include BWAPI::Client::Brandwatch::ClientModules
 
-    include Brandwatch::Client::Brandwatch::Become
-    include Brandwatch::Client::Brandwatch::ClientModules
+    end
   end
 end

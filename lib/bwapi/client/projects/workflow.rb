@@ -1,13 +1,13 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
-      module Worflow
+      module Workflow
 
         # Get all workflow categories for project
         #
         # @param id [Integer] Id of project
         # @return [Hashie::Mash] Workflow categories for project
-        def project_users id
+        def workflow id
           get "projects/#{id}/workflow"
         end
 

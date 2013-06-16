@@ -15,7 +15,7 @@ module BWAPI
           def client_sub_clients id
             get "admin/clients/#{id}/subclient"
           end
-          alias :sub_clients :get_client_sub_clients
+          alias :sub_clients :client_sub_clients
 
           # Get specific sub client of client
           #
@@ -100,7 +100,7 @@ module BWAPI
           def update_client_sub_client client_id, sub_client_id, opts
             put "admin/clients/#{client_id}/subclient/#{sub_client_id}", opts
           end
-          :update_sub_client :update_client_sub_client
+          alias :update_sub_client :update_client_sub_client
 
         end
       end

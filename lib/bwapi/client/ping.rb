@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Ping
 
@@ -19,7 +19,7 @@ module Brandwatch
       # Put ping checking access and available HTTP verbs
       #
       # @return [Hashie::Mash] User id and name
-      def put_ping
+      def update_ping
         put "ping"
       end
 

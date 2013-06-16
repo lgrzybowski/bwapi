@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   class Client
     module Projects
       module Summary
@@ -6,12 +6,12 @@ module Brandwatch
         # Summary of projects
         #
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] :page Page of projects to retrieve
-        # @option opts [Integer] :pageSize Results per page of results
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] :filter Filter to apply to the query
         # @return [Hashie::Mash] Project summary information
         def projects_summary opts={}
-          get "projects/summary"
+          get "projects/summary", opts
         end
         alias :summary :projects_summary
 

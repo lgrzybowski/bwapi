@@ -1,8 +1,11 @@
-module Brandwatch
+module BWAPI
   class Client
     module SSO
 
       # Authorize another user for access
+      #
+      # @note must have sso oauth_token
+      # @see oauth_token
       #
       # @param user_id [Integer] The user id
       # @return [Hashie::Mash] User authorization

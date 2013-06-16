@@ -1,4 +1,4 @@
-module Brandwatch
+module BWAPI
   # Raised when Brandwatch returns a 400 HTTP status code
   class BadRequest < StandardError; end
 
