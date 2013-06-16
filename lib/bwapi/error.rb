@@ -1,34 +1,41 @@
 module BWAPI
+
+  class BWError < StandardError
+    def initialize(response=nil)
+      super()
+    end
+  end
+
   # Raised when Brandwatch returns a 400 HTTP status code
-  class BadRequest < StandardError; end
+  class BadRequest < BWError; end
 
   # Raised when Brandwatch returns a 401 HTTP status code
-  class Unauthorized < StandardError; end
+  class Unauthorized < BWError; end
 
   # Raised when Brandwatch returns a 403 HTTP status code
-  class Forbidden < StandardError; end
+  class Forbidden < BWError; end
 
   # Raised when Brandwatch returns a 404 HTTP status code
-  class NotFound < StandardError; end
+  class NotFound < BWError; end
 
   # Raised when Brandwatch returns a 406 HTTP status code
-  class NotAcceptable < StandardError; end
+  class NotAcceptable < BWError; end
 
   # Raised when Brandwatch returns a 422 HTTP status code
-  class UnprocessableEntity < StandardError; end
+  class UnprocessableEntity < BWError; end
 
    # Raised when Brandwatch returns a 429 HTTP status code
-  class TooManyRequests < StandardError; end
+  class TooManyRequests < BWError; end
 
   # Raised when Brandwatch returns a 500 HTTP status code
-  class InternalServerError < StandardError; end
+  class InternalServerError < BWError; end
 
   # Raised when Brandwatch returns a 501 HTTP status code
-  class NotImplemented < StandardError; end
+  class NotImplemented < BWError; end
 
   # Raised when Brandwatch returns a 502 HTTP status code
-  class BadGateway < StandardError; end
+  class BadGateway < BWError; end
 
   # Raised when Brandwatch returns a 503 HTTP status code
-  class ServiceUnavailable < StandardError; end
+  class ServiceUnavailable < BWError; end
 end

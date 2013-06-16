@@ -21,15 +21,20 @@ module BWAPI
           force_urlencoded: true
         }.merge opts
 
-        creds  = post 'oauth/token', opts
-        self.access_token = creds.access_token
-        self.expires_in = creds.expires_in
+        begin
+          creds  = post 'oauth/token', opts
+        rescue BWAPI::BWError
+          return false
+        else
+          self.access_token = creds.access_token
+          self.expires_in = creds.expires_in
 
-        if application_client?
-          self.refresh_token = creds.refresh_token
+          if application_client?
+            self.refresh_token = creds.refresh_token
+          end
+
+          return true
         end
-
-        return
       end
       alias :login :oauth_token
 
@@ -51,15 +56,20 @@ module BWAPI
           force_urlencoded: true
         }.merge opts
 
-        creds = post 'oauth/token', opts
-        self.access_token = creds.access_token
-        self.expires_in = creds.expires_in
-
-        if application_client?
+        begin
+          creds = post 'oauth/token', opts
+        rescue BWAPI::BWError
+          return false
+        else
           self.access_token = creds.access_token
-        end
+          self.expires_in = creds.expires_in
 
-        return true
+          if application_client?
+            self.access_token = creds.access_token
+          end
+
+          return true
+        end
       end
       alias :refresh :oauth_refresh_token
 
