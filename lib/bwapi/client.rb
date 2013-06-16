@@ -28,6 +28,8 @@ module BWAPI
       Configuration::OPTION_KEYS.each do |k|
         send "#{k}=", opts[k]
       end
+
+      netrc_credentials opts[:netrc]
     end
 
     include BWAPI::Authentication
