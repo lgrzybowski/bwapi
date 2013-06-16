@@ -23,6 +23,8 @@ module BWAPI
         conn.adapter adapter
       end
 
+      connection.headers[:user_agent] = user_agent
+
       connection
     end
 

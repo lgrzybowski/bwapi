@@ -1,7 +1,7 @@
-require 'bwapi/client'
+require 'bwapi/version'
 require 'bwapi/configuration'
 require 'bwapi/error'
-require 'bwapi/version'
+require 'bwapi/client'
 
 module BWAPI
   extend Configuration

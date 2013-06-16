@@ -5,6 +5,7 @@ module BWAPI
 
     OPTION_KEYS = [
       :api_endpoint,
+      :user_agent,
       :adapter,
       :username,
       :password,
@@ -39,6 +40,7 @@ module BWAPI
 
     def reset
       self.adapter             = DEFAULT_ADAPTER
+      self.user_agent          = DEFAULT_USER_AGENT
       self.api_endpoint        = DEFAULT_API_ENDPOINT
       self.username            = nil
       self.password            = nil
