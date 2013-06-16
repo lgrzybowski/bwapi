@@ -1,5 +1,6 @@
 module BWAPI
 
+  # BW error class to capture BWAPI error responses
   class BWError < StandardError
     def initialize(response=nil)
       super()
