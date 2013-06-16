@@ -6,6 +6,7 @@ module BWAPI
   module Connection
     private
 
+    # Create a connection to send request
     def connection opts={}
       connection = Faraday.new(opts) do |conn|
 
