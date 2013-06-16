@@ -23,6 +23,7 @@ module BWAPI
 
         credentials  = post 'oauth/token', opts
         @access_token = credentials.access_token
+        return
       end
       alias :login :oauth_token
 
