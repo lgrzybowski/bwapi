@@ -11,13 +11,15 @@ module BWAPI
       :grant_type,
       :access_token,
       :client_id,
-      :client_secret
+      :client_secret,
+      :netrc
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
     DEFAULT_API_ENDPOINT  = 'http://newapi.rel.brandwatch.com/'
     DEFAULT_GRANT_TYPE    = 'password'
     DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
+    DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
 
     attr_accessor *OPTION_KEYS
 
@@ -44,6 +46,7 @@ module BWAPI
       self.access_token        = nil
       self.client_id           = DEFAULT_CLIENT_ID
       self.client_secret       = nil
+      self.netrc               = false
     end
 
   end
