@@ -14,7 +14,7 @@ module BWAPI
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] All Chart data mentions
         def data id, aggregate, dimension_one, dimension_two, opts={}
-          get "projects/#{id}/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
+          get "projects/#{id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
         end
 
         # Get all chart data for date ranges broken down by days
