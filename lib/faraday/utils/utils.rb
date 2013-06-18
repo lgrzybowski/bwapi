@@ -1,5 +1,7 @@
 require 'faraday'
 
+# TODO: Remove this patch once latest faraday rc has been released
+# https://github.com/lostisland/faraday/issues/182#issuecomment-19518167
 module Faraday
   module Utils
     def build_nested_query(value, prefix = nil)
