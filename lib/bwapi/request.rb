@@ -80,7 +80,6 @@ module BWAPI
           request.url path, opts
         when :patch, :post, :put
           if force_urlencoded
-            #request.body = opts unless opts.empty?
             request.url path, opts
           else
             request.path = path
