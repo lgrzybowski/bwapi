@@ -1,6 +1,9 @@
 require 'helper'
 
-describe BWAPI::Client
+describe BWAPI::Client do
 
+  before do
+    BWAPI.reset
+  end
 
 end
