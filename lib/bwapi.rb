@@ -22,7 +22,7 @@ module BWAPI
     end
 
     def respond_to? method, include_private=false
-      new.respond_to? method, include_private || super(method, include_private)
+      new.respond_to?(method, include_private) || super(method, include_private)
     end
 
   end
