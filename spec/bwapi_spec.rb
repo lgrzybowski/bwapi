@@ -1,6 +1,6 @@
 require 'helper'
 
-describe 'BWAPI' do
+describe BWAPI do
 
   describe 'when called' do
     it 'should be an instance of Module' do
