@@ -71,7 +71,7 @@ describe BWAPI::Client do
       end
 
       it 'should have a default user agent' do
-        expect(BWAPI::Client.new.user_agent).to eql("BWAPI Ruby Gem #{BWAPI::VERSIONc}")
+        expect(BWAPI::Client.new.user_agent).to eql("BWAPI Ruby Gem #{BWAPI::VERSION}")
       end
 
     end
