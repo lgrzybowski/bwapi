@@ -13,7 +13,6 @@ describe BWAPI::Client do
   end
 
   describe 'configuration' do
-
     describe 'instance variables' do
       it 'should create a api_endpoint instance variable' do
         expect(BWAPI::Client.new.respond_to?(:api_endpoint)).to eq(true)
@@ -65,7 +64,6 @@ describe BWAPI::Client do
     end
 
     describe 'default values' do
-
       it 'should have :net_http as the default adapter' do
         expect(BWAPI::Client.new.adapter).to eql(:net_http)
       end
@@ -74,8 +72,42 @@ describe BWAPI::Client do
         expect(BWAPI::Client.new.user_agent).to eql("BWAPI Ruby Gem #{BWAPI::VERSION}")
       end
 
+      it 'should have a default api endpoint' do
+        expect(BWAPI::Client.new.api_endpoint).to eql("http://newapi.brandwatch.com/")
+      end
+
+      it 'should have a default client id' do
+        expect(BWAPI::Client.new.client_id).to eql("brandwatch-api-client")
+      end
+
+      it 'should have a default for netrc' do
+        expect(BWAPI::Client.new.netrc).to eql(false)
+      end
+
+      it 'should have a default value of nil for username' do
+        expect(BWAPI::Client.new.username).to eql(nil)
+      end
+
+      it 'should have a default value of nil for password' do
+        expect(BWAPI::Client.new.password).to eql(nil)
+      end
+
+      it 'should have a default value of nil for grant_type' do
+        expect(BWAPI::Client.new.grant_type).to eql(nil)
+      end
+
+      it 'should have a default value of nil for access_token' do
+        expect(BWAPI::Client.new.access_token).to eql(nil)
+      end
+
+      it 'should have a default value of nil for refresh_token' do
+        expect(BWAPI::Client.new.refresh_token).to eql(nil)
+      end
+
+      it 'should have a default value of nil for client_secret' do
+        expect(BWAPI::Client.new.client_secret).to eql(nil)
+      end
     end
 
   end
-
 end
