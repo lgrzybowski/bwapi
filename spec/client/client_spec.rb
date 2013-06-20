@@ -63,8 +63,8 @@ describe BWAPI::Client do
       end
     end
 
-    describe 'default values' do
-      it 'should have :net_http as the default adapter' do
+    describe 'default configuration values' do
+      it 'should have a default adapter' do
         expect(BWAPI::Client.new.adapter).to eql(:net_http)
       end
 
@@ -106,6 +106,63 @@ describe BWAPI::Client do
 
       it 'should have a default value of nil for client_secret' do
         expect(BWAPI::Client.new.client_secret).to eql(nil)
+      end
+    end
+
+    describe 'custom configuration' do
+      it 'should allow a user to set a default adapter' do
+        bw = BWAPI::Client.new :adapter => 'custom_adapter'
+        expect(bw.adapter).to eql('custom_adapter')
+      end
+
+      it 'should allow a user to set a user agent' do
+        bw = BWAPI::Client.new :user_agent => 'custom_user_agent'
+        expect(bw.user_agent).to eql('custom_user_agent')
+      end
+
+      it 'should allow a user to set a api endpoint' do
+        bw = BWAPI::Client.new :api_endpoint => 'http://newapi.custom.brandwatch.com'
+        expect(bw.api_endpoint).to eql('http://newapi.custom.brandwatch.com')
+      end
+
+      it 'should allow a user to set a username' do
+        bw = BWAPI::Client.new :username => 'jonathan@brandwatch.com'
+        expect(bw.username).to eql('jonathan@brandwatch.com')
+      end
+
+      it 'should allow a user to set a password' do
+        bw = BWAPI::Client.new :password => 'pa55w0rd'
+        expect(bw.password).to eql('pa55w0rd')
+      end
+
+      it 'should allow a user to set a grant type' do
+        bw = BWAPI::Client.new :grant_type => 'custom_grant_type'
+        expect(bw.grant_type).to eql('custom_grant_type')
+      end
+
+      it 'should allow a user to set a access token' do
+        bw = BWAPI::Client.new :access_token => 'abcdef-ghijkl-123456-789012'
+        expect(bw.access_token).to eql('abcdef-ghijkl-123456-789012')
+      end
+
+      it 'should allow a user to set a refresh token' do
+        bw = BWAPI::Client.new :refresh_token => 'abcdef-ghijkl-123456-789012'
+        expect(bw.refresh_token).to eql('abcdef-ghijkl-123456-789012')
+      end
+
+      it 'should allow a user to set a client id' do
+        bw = BWAPI::Client.new :client_id => 'custom_client_id'
+        expect(bw.client_id).to eql('custom_client_id')
+      end
+
+      it 'should allow a user to set a client secret' do
+        bw = BWAPI::Client.new :client_secret => 'custom_client_secret'
+        expect(bw.client_secret).to eql('custom_client_secret')
+      end
+
+      it 'should allow a user to set the netrc flag' do
+        bw = BWAPI::Client.new :netrc => true
+        expect(bw.netrc).to eql(true)
       end
     end
 
