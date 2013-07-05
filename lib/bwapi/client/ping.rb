@@ -23,13 +23,12 @@ module BWAPI
         put "ping"
       end
 
-      # TODO: Uncomment once this has been fixed
       # Patch ping checking access and available HTTP verbs
       #
       # @return [Hashie::Mash] User id and name
-      #def patch_ping
-      #  patch "ping"
-      #end
+      def patch_ping
+        patch "ping"
+      end
 
       # Delete ping checking access and available HTTP verbs
       #
