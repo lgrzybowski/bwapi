@@ -8,7 +8,6 @@ module BWAPI
       def error_codes
         get "errorCodes"
       end
-      alias :errors :error_codes
 
     end
   end
