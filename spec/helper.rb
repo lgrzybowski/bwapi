@@ -2,7 +2,6 @@ require 'coveralls'
 require 'simplecov'
 
 require 'bwapi'
-require 'rspec'
 
 SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 SimpleCov.start
