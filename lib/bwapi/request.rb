@@ -60,7 +60,6 @@ module BWAPI
       token = access_token
 
       force_urlencoded  = opts.delete(:force_urlencoded) || false
-      bracketize_params = opts.delete(:bracketize_params) || false
 
       conn_opts = {
         :force_urlencoded => force_urlencoded,
