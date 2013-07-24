@@ -15,7 +15,7 @@ http://rubydoc.info/gems/bwapi/
 All Brandwatch API calls at present require you to be authenticated with the system. Therefore you'll need to create an instance of your client: 
 
 ```ruby
-bw = BWAPI.new(:username => 'username@example.com', :password => 'pa$$w0rd')
+bw = BWAPI::Client.new(:username => 'username@example.com', :password => 'pa$$w0rd')
 ```
    
 Once you have your instance of your client you can then use a helper method to authenticate with Brandwatch:
