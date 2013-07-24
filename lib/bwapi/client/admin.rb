@@ -7,7 +7,7 @@ module BWAPI
   class Client
     module Admin
 
-      # Get the active queries irrespctive of project
+      # Get the active queries irrespective of project
       #
       # @param opts [Hash] options hash of parameters
       # @option opts [Integer] page Page of projects to retrieve
