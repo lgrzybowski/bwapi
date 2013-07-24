@@ -61,6 +61,10 @@ describe BWAPI::Client do
       it 'should create a netrc instance variable' do
         expect(BWAPI::Client.new.respond_to?(:netrc)).to eq(true)
       end
+
+      it 'should create a netrc_file instance variable' do
+        expect(BWAPI::Client.new.respond_to?(:netrc_file)).to eq(true)
+      end
     end
 
     describe 'configuration values' do
@@ -116,6 +120,17 @@ describe BWAPI::Client do
         it 'should allow a user to set a netrc value' do
           bw = BWAPI::Client.new :netrc => true
           expect(bw.netrc).to eql(true)
+        end
+      end
+
+      describe 'netrc_file' do
+        it 'should have a default netrc value' do
+          expect(BWAPI::Client.new.netrc_file).to eql("#{ENV['HOME'] + '/' + '.netrc'}")
+        end
+
+        it 'should allow a user to set a netrc_file value' do
+          bw = BWAPI::Client.new :netrc_file => 'example/.netrc'
+          expect(bw.netrc_file).to eql('example/.netrc')
         end
       end
 
