@@ -6,7 +6,7 @@
 
 __PLEASE NOTE THAT THIS PROJECT IS NOT OFFICIALLY SUPPORTED BY BRANDWATCH__
 
-A Ruby interface to the Brandwatch v2 API. The projects design is modelled on the GitHub Octokit wrapper which can be found here: https://github.com/octokit/octokit.rb.
+A Ruby interface to the Brandwatch V2 API. The projects design is modelled on the GitHub Octokit wrapper which can be found here: https://github.com/octokit/octokit.rb.
 
 ## Documentation 
 http://rubydoc.info/gems/bwapi/
