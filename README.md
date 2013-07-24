@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/jonathanchrisp/bwapi.png?branch=master)](https://travis-ci.org/jonathanchrisp/bwapi)
+[![Dependency Status](https://gemnasium.com/jonathanchrisp/bwapi.png)](https://gemnasium.com/jonathanchrisp/bwapi)
+[![Code Climate](https://codeclimate.com/github/jonathanchrisp/bwapi.png)](https://codeclimate.com/github/jonathanchrisp/bwapi)
 
 # bwapi
 
