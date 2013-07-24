@@ -23,7 +23,7 @@ module BWAPI
     DEFAULT_API_ENDPOINT  = ENV['BWAPI_API_ENDPOINT'] || 'http://newapi.brandwatch.com/'
     DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
     DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
-    DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')c
+    DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')
 
     attr_accessor *OPTION_KEYS
 
