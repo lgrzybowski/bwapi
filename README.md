@@ -9,7 +9,7 @@ There are a number of unit tests which are included as part of this project whic
 
       rspec spec
       
-Please note that a number of tests still need to be added so I don't currently have complete coverage.
+Please note that a number of tests still need to be added so I don't currently have complete coverage and will be added over the next few months.
 
 ## Feedback
 I would be more than happy to recieve feedback, please email me at: jonathan.chrisp@gmail.com or jonathan@brandwatch.com
