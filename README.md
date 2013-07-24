@@ -12,4 +12,4 @@ There are a number of unit tests which are included as part of this project whic
 Please note that a number of tests still need to be added so I don't currently have complete coverage.
 
 ## Feedback
-I would be more than happy to recieve feedback, please email me at: jonathan.chrisp@gmail.com
+I would be more than happy to recieve feedback, please email me at: jonathan.chrisp@gmail.com or jonathan@brandwatch.com
