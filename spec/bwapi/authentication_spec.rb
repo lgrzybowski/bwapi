@@ -39,4 +39,19 @@ describe BWAPI::Authentication do
       expect(bw.api_client?).to eql(false)
     end
   end
+
+  describe '.netrc_credentials' do
+    it 'returns nil when netrc is false' do
+      bw = BWAPI::Client.new
+      expect(bw.netrc_credentials).to eql(nil)
+    end
+
+    it 'returns credentials when netrc is true' do
+      bw = BWAPI::Client.new :netrc => true, :netrc_file => File.join(fixture_path, '.netrc')
+      bw.netrc_credentials
+      expect(bw.username).to eql('testuser@brandwatch.com')
+      expect(bw.password).to eql('password')
+    end
+
+  end
 end
