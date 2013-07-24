@@ -117,8 +117,8 @@ describe BWAPI::Client do
           expect(BWAPI::Client.new.netrc).to eql(false)
         end
 
-        it 'should allow a user to set a netrc value' do
-          bw = BWAPI::Client.new :netrc => true
+        it 'should allow a user to set true for the netrc value' do
+          bw = BWAPI::Client.new :netrc => true, :netrc_file => File.join(fixture_path, '.netrc')
           expect(bw.netrc).to eql(true)
         end
       end
