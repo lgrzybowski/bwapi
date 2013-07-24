@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.author      = 'Jonathan Chrisp'
   s.email       = 'jonathan@brandwatch.com'
   s.license     = 'MIT'
-  s.homepage    = 'https://github.com/jonathanchrisp/brandwatch-api'
+  s.homepage    = 'https://github.com/jonathanchrisp/bwapi'
   s.required_ruby_version = ">= 1.9.2"
 
   s.add_development_dependency 'rspec', '~> 2.13.0'
