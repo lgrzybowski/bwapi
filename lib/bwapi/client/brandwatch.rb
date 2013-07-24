@@ -5,15 +5,6 @@ module BWAPI
   class Client
     module Brandwatch
 
-      # Alter the log level of the application
-      #
-      # @param opts [Hash] options Hash of parameters
-      # @option opts [String] loglevel Logging level
-      # @return [Hashie::Mash] New log level
-      def log_level opts
-        get "brandwatch/log-level", opts
-      end
-
       # Create a new data download in project
       #
       # @param id [Integer] Id of project
