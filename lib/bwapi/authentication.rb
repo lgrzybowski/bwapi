@@ -1,3 +1,5 @@
+require 'netrc'
+
 module BWAPI
   module Authentication
 
@@ -27,14 +29,13 @@ module BWAPI
     # @param netrc [Boolean] Netrc status
     def netrc_credentials netrc=false
       return unless netrc
-      file = Netrc.read
+      file = Netrc.read netrc_file
 
       # Get credentials using host
       netrc_host = URI.parse(api_endpoint).host
       creds = file[netrc_host]
       self.username = creds.shift
       self.password = creds.shift
-      return
     end
 
   end

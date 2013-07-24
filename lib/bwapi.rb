@@ -1,4 +1,3 @@
-require 'netrc'
 require 'bwapi/version'
 require 'bwapi/configuration'
 require 'bwapi/error'

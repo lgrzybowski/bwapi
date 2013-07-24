@@ -15,13 +15,15 @@ module BWAPI
       :expires_in,
       :client_id,
       :client_secret,
-      :netrc
+      :netrc,
+      :netrc_file
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
     DEFAULT_API_ENDPOINT  = ENV['BWAPI_API_ENDPOINT'] || 'http://newapi.brandwatch.com/'
     DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
     DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
+    DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')c
 
     attr_accessor *OPTION_KEYS
 
@@ -51,7 +53,7 @@ module BWAPI
       self.client_id           = DEFAULT_CLIENT_ID
       self.client_secret       = nil
       self.netrc               = false
+      self.netrc_file          = DEFAULT_NETRC_FILE
     end
-
   end
 end
