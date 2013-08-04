@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Bwapi by jonathanchrisp</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Bwapi</h1>
+          <h2>A Ruby interface to the Brandwatch API</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/jonathanchrisp/bwapi/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/jonathanchrisp/bwapi/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/jonathanchrisp/bwapi" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><a href="http://badge.fury.io/rb/bwapi"><img src="https://badge.fury.io/rb/bwapi.png" alt="Gem Version"></a>
+<a href="https://travis-ci.org/jonathanchrisp/bwapi"><img src="https://travis-ci.org/jonathanchrisp/bwapi.png?branch=master" alt="Build Status"></a>
+<a href="https://gemnasium.com/jonathanchrisp/bwapi"><img src="https://gemnasium.com/jonathanchrisp/bwapi.png" alt="Dependency Status"></a>
+<a href="https://codeclimate.com/github/jonathanchrisp/bwapi"><img src="https://codeclimate.com/github/jonathanchrisp/bwapi.png" alt="Code Climate"></a></p>
+
+<p><strong>PLEASE NOTE THAT THIS PROJECT IS NOT OFFICIALLY SUPPORTED BY BRANDWATCH</strong></p>
+
+<p>A Ruby interface to the Brandwatch V2 API. The projects design is modelled on the GitHub Octokit wrapper which can be found here: <a href="https://github.com/octokit/octokit.rb">https://github.com/octokit/octokit.rb</a>.</p>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p><a href="http://rubydoc.info/gems/bwapi/">http://rubydoc.info/gems/bwapi/</a></p>
+
+<h2>
+<a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>All Brandwatch API calls at present require you to be authenticated with the system. Therefore you'll need to create an instance of your client: </p>
+
+<div class="highlight"><pre><span class="n">bw</span> <span class="o">=</span> <span class="ss">BWAPI</span><span class="p">:</span><span class="ss">:Client</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:username</span> <span class="o">=&gt;</span> <span class="s1">'username@example.com'</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="s1">'pa$$w0rd'</span><span class="p">)</span>
+</pre></div>
+
+<p>Once you have your instance of your client you can then use a helper method to authenticate with Brandwatch:</p>
+
+<div class="highlight"><pre><span class="n">bw</span><span class="o">.</span><span class="n">login</span>
+</pre></div>
+
+<p>The wrapper returns a boolean value to state whether you authenticated successfully.</p>
+
+<h2>
+<a name="example-requests" class="anchor" href="#example-requests"><span class="octicon octicon-link"></span></a>Example Requests</h2>
+
+<p>Once authenticated, you are then able to make additional requests. Please see a small selection of examples below:</p>
+
+<h3>
+<a name="get-all-projects" class="anchor" href="#get-all-projects"><span class="octicon octicon-link"></span></a>Get all projects</h3>
+
+<div class="highlight"><pre><span class="n">bw</span><span class="o">.</span><span class="n">projects</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Hashie::Mash results=[#&lt;Hashie::Mash clientId=1856278873 clientName="JC BWAPI Demo" creationDate="2013-07-24T17:56:31.074+0000" creatorUserId=158304410 defaultIndustry="general-(recommended)" defaultLangCodes=["en"] description=nil id=1856280126 links=#&lt;Hashie::Mash queries="http://newapi.brandwatch.com//projects/1856280126/queries.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"&gt; name="Demo Project"&gt;] resultsPage=-1 resultsPageSize=-1 resultsTotal=-1&gt;</span>
+</pre></div>
+
+<h3>
+<a name="get-a-specific-project" class="anchor" href="#get-a-specific-project"><span class="octicon octicon-link"></span></a>Get a specific project</h3>
+
+<div class="highlight"><pre><span class="n">bw</span><span class="o">.</span><span class="n">project</span> <span class="mi">1856280126</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Hashie::Mash clientId=1856278873 clientName="JC BWAPI Demo" creationDate="2013-07-24T17:56:31.074+0000" creatorUserId=158304410 defaultIndustry="general-(recommended)" defaultLangCodes=["en"] description=nil id=1856280126 links=#&lt;Hashie::Mash queries="http://newapi.brandwatch.com//projects/1856280126/queries.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"&gt; name="Demo Project"&gt;</span>
+</pre></div>
+
+<h3>
+<a name="get-a-project-queries-summary" class="anchor" href="#get-a-project-queries-summary"><span class="octicon octicon-link"></span></a>Get a project queries summary</h3>
+
+<div class="highlight"><pre><span class="n">bw</span><span class="o">.</span><span class="n">queries_summary</span> <span class="mi">1856280126</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Hashie::Mash results=[#&lt;Hashie::Mash id=1856280351 name="LA Lakers"&gt;] resultsPage=-1 resultsPageSize=-1 resultsTotal=-1&gt;</span>
+</pre></div>
+
+<h3>
+<a name="get-user-information" class="anchor" href="#get-user-information"><span class="octicon octicon-link"></span></a>Get user information</h3>
+
+<div class="highlight"><pre><span class="n">bw</span><span class="o">.</span><span class="n">me</span>
+<span class="o">=&gt;</span> <span class="c1">#&lt;Hashie::Mash client=#&lt;Hashie::Mash id=1856278873 name="JC BWAPI Demo" parentId=-1 railsEnabled=false theme="brandwatch"&gt; firstName="BWAPI" id=158304410 lastName="Demo" links=#&lt;Hashie::Mash logout="http://newapi.brandwatch.com/logout?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f" user="http://newapi.brandwatch.com//user.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"&gt; tags=#&lt;Hashie::Mash notify="true"&gt; uiRole="admin" username="bwapi_demo=jonathan@brandwatch.com"&gt;</span>
+</pre></div>
+
+<h2>
+<a name="tests" class="anchor" href="#tests"><span class="octicon octicon-link"></span></a>Tests</h2>
+
+<p>There are a number of unit tests which are included as part of this project, please run:</p>
+
+<div class="highlight"><pre><span class="n">rspec</span> <span class="n">spec</span>
+</pre></div>
+
+<p>Please note that a number of tests still need to be added so I don't currently have complete coverage, subject to workload these will be slowly added over the next few months.</p>
+
+<h2>
+<a name="feedback" class="anchor" href="#feedback"><span class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p>I would be more than happy to recieve feedback, please email me at: <a href="mailto:jonathan.chrisp@gmail.com">jonathan.chrisp@gmail.com</a> or <a href="mailto:jonathan@brandwatch.com">jonathan@brandwatch.com</a></p>
+        </section>
+
+        <footer>
+          Bwapi is maintained by <a href="https://github.com/jonathanchrisp">jonathanchrisp</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+                  <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-38101452-8");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+      </div>
+    </div>
+  </body>
+</html>
