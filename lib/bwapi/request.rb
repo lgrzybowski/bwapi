@@ -57,19 +57,19 @@ module BWAPI
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
     def request method, path, opts={}
-      token = access_token
-
-      force_urlencoded  = opts.delete(:force_urlencoded) || false
-
       conn_opts = {
-        :force_urlencoded => force_urlencoded,
-        :url => api_endpoint
+        :headers => {
+          :user_agent => user_agent
+        },
+        :force_urlencoded => opts.delete(:force_urlencoded) || false,
+        :url => api_endpoint,
+        :ssl => {:verify => verify_ssl}
       }
 
       response = connection(conn_opts).send(method) do |request|
         # Add token to the header
-        if token
-          request.headers[:authorization] = "bearer #{token}"
+        if access_token
+          request.headers[:authorization] = "bearer #{access_token}"
         end
 
         case method
@@ -78,7 +78,7 @@ module BWAPI
         when :delete
           request.url path, opts
         when :patch, :post, :put
-          if force_urlencoded
+          if conn_opts[:force_urlencoded]
             request.url path, opts
           else
             request.path = path

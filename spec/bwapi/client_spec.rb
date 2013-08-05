@@ -92,7 +92,7 @@ describe BWAPI::Client do
 
       describe 'api_endpoint' do
         it 'should have a default api_endpoint value' do
-          expect(BWAPI::Client.new.api_endpoint).to eql("http://newapi.brandwatch.com/")
+          expect(BWAPI::Client.new.api_endpoint).to eql("https://newapi.brandwatch.com/")
         end
 
         it 'should allow a user to set a api_endpoint value' do

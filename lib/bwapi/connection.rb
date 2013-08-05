@@ -25,7 +25,6 @@ module BWAPI
       end
 
       connection.headers[:user_agent] = user_agent
-
       connection
     end
 
