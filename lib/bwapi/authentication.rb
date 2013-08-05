@@ -1,4 +1,4 @@
-require 'netrc'
+require 'colored'
 
 module BWAPI
   module Authentication
@@ -29,13 +29,18 @@ module BWAPI
     # @param netrc [Boolean] Netrc status
     def netrc_credentials netrc=false
       return unless netrc
+
+      require 'netrc'
       file = Netrc.read netrc_file
 
       # Get credentials using host
       netrc_host = URI.parse(api_endpoint).host
       creds = file[netrc_host]
+      raise 'You are missing your .netrc file or the host provided has no credentials!'.red.underline if creds.nil?
       self.username = creds.shift
       self.password = creds.shift
+    rescue LoadError
+      raise "Please install netrc gem for .netrc support".red.underline
     end
 
   end

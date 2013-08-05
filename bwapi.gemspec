@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'faraday', '~> 0.8.7'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0'
   s.add_runtime_dependency 'netrc', '~> 0.7.7'
+  s.add_runtime_dependency 'colored', '~> 1.2'
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
