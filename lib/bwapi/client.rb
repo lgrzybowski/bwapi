@@ -6,6 +6,7 @@ require 'bwapi/client/admin'
 require 'bwapi/client/brandwatch'
 require 'bwapi/client/client'
 require 'bwapi/client/error_codes'
+require 'bwapi/client/filters'
 require 'bwapi/client/logout'
 require 'bwapi/client/me'
 require 'bwapi/client/oauth'
@@ -41,6 +42,7 @@ module BWAPI
     include BWAPI::Client::Brandwatch
     include BWAPI::Client::Client
     include BWAPI::Client::ErrorCodes
+    include BWAPI::Client::Filters
     include BWAPI::Client::Logout
     include BWAPI::Client::Me
     include BWAPI::Client::OAuth
