@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + "/lib/bwapi/version"
 Gem::Specification.new do |s|
   s.name        = 'bwapi'
   s.version     = BWAPI::VERSION
-  s.date        = '2013-07-24'
+  s.date        = '2013-09-11'
   s.summary     = 'Brandwatch v2 API Wrapper'
   s.description = 'A Ruby wrapper for the Brandwatch v2 API'
   s.author      = 'Jonathan Chrisp'
@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0'
   s.add_runtime_dependency 'netrc', '~> 0.7.7'
   s.add_runtime_dependency 'colored', '~> 1.2'
+  s.add_runtime_dependency 'hashie', '~> 2.0.5'
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
