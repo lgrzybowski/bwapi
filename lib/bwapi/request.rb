@@ -50,6 +50,22 @@ module BWAPI
 
     private
 
+    # Sets connection options
+    #
+    # @param opts [Hash] hash of opts passed
+    # @return [Hash] connection options
+    def connection_options opts
+      {
+        :headers => {
+          :authorization => access_token ? "bearer #{access_token}" : "",
+          :user_agent => user_agent
+        },
+        :force_urlencoded => opts.delete(:force_urlencoded) || false,
+        :url => api_endpoint,
+        :ssl => {:verify => verify_ssl}
+      }
+    end
+
     # Perform a request
     #
     # @param method [String] Type of request path
@@ -57,28 +73,15 @@ module BWAPI
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
     def request method, path, opts={}
-      conn_opts = {
-        :headers => {
-          :user_agent => user_agent
-        },
-        :force_urlencoded => opts.delete(:force_urlencoded) || false,
-        :url => api_endpoint,
-        :ssl => {:verify => verify_ssl}
-      }
-
-      response = connection(conn_opts).send(method) do |request|
-        # Add token to the header
-        if access_token
-          request.headers[:authorization] = "bearer #{access_token}"
-        end
-
+      conn_options = connection_options opts
+      response = connection(conn_options).send(method) do |request|
         case method
         when :get
           request.url path, opts
         when :delete
           request.url path, opts
         when :patch, :post, :put
-          if conn_opts[:force_urlencoded]
+          if conn_options[:force_urlencoded]
             request.url path, opts
           else
             request.path = path
