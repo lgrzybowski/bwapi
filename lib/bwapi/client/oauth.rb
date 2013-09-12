@@ -21,20 +21,7 @@ module BWAPI
           force_urlencoded: true
         }.merge opts
 
-        begin
-          creds  = post 'oauth/token', opts
-        rescue BWAPI::BWError
-          return false
-        else
-          self.access_token = creds.access_token
-          self.expires_in = creds.expires_in
-
-          if application_client?
-            self.refresh_token = creds.refresh_token
-          end
-
-          return true
-        end
+        oauth_request opts
       end
       alias :login :oauth_token
 
@@ -46,7 +33,7 @@ module BWAPI
       # @option opts [String] grant_type Grant type of user
       # @option opts [String] client_id Client id
       # @option opts [String] force_urlencoded Force urlencoded
-      def oauth_refresh_token opts={}
+      def oauth_refresh_token opts={}, refresh_token = nil
         opts = {
           username: username,
           password: password,
@@ -56,22 +43,29 @@ module BWAPI
           force_urlencoded: true
         }.merge opts
 
+        oauth_request opts
+      end
+      alias :refresh :oauth_refresh_token
+
+      # Sends a oauth request
+      #
+      # @param opts [Hash] options hash of parameters
+      def oauth_request opts
         begin
           creds = post 'oauth/token', opts
         rescue BWAPI::BWError
-          return false
+          false
         else
           self.access_token = creds.access_token
           self.expires_in = creds.expires_in
 
           if application_client?
-            self.access_token = creds.access_token
+            self.refresh_token = creds.refresh_token
           end
 
-          return true
+          true
         end
       end
-      alias :refresh :oauth_refresh_token
 
     end
   end
