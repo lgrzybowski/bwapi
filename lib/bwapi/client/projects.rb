@@ -18,7 +18,7 @@ module BWAPI
       # Get all projects
       #
       # @param opts [Hash] options hash of parameters
-      # @option opts [Integer] page Page of projects to retrieve
+      # @option opts [Integer] pagePage of projects to retrieve
       # @option opts [Integer] pageSize Results per page of results
       # @return [Hashie::Mash] All projects
       def projects opts={}
