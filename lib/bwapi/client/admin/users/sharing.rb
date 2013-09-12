@@ -3,6 +3,7 @@ module BWAPI
     module Admin
       module Clients
         module Users
+          # Sharing module for admin/users/sharing endpoints
           module Sharing
 
             # Get a list of project shares for user

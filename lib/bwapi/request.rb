@@ -1,6 +1,7 @@
 require 'multi_json'
 
 module BWAPI
+  # Request module to handle all requests to API
   module Request
 
     # Perform a get request

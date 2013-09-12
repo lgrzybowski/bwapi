@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # DataDownload module for projects/datadownload endpoints
       module DataDownload
 
         # Get all data downloads in project

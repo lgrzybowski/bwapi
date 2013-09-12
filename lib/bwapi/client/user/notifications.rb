@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module User
+      # Notifications module for projects/notifications endpoints
       module Notifications
 
         # Get the current user notifications

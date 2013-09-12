@@ -3,6 +3,7 @@ require 'bwapi/configuration'
 require 'bwapi/error'
 require 'bwapi/client'
 
+# BWAPI namespace module
 module BWAPI
   extend Configuration
   class << self

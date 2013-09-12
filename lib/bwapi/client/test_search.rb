@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # TestSearch module for testSearch endpoint
     module TestSearch
 
       # TODO: Uncomment once the endpoint has been fixed

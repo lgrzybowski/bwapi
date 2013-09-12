@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Projects
       module Queries
+        # DateRange module for projects/queries/dateRange endpoints
         module DateRange
 
           # Get all date ranges for query

@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Projects
       module Queries
+        # Backfill module for projects/queries/backfill endpoints
         module Backfill
 
           # Get all backfills for query

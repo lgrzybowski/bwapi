@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # QueryGroups module for projects/queryGroups endpoints
       module QueryGroups
 
         # Get all query groups in project

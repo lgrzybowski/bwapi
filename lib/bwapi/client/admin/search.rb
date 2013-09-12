@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Admin
       module Clients
+        # Search module for admin/search endpoints
         module Search
 
           # Get a list of queries

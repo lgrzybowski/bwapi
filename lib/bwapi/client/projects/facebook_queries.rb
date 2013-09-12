@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # FacebookQueries module for projects/facebookqueries endpoints
       module FacebookQueries
 
         # Get all facebook queries in project

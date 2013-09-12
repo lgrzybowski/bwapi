@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Admin
       module Clients
+        # Subclients module for admin/subclient endpoints
         module SubClients
 
           # Get all sub clients

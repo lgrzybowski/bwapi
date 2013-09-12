@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # Logout module for logout endpoint
     module Logout
 
       # Logout user

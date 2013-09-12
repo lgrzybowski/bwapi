@@ -1,6 +1,7 @@
 require 'faraday'
 
 module BWAPI
+  # Configuration module to set default and custom client credentials
   module Configuration
 
     OPTION_KEYS = [

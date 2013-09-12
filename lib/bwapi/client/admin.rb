@@ -5,6 +5,7 @@ require 'bwapi/client/admin/users'
 
 module BWAPI
   class Client
+    # Admin module for admin endpoints
     module Admin
 
       # Get the active queries irrespective of project

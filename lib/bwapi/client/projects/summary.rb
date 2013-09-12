@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Summary module for projects/summary endpoints
       module Summary
 
         # Summary of projects

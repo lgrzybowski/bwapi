@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # SSO module for sso endpoint
     module SSO
 
       # Authorize another user for access

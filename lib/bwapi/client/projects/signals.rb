@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Signals module for projects/signals endpoints
       module Signals
 
         # Get all signals belonging to user in project

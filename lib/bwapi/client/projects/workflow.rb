@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Workflow module for projects/workflow endpoint
       module Workflow
 
         # Get all workflow categories for project

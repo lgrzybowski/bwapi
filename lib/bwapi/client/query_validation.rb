@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # QueryValidation module for queryValidation endpoints
     module QueryValidation
 
       # Check to see if a query string is valid

@@ -13,6 +13,7 @@ require 'bwapi/client/projects/workflow'
 
 module BWAPI
   class Client
+    # Projects module for projects endpoints
     module Projects
 
       # Get all projects

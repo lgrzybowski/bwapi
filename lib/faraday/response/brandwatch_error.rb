@@ -2,6 +2,7 @@ require 'faraday'
 require 'multi_json'
 
 module Faraday
+  # Response::BrandwatchError class to raise custom faraday middleware errors
   class Response::BrandwatchError < Response::Middleware
     ERROR_MAP = {
       400 => BWAPI::BadRequest,

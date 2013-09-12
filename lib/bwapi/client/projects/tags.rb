@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Tags module for projects/tags endpoints
       module Tags
 
         # Get all tags in project

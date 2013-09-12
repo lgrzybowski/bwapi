@@ -4,6 +4,7 @@ module BWAPI
   class Client
     module Admin
       module Clients
+        # Users module for admin/users endpoints
         module Users
 
           # Get all users for client

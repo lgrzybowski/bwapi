@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # Client module for client endpoints
     module Client
 
       # Get the current users client

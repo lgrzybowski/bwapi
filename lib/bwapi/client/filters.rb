@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # Filters module for filters endpoint
     module Filters
 
       # Get the currently supported filters

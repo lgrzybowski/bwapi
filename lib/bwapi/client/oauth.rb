@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # OAuth module for oauth/token endpoint
     module OAuth
 
       # Authenticate a user

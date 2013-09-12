@@ -3,6 +3,7 @@ require 'faraday/response/brandwatch_error'
 require 'faraday/utils/utils'
 
 module BWAPI
+  # Connection module to handle requests
   module Connection
     private
 

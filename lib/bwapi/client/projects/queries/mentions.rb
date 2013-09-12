@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Projects
       module Queries
+        # Mentions module for projects/queries/mentions endpoints
         module Mentions
 
           # Get the full text of query mention

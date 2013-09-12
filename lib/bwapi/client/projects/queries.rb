@@ -5,6 +5,7 @@ require 'bwapi/client/projects/queries/mentions'
 module BWAPI
   class Client
     module Projects
+      # Queries module for projects/queries endpoints
       module Queries
 
         # Get all queries in project

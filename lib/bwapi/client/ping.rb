@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # Ping module for ping endpoints
     module Ping
 
       # Get ping checking access and available HTTP verbs

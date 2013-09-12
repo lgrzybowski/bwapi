@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Users module for projects/users endpoint
       module Users
 
         # Get all users shared with project

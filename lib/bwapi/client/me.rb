@@ -1,5 +1,6 @@
 module BWAPI
   class Client
+    # Me module for me endpoint and helper methods
     module Me
 
       # Get user information

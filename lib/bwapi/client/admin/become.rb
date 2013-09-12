@@ -2,6 +2,7 @@ module BWAPI
   class Client
     module Admin
       module Clients
+        # Become module for admin/become endpoint
         module Become
 
           # Become user

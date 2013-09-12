@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Brandwatch
+      # Become module for brandwatch/become endpoint
       module Become
 
         # Become user

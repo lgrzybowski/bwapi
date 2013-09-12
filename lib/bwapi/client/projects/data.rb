@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Data module for projects/data endpoints
       module Data
 
         # Get all chart data for the requested dimensions

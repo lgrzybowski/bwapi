@@ -3,6 +3,7 @@ require 'bwapi/client/brandwatch/client_modules'
 
 module BWAPI
   class Client
+    # Brandwatch module for brandwatch endpoints
     module Brandwatch
 
       # Create a new data download in project

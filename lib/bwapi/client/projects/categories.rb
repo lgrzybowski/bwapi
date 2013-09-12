@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Categories module for projects/categories endpoints
       module Categories
 
         # Get all categories in project

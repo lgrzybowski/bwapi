@@ -18,6 +18,7 @@ require 'bwapi/client/test_search'
 require 'bwapi/client/user'
 
 module BWAPI
+  # Client class to create BWAPI instances
   class Client
 
     attr_accessor *Configuration::OPTION_KEYS

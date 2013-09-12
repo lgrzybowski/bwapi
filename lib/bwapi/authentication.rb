@@ -1,6 +1,7 @@
 require 'colored'
 
 module BWAPI
+  # Authentication module helper methods
   module Authentication
 
     # Check if user is authenicated

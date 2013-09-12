@@ -2,6 +2,7 @@ require 'bwapi/client/user/notifications'
 
 module BWAPI
   class Client
+    # User module for user endpoints and helper methods
     module User
 
       # Get the current user

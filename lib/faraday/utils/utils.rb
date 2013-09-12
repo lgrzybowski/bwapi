@@ -3,6 +3,7 @@ require 'faraday'
 # TODO: Remove this patch once latest faraday rc has been released
 # https://github.com/lostisland/faraday/issues/182#issuecomment-19518167
 module Faraday
+  # Overriding Faraday::Utils module build_nested_query method
   module Utils
     def build_nested_query(value, prefix = nil)
       case value

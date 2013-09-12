@@ -1,6 +1,7 @@
 module BWAPI
   class Client
     module Projects
+      # Sharing module for projects/sharing endpoints
       module Sharing
 
         # Default shares of a project
