@@ -7,7 +7,7 @@ module BWAPI
       #
       # @param opts [Hash] options hash of parameters
       # @option opts [String] username User name of user
-      # @option opts [String] password User name of user
+      # @option opts [String] password Password of the user
       # @option opts [String] grant_type Grant type of user
       # @option opts [String] client_secret Client secret
       # @option opts [String] client_id Client id
@@ -16,7 +16,7 @@ module BWAPI
         opts = {
           username: username,
           password: password,
-          grant_type: 'password',
+          grant_type: grant_type ? grant_type : 'password',
           client_secret: client_secret,
           client_id: client_id,
           force_urlencoded: true
@@ -30,14 +30,16 @@ module BWAPI
       #
       # @param opts [Hash] options hash of parameters
       # @option opts [String] username User name of user
-      # @option opts [String] password User name of user
+      # @option opts [String] password Password of the user
       # @option opts [String] grant_type Grant type of user
+      # @option opts [String] refresh_token Users refresh token
       # @option opts [String] client_id Client id
       # @option opts [String] force_urlencoded Force urlencoded
-      def oauth_refresh_token opts={}, refresh_token = nil
+      def oauth_refresh_token opts={}
         opts = {
           username: username,
           password: password,
+
           refresh_token: refresh_token,
           grant_type: 'refresh_token',
           client_id: client_id,
