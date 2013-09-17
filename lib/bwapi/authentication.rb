@@ -15,14 +15,22 @@ module BWAPI
     #
     # @return [Boolean] Application client status
     def application_client?
-      client_id == 'brandwatch-application-client' ? true : false
+      if client_id == 'brandwatch-application-client'
+        true
+      else
+        false
+      end
     end
 
     # Check if user is a brandwatch-api-client type
     #
     # @return [Boolean] Application client status
     def api_client?
-      client_id == 'brandwatch-api-client' ? true : false
+      if client_id == 'brandwatch-api-client'
+        true
+      else
+        false
+      end
     end
 
     # Set username and password via netrc
