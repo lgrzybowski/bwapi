@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + "/lib/bwapi/version"
 Gem::Specification.new do |s|
   s.name        = 'bwapi'
   s.version     = BWAPI::VERSION
-  s.date        = '2013-09-11'
+  s.date        = '2013-09-17'
   s.summary     = 'Brandwatch v2 API Wrapper'
   s.description = 'A Ruby wrapper for the Brandwatch v2 API'
   s.author      = 'Jonathan Chrisp'
