@@ -3,7 +3,8 @@ require File.dirname(__FILE__) + "/lib/bwapi/version"
 Gem::Specification.new do |s|
   s.name        = 'bwapi'
   s.version     = BWAPI::VERSION
-  s.date        = '2013-09-17'
+  s.version     = BWAPI::VERSION + ".pre.#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
+  s.date        = '2013-09-20'
   s.summary     = 'Brandwatch v2 API Wrapper'
   s.description = 'A Ruby wrapper for the Brandwatch v2 API'
   s.author      = 'Jonathan Chrisp'
@@ -13,7 +14,6 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 1.9.2"
 
   s.add_development_dependency 'rspec', '~> 2.13.0'
-  s.add_development_dependency 'pry', '~> 0.9.12.2'
 
   s.add_runtime_dependency 'faraday', '~> 0.8.7'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0'
