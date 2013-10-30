@@ -23,7 +23,7 @@ module BWAPI
       # @option opts [Integer] pageSize Results per page of results
       # @return [Hashie::Mash] All projects
       def projects opts={}
-        projects = get "projects", opts
+        get "projects", opts
       end
 
       # Get a specific project
