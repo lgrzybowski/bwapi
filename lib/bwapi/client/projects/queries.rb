@@ -11,9 +11,15 @@ module BWAPI
         # Get all queries in project
         #
         # @param id [Integer] Id of project
+        # @param opts [Hash] options hash of parameters
+        # @option opts [Integer] projectId the id of the project
+        # @option opts [String] nameContains partial name to filter by
+        # @option opts [Array] type types of query to filter by
+        # @option opts [Integer] pagePage of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All queries in project
-        def queries id
-          get "projects/#{id}/queries"
+        def queries id, opts={}
+          get "projects/#{id}/queries", opts
         end
 
         # Get summary of all queries in project
