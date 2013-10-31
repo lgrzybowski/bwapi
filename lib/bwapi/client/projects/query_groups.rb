@@ -10,8 +10,8 @@ module BWAPI
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All query groups in project
-        def query_groups id, opts={}
-          get "projects/#{id}/querygroups", opts
+        def query_groups project_id, opts={}
+          get "projects/#{project_id}/querygroups", opts
         end
 
         # Get a specific query group in project
@@ -35,8 +35,8 @@ module BWAPI
         # @option opts [Array] queries Queries within the query group
         # @option opts [Hash] sharedProjectIds Projects which this query group belongs to
         # @return [Hashie::Mash] New query group
-        def create_query_group id
-          post "projects/#{project_id}/querygroups"
+        def create_query_group project_id, opts={}
+          post "projects/#{project_id}/querygroups", opts
         end
 
         # Update an existing query group in project
