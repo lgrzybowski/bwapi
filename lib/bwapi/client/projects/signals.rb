@@ -6,7 +6,7 @@ module BWAPI
 
         # Get all signals belonging to user in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] id Id of the query
         # @option opts [Integer] page Page of projects to retrieve
@@ -16,13 +16,13 @@ module BWAPI
         # @option opts [Integer] projectId Project id of the signal
         # @option opts [Hash] filter The filter(s) to apply
         # @return [Hashie::Mash] All signals for user in project
-        def signals id, opts
-          get "projects/#{id}/signals", opts
+        def signals project_id, opts
+          get "projects/#{project_id}/signals", opts
         end
 
         # Set the vote type and comment of a signal for a given user
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] userId Id of the user
         # @option opts [Integer] voteType Type of vote
@@ -30,7 +30,7 @@ module BWAPI
         # @option opts [Integer] signalId Id of signal
         # @option opts [Integer] projectId Project id of the signal
         # @return [Hashie::Mash] Update signal for given user
-        def set_signal_vote id, opts
+        def set_signal_vote project_id, opts
           post "projects/#{project_id}/signals/vote", opts
         end
 

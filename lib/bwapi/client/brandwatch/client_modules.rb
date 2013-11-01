@@ -6,10 +6,10 @@ module BWAPI
 
         # Get a specific clients modules
         #
-        # @param id [Integer] Id of the client
+        # @param client_id [Integer] Id of the client
         # @return [Hashie::Mash] Specific clients modules
-        def brandwatch_client_modules id
-          get "brandwatch/clientModules/#{id}"
+        def brandwatch_client_modules client_id
+          get "brandwatch/clientModules/#{client_id}"
         end
 
         # Update brandwatch client modules

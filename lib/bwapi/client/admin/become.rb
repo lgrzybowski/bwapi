@@ -9,10 +9,10 @@ module BWAPI
           #
           # @note must be a client admin user
           #
-          # @param id [Integer] The user id
+          # @param user_id [Integer] The user id
           # @return [Hashie::Mash] User credentials
-          def admin_become id
-            get "admin/become/#{id}"
+          def admin_become user_id
+            get "admin/become/#{user_id}"
           end
 
         end

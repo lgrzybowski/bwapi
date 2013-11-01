@@ -6,13 +6,13 @@ module BWAPI
 
         # Get all categories in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All categories in project
-        def categories id, opts={}
-          get "projects/#{id}/categories", opts
+        def categories project_id, opts={}
+          get "projects/#{project_id}/categories", opts
         end
 
         # TODO: Uncomment this code when endpoint is created
@@ -29,15 +29,15 @@ module BWAPI
 
         # Create a new category in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] id Id of the category
         # @option opts [String] name Name of the category
         # @option opts [Array] children The children of the category
         # @option opts [Boolean] multiple Whether multiple sub categories can be selected
         # @return [Hashie::Mash] New category
-        def create_category id, opts={}
-          post "projects/#{id}/categories", opts
+        def create_category project_id, opts={}
+          post "projects/#{project_id}/categories", opts
         end
 
         # Update an existing category in project

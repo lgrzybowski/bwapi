@@ -10,8 +10,8 @@ module BWAPI
       #
       # @param user_id [Integer] The user id
       # @return [Hashie::Mash] User authorization
-      def sso id
-        get "sso/#{id}"
+      def sso user_id
+        get "sso/#{user_id}"
       end
 
     end

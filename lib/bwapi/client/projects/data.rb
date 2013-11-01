@@ -6,7 +6,7 @@ module BWAPI
 
         # Get all chart data for the requested dimensions
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param aggregate [String] Aggregate value
         # @param dimension_one [String] Dimension 1 value
         # @param dimension_two [String] Dimension 2 value
@@ -14,25 +14,25 @@ module BWAPI
         # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] All Chart data mentions
-        def data id, aggregate, dimension_one, dimension_two, opts={}
-          get "projects/#{id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
+        def data project_id, aggregate, dimension_one, dimension_two, opts={}
+          get "projects/#{project_id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
         end
 
         # Get all chart data for date ranges broken down by days
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
         # @option opts [Array] dateRanges Date range ids
         # @return [Hashie::Mash] All Chart data mentions
-        def data_date_ranges_days id, opts
-          get "projects/#{id}/data/volume/dataRanges/days", opts
+        def data_date_ranges_days project_id, opts
+          get "projects/#{project_id}/data/volume/dataRanges/days", opts
         end
 
         # Get mentions that fall within the submitted filters
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
@@ -42,19 +42,19 @@ module BWAPI
         # @option opts [String] :orderDirection Direction of sort
         # @option opts [Integer] :orderByCategory Category to sort by when orderBy category
         # @return [Hashie::Mash] All Mentions
-        def data_mentions id, opts={}
-          get "projects/#{id}/data/mentions", opts
+        def data_mentions project_id, opts={}
+          get "projects/#{project_id}/data/mentions", opts
         end
 
         # Update mentions for project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] List The patches to be applied
         # @return [Hashie::Mash] Updated mentions
-        def update_data_mentions id, opts={}
-          patch "projects/#{id}/data/mentions", opts
+        def update_data_mentions project_id, opts={}
+          patch "projects/#{project_id}/data/mentions", opts
         end
 
       end
