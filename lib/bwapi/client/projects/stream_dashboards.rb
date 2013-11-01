@@ -17,10 +17,31 @@ module BWAPI
           get "projects/#{project_id}/streamDashboards", opts
         end
 
+        # Get a stream dashboards summary
+        #
+        # @param project_id [Integer] Id of project
+        # @param opts [Hash] options hash of parameters
+        # @option opts [Integer] page Page of projects to retrieve
+        # @option opts [Integer] pageSize Results per page of results
+        # @return [Hashie::Mash] All stream dashboards summary for project
+        def get_stream_dashboards_summary project_id
+          get "projects/#{project_id}/streamDashboards/summary"
+        end
+
+        # Get a stream dashboard complete with streams
+        #
+        # @param project_id [Integer] Id of project
+        # @param stream_dashboard_id [Integer] Id of stream dashboard
+        # @return [Hashie::Mash] Stream dashboard complete with streams
+        def get_stream_dashboard_complete project_id, stream_dashboard_id
+          get "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/complete"
+        end
+
         # Get a stream dashboard
         #
         # @param project_id [Integer] Id of project
         # @param stream_dashboard_id [Integer] Id of stream dashboard
+        # @return [Hashie::Mash] Stream dashboard
         def get_stream_dashboard project_id, stream_dashboard_id
           get "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}"
         end
