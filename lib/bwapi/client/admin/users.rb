@@ -26,8 +26,6 @@ module BWAPI
           def get_client_user client_id, user_id
             get "admin/clients/#{client_id}/users/#{user_id}"
           end
-          alias :get_user :get_client_user
-
 
           # Create a new client user
           #
@@ -55,7 +53,6 @@ module BWAPI
           def create_client_user client_id, opts
             post "admin/clients/#{client_id}/users", opts
           end
-          alias :create_user :create_client_user
 
           # Update an existing client user
           #
@@ -84,8 +81,6 @@ module BWAPI
           def update_client_user client_id, user_id, opts
             put "admin/clients/#{client_id}/users/#{user_id}", opts
           end
-          alias :update_user :update_client_user
-
 
           include BWAPI::Client::Admin::Clients::Users::Sharing
 
