@@ -5,6 +5,7 @@ require 'bwapi/client/projects/facebook_queries'
 require 'bwapi/client/projects/signals'
 require 'bwapi/client/projects/summary'
 require 'bwapi/client/projects/sharing'
+require 'bwapi/client/projects/stream_dashboards'
 require 'bwapi/client/projects/queries'
 require 'bwapi/client/projects/query_groups'
 require 'bwapi/client/projects/tags'
@@ -82,6 +83,7 @@ module BWAPI
       include BWAPI::Client::Projects::Signals
       include BWAPI::Client::Projects::Summary
       include BWAPI::Client::Projects::Sharing
+      include BWAPI::Client::Projects::StreamDashboards
       include BWAPI::Client::Projects::Queries
       include BWAPI::Client::Projects::QueryGroups
       include BWAPI::Client::Projects::Tags
