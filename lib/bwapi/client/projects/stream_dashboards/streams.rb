@@ -72,3 +72,4 @@ module BWAPI
       end
     end
   end
+end
