@@ -6,7 +6,7 @@ module BWAPI
 
         # Get all query groups in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All query groups in project
@@ -26,7 +26,7 @@ module BWAPI
 
         # Create a new query group in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] id Id of the query group
         # @option opts [String] name Name of the query group
