@@ -7,14 +7,14 @@ module BWAPI
 
           # Get all sub clients
           #
-          # @param id [Integer] Id of the client
+          # @param client_id [Integer] Id of the client
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id Id of the client
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All sub clients for client
-          def client_sub_clients id
-            get "admin/clients/#{id}/subclients"
+          def client_sub_clients client_id
+            get "admin/clients/#{client_id}/subclients"
           end
           alias :sub_clients :client_sub_clients
 
@@ -30,7 +30,7 @@ module BWAPI
 
           # Create new subclient
           #
-          # @param id [Integer] Id of the client
+          # @param client_id [Integer] Id of the client
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] clientId Current client id
           # @option opts [Date] startDate Start date of the client
@@ -60,8 +60,8 @@ module BWAPI
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
           # @return [Hashie::Mash] New sub client
-          def create_client_sub_client id, opts
-            post "admin/clients/#{id}/subclients", opts
+          def create_client_sub_client client_id, opts
+            post "admin/clients/#{client_id}/subclients", opts
           end
           alias :create_sub_client :create_client_sub_client
 

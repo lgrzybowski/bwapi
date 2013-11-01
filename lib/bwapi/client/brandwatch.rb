@@ -8,7 +8,7 @@ module BWAPI
 
       # Create a new data download in project
       #
-      # @param id [Integer] Id of project
+      # @param project_id [Integer] Id of project
       # @param opts [Hash] options hash of parameters
       # @option opts [Integer] projectId Id of the project
       # @option opts [Integer] id Id of the data download
@@ -22,7 +22,7 @@ module BWAPI
       # @option opts [String] downloadLinkCSV The link to download the CSV format
       # @option opts [Array] additionalColumns The additional columns for the data download
       # @return [Hashie::Mash] New data download
-      def brandwatch_data_download id, opts
+      def brandwatch_data_download project_id, opts
         post "brandwatch/#{project_id}/datadownload", opts
       end
 

@@ -6,10 +6,10 @@ module BWAPI
 
         # Get all workflow categories for project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @return [Hashie::Mash] Workflow categories for project
         def workflow id
-          get "projects/#{id}/workflow"
+          get "projects/#{project_id}/workflow"
         end
 
       end

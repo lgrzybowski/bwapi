@@ -6,10 +6,10 @@ module BWAPI
 
         # Get all facebook queries in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @return [Hashie::Mash] All facebook queries in project
-        def facebook_queries id
-          get "projects/#{id}/facebookqueries"
+        def facebook_queries project_id
+          get "projects/#{project_id}/facebookqueries"
         end
 
         # Get a specific facebook query in project

@@ -9,13 +9,13 @@ module BWAPI
 
           # Get all users for client
           #
-          # @param id [Integer] Id of the client
+          # @param client_id [Integer] Id of the client
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All client users
-          def client_users id, opts={}
-            get "admin/clients/#{id}/users", opts
+          def client_users client_id, opts={}
+            get "admin/clients/#{client_id}/users", opts
           end
 
           # Get a specific user in client
@@ -31,7 +31,7 @@ module BWAPI
 
           # Create a new client user
           #
-          # @param id [Integer] Id of the client
+          # @param client_id [Integer] Id of the client
           # @param opts [Hash] options Hash of parameters
           # @option opts [Integer] id Id of the user
           # @option opts [Hash] tags The users assigned tags
@@ -52,8 +52,8 @@ module BWAPI
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
           # @return [Hashie::Mash] New user
-          def create_client_user id, opts
-            post "admin/clients/#{id}/users", opts
+          def create_client_user client_id, opts
+            post "admin/clients/#{client_id}/users", opts
           end
           alias :create_user :create_client_user
 

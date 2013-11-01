@@ -28,10 +28,10 @@ module BWAPI
 
       # Get a specific project
       #
-      # @param id [Integer] Id of the existing project
+      # @param project_id [Integer] Id of the existing project
       # @return [Hashie::Mash] Specific project
-      def project id
-        get "projects/#{id}"
+      def get_project project_id
+        get "projects/#{project_id}"
       end
 
       # Create new project
@@ -53,7 +53,7 @@ module BWAPI
 
       # Update an existing project
       #
-      # @param id [Integer] id Id of the existing project
+      # @param project_id [Integer] id Id of the existing project
       # @param opts [Hash] options Hash of parameters
       # @option opts [String] id Id of the project
       # @option opts [String] name Name of the project
@@ -65,16 +65,16 @@ module BWAPI
       # @option opts [Date] creationDate Date the project was created on
       # @option opts [Integer] creationUserId User ID of the user who created the project
       # @return [Hashie::Mash] Updated project
-      def update_project id, opts
-        put "projects/#{id}", opts
+      def update_project project_id, opts
+        put "projects/#{project_id}", opts
       end
 
       # Delete an existing project
       #
-      # @param id [Integer] id Id of the existing project
+      # @param project_id [Integer] id Id of the existing project
       # @return [Hashie::Mash] Deleted project
-      def delete_project id
-        delete "projects/#{id}"
+      def delete_project project_id
+        delete "projects/#{project_id}"
       end
 
       include BWAPI::Client::Projects::Categories

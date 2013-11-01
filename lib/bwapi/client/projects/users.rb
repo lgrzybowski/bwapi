@@ -6,10 +6,10 @@ module BWAPI
 
         # Get all users shared with project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @return [Hashie::Mash] All users shared to project
         def project_users id
-          get "projects/#{id}/users"
+          get "projects/#{project_id}/users"
         end
 
       end

@@ -10,7 +10,7 @@ module BWAPI
 
         # Get all queries in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] projectId the id of the project
         # @option opts [String] nameContains partial name to filter by
@@ -18,16 +18,16 @@ module BWAPI
         # @option opts [Integer] pagePage of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All queries in project
-        def queries id, opts={}
-          get "projects/#{id}/queries", opts
+        def queries project_id, opts={}
+          get "projects/#{project_id}/queries", opts
         end
 
         # Get summary of all queries in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @return [Hashie::Mash] Summary of all queries in project
-        def queries_summary id
-          get "projects/#{id}/queries/summary"
+        def queries_summary project_id
+          get "projects/#{project_id}/queries/summary"
         end
 
         # Get a specific query in project
@@ -42,7 +42,7 @@ module BWAPI
 
         # Create a new query in project
         #
-        # @param id [Integer] Id of project
+        # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [String] id Id of the query
         # @option opts [String] name Name of the project
@@ -59,8 +59,8 @@ module BWAPI
         # @option opts [Date] creationDate Date the query was created on
         # @option opts [Date] lastModificationDate Modification date of the query
         # @return [Hashie::Mash] New query
-        def create_query id, opts={}
-          post "projects/#{id}/queries", opts
+        def create_query project_id, opts={}
+          post "projects/#{project_id}/queries", opts
         end
 
         # Update an existing query in project
