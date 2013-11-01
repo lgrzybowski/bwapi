@@ -16,7 +16,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @options opt [Integer] id Id of the project
         # @options opt [Boolean] sharedOnly Boolean flag to return only shared shares (default: false)
         # @return [Hashie::Mash] Specific project shares
         def project_sharing project_id, opts={}
@@ -27,7 +26,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @options opt [Integer] id Id of the project
         # @options opt [Array] ProjectShareDTO Shares to be edited
         # @return [Hashie::Mash] Updated project shares
         def update_project_sharing project_id, opts={}

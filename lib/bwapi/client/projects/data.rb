@@ -22,7 +22,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
         # @option opts [Array] dateRanges Date range ids
         # @return [Hashie::Mash] All Chart data mentions
@@ -34,7 +33,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
@@ -50,7 +48,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] List The patches to be applied
         # @return [Hashie::Mash] Updated mentions
         def update_data_mentions project_id, opts={}

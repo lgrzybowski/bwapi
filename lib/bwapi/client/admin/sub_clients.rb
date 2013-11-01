@@ -9,7 +9,6 @@ module BWAPI
           #
           # @param client_id [Integer] Id of the client
           # @param opts [Hash] options hash of parameters
-          # @option opts [Integer] id Id of the client
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All sub clients for client
@@ -32,7 +31,6 @@ module BWAPI
           #
           # @param client_id [Integer] Id of the client
           # @param opts [Hash] options hash of parameters
-          # @option opts [Integer] clientId Current client id
           # @option opts [Date] startDate Start date of the client
           # @option opts [String] contactTitle Contact title of the client
           # @option opts [String] address1 Address line one of the client
@@ -70,7 +68,6 @@ module BWAPI
           # @param client_id [Integer] Id of the client
           # @param sub_client_id [Integer] Id of the sub client
           # @param opts [Hash] options hash of parameters
-          # @option opts [Integer] clientId Current client id
           # @option opts [Date] startDate Start date of the client
           # @option opts [String] contactTitle Contact title of the client
           # @option opts [String] address1 Address line one of the client
