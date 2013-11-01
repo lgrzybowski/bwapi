@@ -44,7 +44,6 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param query_group_id [Integer] Id of query group
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Integer] queryGroupId of the query group
         # @option opts [String] name Name of the query group
         # @option opts [String] shared Shared mode of query group

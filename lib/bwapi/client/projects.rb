@@ -19,7 +19,7 @@ module BWAPI
       # Get all projects
       #
       # @param opts [Hash] options hash of parameters
-      # @option opts [Integer] pagePage of projects to retrieve
+      # @option opts [Integer] page Page of results to retrieve
       # @option opts [Integer] pageSize Results per page of results
       # @return [Hashie::Mash] All projects
       def projects opts={}
@@ -37,7 +37,6 @@ module BWAPI
       # Create new project
       #
       # @param opts [Hash] options hash of parameters
-      # @option opts [String] id Id of the project
       # @option opts [String] name Name of the project
       # @option opts [String] description Description of the project
       # @option opts [String] clientName Client name of the project
@@ -55,7 +54,6 @@ module BWAPI
       #
       # @param project_id [Integer] id Id of the existing project
       # @param opts [Hash] options Hash of parameters
-      # @option opts [String] id Id of the project
       # @option opts [String] name Name of the project
       # @option opts [String] description Description of the project
       # @option opts [String] clientName Client name of the project

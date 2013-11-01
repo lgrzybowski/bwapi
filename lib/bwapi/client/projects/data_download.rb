@@ -28,7 +28,6 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Integer] id Id of the data download
         # @option opts [Integer] queryId Id of the query
         # @option opts [Int] percentComplete The percentage complete of data download

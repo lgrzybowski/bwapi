@@ -45,7 +45,6 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param category_id [Integer] Id of category
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Integer] id Id of the category
         # @option opts [String] name Name of the category
         # @option opts [Array] children The children of the category
