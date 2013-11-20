@@ -30,7 +30,6 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @param stream_dashboard_id [Integer] Id of stream dashboard
-          # @param stream_id [Integer] Id of the stream
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id Id of the stream
           # @option opts [String] name Name of the stream
@@ -38,8 +37,8 @@ module BWAPI
           # @option opts [String] filter Filter of the stream
           # @option opts [String] lastModified Last modification date of stream
           # @return [Hashie::Mash] Specific stream
-          def create_stream project_id, stream_dashboard_id, stream_id
-            post "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}"
+          def create_stream project_id, stream_dashboard_id
+            post "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams"
           end
 
           # Update a stream in a stream dashboard
