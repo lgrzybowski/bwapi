@@ -14,7 +14,7 @@ module BWAPI
           # @option opts [Integer] pageSize Results per page
           # @return [Hashie::Mash] All backfills for query
           def backfills project_id, query_id, opts={}
-            get "projects/#{project_id}/queries/#{query_id}/backfill"
+            get "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
 
           # Get specific backfill for query
