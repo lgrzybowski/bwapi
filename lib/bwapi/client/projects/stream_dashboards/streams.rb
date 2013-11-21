@@ -37,8 +37,8 @@ module BWAPI
           # @option opts [String] filter Filter of the stream
           # @option opts [String] lastModified Last modification date of stream
           # @return [Hashie::Mash] Specific stream
-          def create_stream project_id, stream_dashboard_id
-            post "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams"
+          def create_stream project_id, stream_dashboard_id, opts={}
+            post "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams", opts
           end
 
           # Update a stream in a stream dashboard
@@ -53,8 +53,8 @@ module BWAPI
           # @option opts [String] filter Filter of the stream
           # @option opts [String] lastModified Last modification date of stream
           # @return [Hashie::Mash] Updated stream
-          def update_stream project_id, stream_dashboard_id, stream_id
-            put "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}"
+          def update_stream project_id, stream_dashboard_id, stream_id, opts={}
+            put "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}", opts
           end
 
           # Delete a stream in a stream dashboard
