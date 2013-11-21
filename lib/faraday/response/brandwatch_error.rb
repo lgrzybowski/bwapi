@@ -22,5 +22,6 @@ module Faraday
       key = response[:status].to_i
       raise ERROR_MAP[key].new(response) if ERROR_MAP.has_key? key
     end
+
   end
 end

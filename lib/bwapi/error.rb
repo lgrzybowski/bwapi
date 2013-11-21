@@ -2,8 +2,16 @@ module BWAPI
 
   # BW error class to capture BWAPI error responses
   class BWError < StandardError
-    def initialize(response=nil)
-      super()
+    def initialize response=nil
+      if response.is_a? Hash
+        errors = []
+        response[:body]["errors"].each do |error|
+          errors.push error['message']
+        end
+        response = errors.join(', ')
+      end
+
+      super(response)
     end
   end
 
@@ -11,7 +19,11 @@ module BWAPI
   class BadRequest < BWError; end
 
   # Raised when Brandwatch returns a 401 HTTP status code
-  class Unauthorized < BWError; end
+  class Unauthorized < BWError
+    def initialize response=nil
+      response.nil? ? super() : super("#{response[:body]['error_description'] }")
+    end
+  end
 
   # Raised when Brandwatch returns a 403 HTTP status code
   class Forbidden < BWError; end
