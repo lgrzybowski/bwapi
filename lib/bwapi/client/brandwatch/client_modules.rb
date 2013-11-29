@@ -17,7 +17,7 @@ module BWAPI
         # @param opts [Hash] options Hash of parameters
         # @option opts [Array] ClientModules Client Modules to edit
         # @return [Hashie::Mash] Update client modules
-        def update_brandwatch_client_module opts
+        def update_brandwatch_client_module opts={}
           put "brandwatch/clientModules", opts
         end
 

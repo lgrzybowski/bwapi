@@ -19,7 +19,7 @@ module BWAPI
         # @param opts [Hash] options Hash of parameters
         # @option opts [Array] list User notifications to be edited
         # @return [Hashie::Mash] Updated user notifications
-        def update_notification opts
+        def update_notification opts={}
           put "user/notifications", opts
         end
 
