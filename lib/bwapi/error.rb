@@ -2,16 +2,54 @@ module BWAPI
 
   # BW error class to capture BWAPI error responses
   class BWError < StandardError
-    def initialize response=nil
-      if response.is_a? Hash
-        errors = []
-        response[:body]["errors"].each do |error|
-          errors.push error['message']
-        end
-        response = errors.join(', ')
-      end
+    def initialize response = nil
+      errors_object = determine_errors(response)
+      super() if errors_object.nil?
+      super(generate_error_messages(errors_object))
+    end
 
-      super(response)
+    # Determines from response and returns error(s)
+    def determine_errors response
+      return nil if response.nil?
+      # Check if response is a hash and has key :body
+      if response.is_a?(Hash) && response.has_key?(:body)
+        if response[:body].has_key?('error') && response[:body].has_key?('error_description')
+          response[:body]
+        elsif response[:body].has_key? 'errors'
+          response[:body]['errors']
+        else
+          nil
+        end
+      end
+    end
+
+    def generate_error_messages errors_object
+      @error_messages = []
+      verify_object_class errors_object
+      return @error_messages.join(', ')
+    end
+
+    def verify_object_class object
+      case object
+      when Array
+        split_array_errors(object)
+      when Hash, Hashie::Mash
+        split_hash_errors(object)
+      when String
+        @error_messages << object
+      end
+    end
+
+    def split_array_errors array
+      array.each_with_index do |e, i|
+        verify_object_class array[i]
+      end
+    end
+
+    def split_hash_errors hash
+      message = []
+      hash.each {|k,v| message << "%s: %s" % [k, v]}
+      @error_messages << message.flatten.join(' with ')
     end
   end
 
@@ -19,11 +57,7 @@ module BWAPI
   class BadRequest < BWError; end
 
   # Raised when Brandwatch returns a 401 HTTP status code
-  class Unauthorized < BWError
-    def initialize response=nil
-      response.nil? ? super() : super("#{response[:body]['error_description'] }")
-    end
-  end
+  class Unauthorized < BWError; end
 
   # Raised when Brandwatch returns a 403 HTTP status code
   class Forbidden < BWError; end
