@@ -33,7 +33,7 @@ module BWAPI
           # @option opts [Integer] queryId Id of the query
           # @option opts [Array] StoredDateRangeDTO Date ranges to be stored
           # @return [Hashie::Mash] New date range
-          def create_date_range project_id, query_id, opts
+          def create_date_range project_id, query_id, opts={}
             post "projects/#{project_id}/#{query_id}/date-range", opts
           end
 
@@ -47,7 +47,7 @@ module BWAPI
           # @option opts [Integer] dateRangeId Id of the date range
           # @option opts [Array] StoredDateRangeDTO Date ranges to be edited
           # @return [Hashie::Mash] Update date range
-          def update_date_range project_id, query_id, opts
+          def update_date_range project_id, query_id, opts={}
             put "projects/#{project_id}/#{query_id}/date-range/#{date_range_id}", opts
           end
 

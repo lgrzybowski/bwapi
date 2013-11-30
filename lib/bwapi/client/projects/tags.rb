@@ -31,7 +31,7 @@ module BWAPI
         # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] New tag
-        def create_tag project_id, opts
+        def create_tag project_id, opts={}
           post "projects/#{project_id}/tags", opts
         end
 
@@ -43,7 +43,7 @@ module BWAPI
         # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] Updated tag
-        def update_tag project_id, tag_id, opts
+        def update_tag project_id, tag_id, opts={}
           put "projects/#{project_id}/tags/#{tag_id}", opts
         end
 

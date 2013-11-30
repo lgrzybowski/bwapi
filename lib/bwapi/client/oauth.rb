@@ -16,7 +16,7 @@ module BWAPI
         opts = {
           username: username,
           password: password,
-          grant_type: grant_type ? grant_type : 'password',
+          grant_type: determine_grant_type,
           client_secret: client_secret,
           client_id: client_id,
           force_urlencoded: true
@@ -39,7 +39,6 @@ module BWAPI
         opts = {
           username: username,
           password: password,
-
           refresh_token: refresh_token,
           grant_type: 'refresh_token',
           client_id: client_id,
@@ -50,24 +49,23 @@ module BWAPI
       end
       alias :refresh :oauth_refresh_token
 
+      # Determines grant-type used for client
+      #
+      # @return [String] relevant grant type for client
+      def determine_grant_type
+        return grant_type unless grant_type.nil?
+        api_client? ? 'api-password' : 'password'
+      end
+
       # Sends a oauth request
       #
       # @param opts [Hash] options hash of parameters
-      def oauth_request opts
-        begin
-          creds = post 'oauth/token', opts
-        rescue BWAPI::BWError
-          false
-        else
-          self.access_token = creds.access_token
-          self.expires_in = creds.expires_in
-
-          if application_client?
-            self.refresh_token = creds.refresh_token
-          end
-
-          true
-        end
+      def oauth_request opts={}
+        creds = post 'oauth/token', opts
+        self.access_token  = creds.access_token
+        self.expires_in    = creds.expires_in
+        self.refresh_token = creds.refresh_token if application_client?
+        creds
       end
 
     end

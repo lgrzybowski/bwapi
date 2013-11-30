@@ -9,7 +9,7 @@ module BWAPI
       # @option opts [String] query Query string
       # @option opts [Array] language Languages for query string
       # @return [Hashie::Mash] Query string validation results
-      def query_validation opts
+      def query_validation opts={}
         get "query-validation", opts
       end
 
@@ -19,7 +19,7 @@ module BWAPI
       # @option opts [String] query Query string
       # @option opts [Array] language Languages for query string
       # @return [Hashie::Mash] Query string validation results
-      def search_within opts
+      def search_within opts={}
         get "query-validation/searchwithin", opts
       end
 

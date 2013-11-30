@@ -12,8 +12,8 @@ module BWAPI
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All sub clients for client
-          def client_sub_clients client_id
-            get "admin/clients/#{client_id}/subclients"
+          def client_sub_clients client_id, opts={}
+            get "admin/clients/#{client_id}/subclients", opts
           end
           alias :sub_clients :client_sub_clients
 
@@ -58,7 +58,7 @@ module BWAPI
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
           # @return [Hashie::Mash] New sub client
-          def create_client_sub_client client_id, opts
+          def create_client_sub_client client_id, opts={}
             post "admin/clients/#{client_id}/subclients", opts
           end
           alias :create_sub_client :create_client_sub_client
@@ -95,7 +95,7 @@ module BWAPI
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
           # @return [Hashie::Mash] Edited sub client
-          def update_client_sub_client client_id, sub_client_id, opts
+          def update_client_sub_client client_id, sub_client_id, opts={}
             put "admin/clients/#{client_id}/subclients/#{sub_client_id}", opts
           end
           alias :update_sub_client :update_client_sub_client
