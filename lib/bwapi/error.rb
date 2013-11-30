@@ -11,24 +11,31 @@ module BWAPI
     # Determines from response and returns error(s)
     def determine_errors response
       return nil if response.nil?
-      # Check if response is a hash and has key :body
-      if response.is_a?(Hash) && response.has_key?(:body)
-        if response[:body].has_key?('error') && response[:body].has_key?('error_description')
-          response[:body]
-        elsif response[:body].has_key? 'errors'
-          response[:body]['errors']
-        else
-          nil
-        end
+      return nil unless response.is_a?(Hash) && response.has_key?(:body)
+      return nil unless response[:body].is_a?(Hash)
+
+      # Determine if response body has known error keys and return
+      if response[:body].has_key?('error') && response[:body].has_key?('error_description')
+        return response[:body]
+      elsif response[:body].has_key?('errors')
+        return response[:body]['errors']
+      else
+        return nil
       end
     end
 
+    # Generates error messsages based on error object passed
+    #
+    # @param errors_object [Hash] errors
     def generate_error_messages errors_object
       @error_messages = []
       verify_object_class errors_object
       return @error_messages.join(', ')
     end
 
+    # Verifies objects class
+    #
+    # @param object [Object] object to determine
     def verify_object_class object
       case object
       when Array
@@ -40,12 +47,18 @@ module BWAPI
       end
     end
 
+    # Iterates through errors in array
+    #
+    # @param array [Array] array to iterate
     def split_array_errors array
       array.each_with_index do |e, i|
         verify_object_class array[i]
       end
     end
 
+    # Iterates through errors in hash
+    #
+    # @param hash [Hash] hash to iterate
     def split_hash_errors hash
       message = []
       hash.each {|k,v| message << "%s: %s" % [k, v]}
