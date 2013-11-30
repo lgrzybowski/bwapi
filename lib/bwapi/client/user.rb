@@ -34,7 +34,7 @@ module BWAPI
       # @option opts [String] mobile The users mobile number
       # @option opts [Date] creationDate Date the user was created on
       # @return [Hashie::Mash] Updated user information
-      def update_user opts
+      def update_user opts={}
         put "user", opts
       end
 

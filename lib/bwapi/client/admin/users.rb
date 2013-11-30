@@ -50,7 +50,7 @@ module BWAPI
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
           # @return [Hashie::Mash] New user
-          def create_client_user client_id, opts
+          def create_client_user client_id, opts={}
             post "admin/clients/#{client_id}/users", opts
           end
 
@@ -78,7 +78,7 @@ module BWAPI
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
           # @return [Hashie::Mash] New user
-          def update_client_user client_id, user_id, opts
+          def update_client_user client_id, user_id, opts={}
             put "admin/clients/#{client_id}/users/#{user_id}", opts
           end
 

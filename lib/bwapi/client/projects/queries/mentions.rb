@@ -28,7 +28,7 @@ module BWAPI
           # @option opts [Integer] id Id of the mention
           # @option opts [Hash] MentionPatchDTO patch to be applied
           # @return [Hashie::Mash] Updated query mention
-          def update_query_mention project_id, query_id, mention_id, opts
+          def update_query_mention project_id, query_id, mention_id, opts={}
             patch "projects/#{project_id}/queries/#{query_id}/mentions/#{mention_id}", opts
           end
 
@@ -43,7 +43,7 @@ module BWAPI
           # @option opts [Integer] id Id of the mention
           # @option opts [Hash] Map patch to be applied
           # @return [Hashie::Mash] Deleted query mention
-          def delete_query_mention project_id, query_id, mention_id, opts
+          def delete_query_mention project_id, query_id, mention_id, opts={}
             delete "projects/#{project_id}/queries/#{query_id}/mentions/#{mention_id}", opts
           end
 

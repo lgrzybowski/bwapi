@@ -43,7 +43,7 @@ module BWAPI
           # @option opts [Integer] queryId Query id of backfill
           # @option opts [String] statusMessages Current status message of backfill
           # @return [Hashie::Mash] New backfill for query
-          def create_backfill project_id, query_id, opts
+          def create_backfill project_id, query_id, opts={}
             post "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
 

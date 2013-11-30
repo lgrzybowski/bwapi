@@ -47,7 +47,7 @@ module BWAPI
       # @option opts [Date] creationDate Date the project was created on
       # @option opts [Integer] creationUserId User ID of the user who created the project
       # @return [Hashie::Mash] New project
-      def create_project opts
+      def create_project opts={}
         post "projects", opts
       end
 
@@ -64,7 +64,7 @@ module BWAPI
       # @option opts [Date] creationDate Date the project was created on
       # @option opts [Integer] creationUserId User ID of the user who created the project
       # @return [Hashie::Mash] Updated project
-      def update_project project_id, opts
+      def update_project project_id, opts={}
         put "projects/#{project_id}", opts
       end
 

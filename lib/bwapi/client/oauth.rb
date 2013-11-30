@@ -53,7 +53,7 @@ module BWAPI
       # Sends a oauth request
       #
       # @param opts [Hash] options hash of parameters
-      def oauth_request opts
+      def oauth_request opts={}
         begin
           creds = post 'oauth/token', opts
         rescue BWAPI::BWError
