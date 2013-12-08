@@ -16,7 +16,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @options opt [Boolean] sharedOnly Boolean flag to return only shared shares (default: false)
+        # @options opts [Boolean] sharedOnly Boolean flag to return only shared shares (default: false)
         # @return [Hashie::Mash] Specific project shares
         def project_sharing project_id, opts={}
           get "projects/#{project_id}/sharing", opts
@@ -26,7 +26,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @options opt [Array] ProjectShareDTO Shares to be edited
+        # @options opts [Array] ProjectShareDTO Shares to be edited
         # @return [Hashie::Mash] Updated project shares
         def update_project_sharing project_id, opts={}
           put "projects/#{project_id}/sharing", opts
@@ -45,9 +45,10 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param user_id [Integer] Id of user
+        # @options opts [Hash] User share to be edited
         # @return [Hashie::Mash] Updated share of project for user
-        def update_project_sharing_user project_id, user_id
-          put "projects/#{project_id}/sharing/#{user_id}"
+        def update_project_sharing_user project_id, user_id, opts={}
+          put "projects/#{project_id}/sharing/#{user_id}", opts
         end
 
       end
