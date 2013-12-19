@@ -35,6 +35,7 @@ module BWAPI
           # @option opts [String] name Name of the stream
           # @option opts [String] created Creation date of stream
           # @option opts [String] filter Filter of the stream
+          # @option opts [String] settings Settings of the stream
           # @option opts [String] lastModified Last modification date of stream
           # @return [Hashie::Mash] Specific stream
           def create_stream project_id, stream_dashboard_id, opts={}
