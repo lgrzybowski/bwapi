@@ -1,28 +1,28 @@
 module BWAPI
   class Client
     module Projects
-      # FacebookQueries module for projects/facebookqueries endpoints
-      module FacebookQueries
+      # TwitterQueries module for projects/twitterqueries endpoints
+      module TwitterQueries
 
-        # Get all facebook queries in a project
+        # Get all twitter queries in a project
         #
         # @param project_id [Integer] Id of project
-        # @return [Hashie::Mash] All facebook queries in project
-        def facebook_queries project_id
-          get "projects/#{project_id}/facebookqueries"
+        # @return [Hashie::Mash] All twitter queries in project
+        def twitter_queries project_id
+          get "projects/#{project_id}/twitterqueries"
         end
 
-        # Get a specific facebook query in a project
+        # Get a specific twitter query in a project
         #
         # @param project_id [Integer] Id of project
-        # @param query_id [Integer] Id of facebook query
-        # @return [Hashie::Mash] Specific facebook query
-        def get_facebook_query project_id, query_id
-          get "projects/#{project_id}/facebookqueries/#{query_id}"
+        # @param query_id [Integer] Id of twitter query
+        # @return [Hashie::Mash] Specific twitter query
+        def get_twitter_query project_id, query_id
+          get "projects/#{project_id}/twitterqueries/#{query_id}"
         end
-        alias :facebook_query :get_facebook_query
+        alias :twitter_query :get_twitter_query
 
-        # Create a facebook query in a project
+        # Create a twitter query in a project
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
@@ -43,26 +43,14 @@ module BWAPI
         # @option opts [Array] languages Query languages set
         # @option opts [Date] lastModificationDate Last modification date of the query
         # @option opts [String] type Query type
-        # @option opts [String] facebookConsumerKey Facebook consumer key
-        # @option opts [String] facebookAccessToken Facebook access token
-        # @return [Hashie::Mash] New facebook query
-        def create_facebook_query project_id, opts={}
-          post "projects/#{project_id}/facebookqueries"
+        # @option opts [String] twitterLimit Twitter limit
+        # @option opts [String] twitterScreenName Twitter screen name
+        # @return [Hashie::Mash] New twitter query
+        def create_twitter_query project_id, opts={}
+          post "projects/#{project_id}/twitterqueries"
         end
 
-        # Authorise facebook queries in a project
-        #
-        # @param project_id [Integer] Id of project
-        # @param opts [Hash] options hash of facebook query oauth dto
-        # @option opts [String] accessToken Facebook access token
-        # @option opts [String] consumerKey Facebook consumer key
-        # @option opts [Array] queryIds Array of query ids
-        # @return [Hashie::Mash] Authorised facebook queries
-        def authorise_facebook_queries project_id, opts={}
-          post "projects/#{project_id}/facebookqueries/authorise"
-        end
-
-        # Update an existing facebook query in a project
+        # Update an existing twitter query in a project
         #
         # @param project_id [Integer] Id of project
         # @param query_id [Integer] Id of query
@@ -84,11 +72,11 @@ module BWAPI
         # @option opts [Array] languages Query languages set
         # @option opts [Date] lastModificationDate Last modification date of the query
         # @option opts [String] type Query type
-        # @option opts [String] facebookConsumerKey Facebook consumer key
-        # @option opts [String] facebookAccessToken Facebook access token
-        # @return [Hashie::Mash] Updated facebook query
-        def update_facebook_query project_id, query_id, opts={}
-          put "projects/#{project_id}/facebookqueries/#{query_id}", opts
+        # @option opts [String] twitterLimit Twitter limit
+        # @option opts [String] twitterScreenName Twitter screen name
+        # @return [Hashie::Mash] Updated twitter query
+        def update_twitter_query project_id, query_id, opts={}
+          put "projects/#{project_id}/twitterqueries/#{query_id}", opts
         end
 
       end
