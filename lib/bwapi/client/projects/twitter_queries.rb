@@ -47,7 +47,7 @@ module BWAPI
         # @option opts [String] twitterScreenName Twitter screen name
         # @return [Hashie::Mash] New twitter query
         def create_twitter_query project_id, opts={}
-          post "projects/#{project_id}/twitterqueries"
+          post "projects/#{project_id}/twitterqueries", opts
         end
 
         # Update an existing twitter query in a project

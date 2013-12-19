@@ -47,7 +47,7 @@ module BWAPI
         # @option opts [String] facebookAccessToken Facebook access token
         # @return [Hashie::Mash] New facebook query
         def create_facebook_query project_id, opts={}
-          post "projects/#{project_id}/facebookqueries"
+          post "projects/#{project_id}/facebookqueries", opts
         end
 
         # Authorise facebook queries in a project
@@ -59,7 +59,7 @@ module BWAPI
         # @option opts [Array] queryIds Array of query ids
         # @return [Hashie::Mash] Authorised facebook queries
         def authorise_facebook_queries project_id, opts={}
-          post "projects/#{project_id}/facebookqueries/authorise"
+          post "projects/#{project_id}/facebookqueries/authorise", opts
         end
 
         # Update an existing facebook query in a project
