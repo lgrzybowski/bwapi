@@ -91,6 +91,15 @@ module BWAPI
         end
       end
 
+      if debug
+        log.info 'Connection options: %s' % conn_options
+        log.info 'Sending %s request' % method
+        log.info 'Request path: %s' % path
+        log.info 'Request url: %s' % api_endpoint + '/' + path
+        log.info 'Request parameters: %s' % opts unless opts.nil?
+        log.info 'Response body: %s' % response.env[:body] unless response.env[:body].nil?
+      end
+
       response
     end
   end
