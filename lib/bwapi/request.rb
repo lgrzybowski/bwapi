@@ -93,11 +93,18 @@ module BWAPI
 
       if debug
         log.info 'Connection options: %s' % conn_options
-        log.info 'Sending %s request' % method
-        log.info 'Request path: %s' % path
+        log.info 'Sending request type: %s' % method
+        log.info 'Request path: /%s' % path
         log.info 'Request url: %s' % api_endpoint + '/' + path
-        log.info 'Request parameters: %s' % opts unless opts.nil?
-        log.info 'Response body: %s' % response.env[:body] unless response.env[:body].nil?
+        log.info 'Request parameters: %s' % opts.to_json unless opts.nil?
+
+        unless response.env[:body].nil?
+          if response.env[:body].is_a? Hash
+            log.info 'Response body: %s' % response.env[:body].to_json
+          else
+            log.info 'Response body: %s' % response.env[:body]
+          end
+        end
       end
 
       response
