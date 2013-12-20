@@ -1,3 +1,4 @@
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/jonathanchrisp/bwapi/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 [![Gem Version](https://badge.fury.io/rb/bwapi.png)](http://badge.fury.io/rb/bwapi)
 [![Build Status](https://travis-ci.org/jonathanchrisp/bwapi.png?branch=master)](https://travis-ci.org/jonathanchrisp/bwapi)
 [![Dependency Status](https://gemnasium.com/jonathanchrisp/bwapi.png)](https://gemnasium.com/jonathanchrisp/bwapi)
