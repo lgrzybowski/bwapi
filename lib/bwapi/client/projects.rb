@@ -2,6 +2,7 @@ require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
 require 'bwapi/client/projects/facebook_queries'
+require 'bwapi/client/projects/twitter_queries'
 require 'bwapi/client/projects/signals'
 require 'bwapi/client/projects/summary'
 require 'bwapi/client/projects/sharing'
@@ -80,6 +81,7 @@ module BWAPI
       include BWAPI::Client::Projects::Data
       include BWAPI::Client::Projects::DataDownload
       include BWAPI::Client::Projects::FacebookQueries
+      include BWAPI::Client::Projects::TwitterQueries
       include BWAPI::Client::Projects::Signals
       include BWAPI::Client::Projects::Summary
       include BWAPI::Client::Projects::Sharing
