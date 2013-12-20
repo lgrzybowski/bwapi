@@ -18,7 +18,8 @@ module BWAPI
       :client_secret,
       :verify_ssl,
       :netrc,
-      :netrc_file
+      :netrc_file,
+      :debug
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
@@ -59,6 +60,7 @@ module BWAPI
       self.verify_ssl          = true
       self.netrc               = false
       self.netrc_file          = DEFAULT_NETRC_FILE
+      self.debug               = false
     end
   end
 end
