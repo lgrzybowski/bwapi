@@ -30,6 +30,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] id Id of the data download
         # @option opts [Integer] queryId Id of the query
+        # @option opts [Integer] userId Id of the user
         # @option opts [Int] percentComplete The percentage complete of data download
         # @option opts [String] status The status of the download
         # @option opts [String] queryName The query name of the data download
