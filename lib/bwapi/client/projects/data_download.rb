@@ -20,7 +20,7 @@ module BWAPI
         # @param data_download_id [Integer] Id of data download
         # @return [Hashie::Mash] Specific data download
         def get_data_download project_id, data_download_id
-          get "projects/#{project_id}/datadownload#{data_download_id}"
+          get "projects/#{project_id}/datadownload/#{data_download_id}"
         end
         alias :data_download :get_data_download
 
@@ -30,6 +30,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] id Id of the data download
         # @option opts [Integer] queryId Id of the query
+        # @option opts [Integer] userId Id of the user
         # @option opts [Int] percentComplete The percentage complete of data download
         # @option opts [String] status The status of the download
         # @option opts [String] queryName The query name of the data download
@@ -39,8 +40,8 @@ module BWAPI
         # @option opts [String] downloadLinkCSV The link to download the CSV format
         # @option opts [Array] additionalColumns The additional columns for the data download
         # @return [Hashie::Mash] New data download
-        def create_datadownload project_id, opts={}
-          get "projects/#{project_id}/datadownload", opts
+        def create_data_download project_id, opts={}
+          post "projects/#{project_id}/datadownload", opts
         end
 
       end
