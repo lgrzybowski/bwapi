@@ -1,3 +1,4 @@
+require 'logger'
 require 'faraday'
 
 module BWAPI
@@ -19,7 +20,8 @@ module BWAPI
       :verify_ssl,
       :netrc,
       :netrc_file,
-      :debug
+      :debug,
+      :log
     ].freeze
 
     DEFAULT_ADAPTER       = Faraday.default_adapter
@@ -27,6 +29,7 @@ module BWAPI
     DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
     DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
     DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')
+    DEFAULT_LOGGER_FILE   = Logger.new("#{Dir::pwd}/bwapi.log")
 
     attr_accessor *OPTION_KEYS
 
@@ -61,6 +64,8 @@ module BWAPI
       self.netrc               = false
       self.netrc_file          = DEFAULT_NETRC_FILE
       self.debug               = false
+      self.log                 = DEFAULT_LOGGER_FILE
     end
+
   end
 end

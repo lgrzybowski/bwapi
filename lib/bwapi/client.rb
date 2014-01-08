@@ -1,5 +1,3 @@
-require 'logger'
-
 require 'bwapi/authentication'
 require 'bwapi/connection'
 require 'bwapi/request'
@@ -24,13 +22,9 @@ module BWAPI
   class Client
 
     attr_accessor *Configuration::OPTION_KEYS
-    attr_reader :log
 
     def initialize opts={}
-      @log = Logger.new("#{Dir::pwd}/bwapi.log") if opts[:debug] == true
       opts = BWAPI.options.merge opts
-
-      # Create instance variables
       Configuration::OPTION_KEYS.each do |k|
         send "#{k}=", opts[k]
       end
