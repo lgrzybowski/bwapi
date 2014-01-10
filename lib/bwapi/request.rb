@@ -97,14 +97,7 @@ module BWAPI
         log.info 'Request path: /%s' % path
         log.info 'Request url: %s' % api_endpoint + '/' + path
         log.info 'Request parameters: %s' % opts.to_json unless opts.nil?
-
-        unless response.env[:body].nil?
-          if response.env[:body].is_a? Hash
-            log.info 'Response body: %s' % response.env[:body].to_json
-          else
-            log.info 'Response body: %s' % response.env[:body]
-          end
-        end
+        log.info 'Response body: %s' % response.env[:body].to_json  unless response.env[:body].nil?
       end
 
       response
