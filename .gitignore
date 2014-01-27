@@ -15,6 +15,7 @@ tmp
 
 Gemfile.lock
 report.html
+bwapi.log
 
 # YARD artifacts
 .yardoc
