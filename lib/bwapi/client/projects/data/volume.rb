@@ -27,7 +27,7 @@ module BWAPI
           # Get a list of topics compared by criteria using two different values for that criteria
           #
           # @param project_id [Integer] Id of project
-          # @option opts [String] criteria The comparison criteria
+          # @param criteria [String] The comparison criteria
           # @option opts [String] criteriaValue1 Value one for criteria
           # @option opts [String] criteriaValue2 Value one for criteria
           # @option opts [Hash] filter The filters to apply
@@ -35,8 +35,8 @@ module BWAPI
           # @option opts [Integer] minVolume The minimum volume (number of mentions) for a topic to be returned
           # @option opts [Integer] limit The limit to return
           # @option opts [Integer] sampleSize The sample size
-          def data_volume_topics_compare project_id, opts={}
-            get "projects/#{project_id}/data/volume/topics/compare", opts
+          def data_volume_topics_compare project_id, criteria, opts={}
+            get "projects/#{project_id}/data/volume/topics/compare/#{criteria}", opts
           end
 
           # Get top topics for given query IDs
