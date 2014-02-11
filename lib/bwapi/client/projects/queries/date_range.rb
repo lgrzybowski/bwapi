@@ -20,7 +20,7 @@ module BWAPI
           # @param query_id [Integer] Id of query
           # @param date_range_id [Integer] Id of date range
           # @return [Hashie::Mash] Specific date range for query
-          def date_range project_id, query_id, date_range_id
+          def get_date_range project_id, query_id, date_range_id
             get "projects/#{project_id}/queries/#{query_id}/date-range/#{date_range_id}"
           end
 
