@@ -69,8 +69,8 @@ module BWAPI
         # @option opts [String] created The stream creation date
         # @option opts [String] filter the stream filter
         # @return [Hashie::Mash] Updated stream dashboard
-        def update_stream_dashboard project_id, stream_dashboard_id
-          put "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}"
+        def update_stream_dashboard project_id, stream_dashboard_id, opts={}
+          put "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}", opts
         end
 
         # Delete a stream dashboard
