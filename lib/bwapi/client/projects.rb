@@ -9,6 +9,7 @@ require 'bwapi/client/projects/sharing'
 require 'bwapi/client/projects/stream_dashboards'
 require 'bwapi/client/projects/queries'
 require 'bwapi/client/projects/query_groups'
+require 'bwapi/client/projects/rules'
 require 'bwapi/client/projects/tags'
 require 'bwapi/client/projects/users'
 require 'bwapi/client/projects/workflow'
@@ -88,6 +89,7 @@ module BWAPI
       include BWAPI::Client::Projects::StreamDashboards
       include BWAPI::Client::Projects::Queries
       include BWAPI::Client::Projects::QueryGroups
+      include BWAPI::Client::Projects::Rules
       include BWAPI::Client::Projects::Tags
       include BWAPI::Client::Projects::Users
       include BWAPI::Client::Projects::Workflow
