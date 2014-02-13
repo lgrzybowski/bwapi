@@ -7,8 +7,10 @@ require 'bwapi/client/brandwatch'
 require 'bwapi/client/client'
 require 'bwapi/client/error_codes'
 require 'bwapi/client/filters'
+require 'bwapi/client/languages'
 require 'bwapi/client/logout'
 require 'bwapi/client/me'
+require 'bwapi/client/metrics'
 require 'bwapi/client/oauth'
 require 'bwapi/client/ping'
 require 'bwapi/client/sso'
@@ -41,8 +43,10 @@ module BWAPI
     include BWAPI::Client::Client
     include BWAPI::Client::ErrorCodes
     include BWAPI::Client::Filters
+    include BWAPI::Client::Languages
     include BWAPI::Client::Logout
     include BWAPI::Client::Me
+    include BWAPI::Client::Metrics
     include BWAPI::Client::OAuth
     include BWAPI::Client::Ping
     include BWAPI::Client::Projects
