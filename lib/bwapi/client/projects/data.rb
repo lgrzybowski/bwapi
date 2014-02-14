@@ -26,7 +26,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] Headline figures for spedified channels
-        def data_headlines
+        def data_headlines project_id, opts={}
           get "projects/#{project_id}/data/headlines", opts
         end
 
