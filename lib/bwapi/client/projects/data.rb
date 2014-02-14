@@ -14,11 +14,20 @@ module BWAPI
         # @param dimension_one [String] Dimension 1 value
         # @param dimension_two [String] Dimension 2 value
         # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] projectId Id of the project
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] All Chart data mentions
         def data project_id, aggregate, dimension_one, dimension_two, opts={}
           get "projects/#{project_id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
+        end
+
+        # Get headline figures for specified channels
+        #
+        # @param project_id [Integer] Id of project
+        # @param opts [Hash] options hash of parameters
+        # @option opts [Hash] filter The filters to apply
+        # @return [Hashie::Mash] Headline figures for spedified channels
+        def data_headlines
+          get "projects/#{project_id}/data/headlines", opts
         end
 
         include BWAPI::Client::Projects::Data::Mentions
