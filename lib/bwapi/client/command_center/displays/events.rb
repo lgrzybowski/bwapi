@@ -29,6 +29,7 @@ module BWAPI
           # @option opts [Integer] id The event id
           # @option opts [String] name The event name
           # @option opts [String] description The event description
+          # @option opts [Integer] displayId The display id
           # @option opts [Boolean] matched Events rules matched
           # @option opts [Integer] queryId Reference query id
           # @option opts [Integer] threshold Event mention volume threshold
@@ -48,6 +49,7 @@ module BWAPI
           # @option opts [Integer] id The event id
           # @option opts [String] name The event name
           # @option opts [String] description The event description
+          # @option opts [Integer] displayId The display id
           # @option opts [Boolean] matched Events rules matched
           # @option opts [Integer] queryId Reference query id
           # @option opts [Integer] threshold Event mention volume threshold

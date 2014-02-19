@@ -37,6 +37,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id The id of screen
           # @option opts [String] name The name of the screen
+          # @option opts [Integer] displayId The display id
           # @option opts [Hash] options Display options
           # @option opts [Array] screenIds Screen ids used to display
           # @option opts [String] created Date screen was created
@@ -52,6 +53,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id The id of screen
           # @option opts [String] name The name of the screen
+          # @option opts [Integer] displayId The display id
           # @option opts [Hash] options Display options
           # @option opts [Array] screenIds Screen ids used to display
           # @option opts [String] created Date screen was created

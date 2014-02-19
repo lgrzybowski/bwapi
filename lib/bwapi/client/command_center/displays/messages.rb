@@ -27,6 +27,7 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id The id of message
+          # @option opts [Integer] displayId The display id
           # @option opts [String] title The message title
           # @option opts [String] type The message type
           # @option opts [String] content The message content
@@ -44,6 +45,7 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id The id of message
+          # @option opts [Integer] displayId The display id
           # @option opts [String] title The message title
           # @option opts [String] type The message type
           # @option opts [String] content The message content
