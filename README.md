@@ -9,12 +9,12 @@
 
 __PLEASE NOTE THAT THIS PROJECT IS NOT OFFICIALLY SUPPORTED BY BRANDWATCH__
 
-A Ruby interface to the Brandwatch V2 API. The projects design is modelled on the GitHub Octokit wrapper which can be found here: https://github.com/octokit/octokit.rb.
+A Ruby interface to the Brandwatch V2 API.
 
-## Documentation 
+## Documentation
 http://rubydoc.info/gems/bwapi/
 
-## Getting Started 
+## Getting Started
 All Brandwatch API calls at present require you to be authenticated, therefore you'll need to create an instance of a client and call login immediately:
 
 ```ruby
@@ -68,7 +68,7 @@ bw.log.info 'logging information'
 The above will only work if you enabled debug when creating your client.
 
 ## Contributing
-If you would like to contribute to this project please fork, create your new feature and then submit a PR merging into the `staging` branch. Once the feature is merged I'll update the version number and date in the gemspec and merge to master. 
+If you would like to contribute to this project please fork, create your new feature and then submit a PR merging into the `staging` branch. Once the feature is merged I'll update the version number and date in the gemspec and merge to master.
 
 Once the staging branch is merged into master a pre-release gem will automatically be created via travis. Subject to no issues being found the new version of the gem will be pushed to RubyGems.
 
@@ -78,7 +78,7 @@ There are a number of unit tests which are included as part of this project, ple
 ```ruby
 rspec spec
 ```
-      
+
 Please note that a number of tests still need to be added so I don't currently have complete coverage, subject to workload these will be slowly added over the next few months.
 
 ## Feedback
