@@ -1,3 +1,5 @@
+require 'bwapi/client/command_center/users/access'
+
 module BWAPI
   class Client
     module CommandCenter
@@ -19,15 +21,6 @@ module BWAPI
           get "commandcenter/users/#{user_id}"
         end
 
-        # Update an existing user access level
-        #
-        # @param [Integer] user_id the user id
-        # @param [Integer] access_level the user id
-        # @return [Hashie::Mash] Updated user access level
-        def update_user_access_level user_id, access_level
-          put "commandcenter/users/#{user_id}/access/#{access_level}"
-        end
-
         # Delete an existing user access level
         #
         # @param [Integer] user_id the user id
@@ -35,6 +28,8 @@ module BWAPI
         def delete_user_access_level user_id
           delete "commandcenter/users/#{user_id}"
         end
+
+        include BWAPI::Client::CommandCenter::Users::Access
 
     end
   end

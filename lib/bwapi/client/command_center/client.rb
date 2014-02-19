@@ -4,10 +4,10 @@ module BWAPI
       # Themes module for commandcenter/themes endpoints
       module Client
 
-        # Get client information
+        # Get vizia client information
         #
         # @return [Hashie::Mash] All themes
-        def client
+        def vizia_client
           get "commandcenter/client"
         end
 

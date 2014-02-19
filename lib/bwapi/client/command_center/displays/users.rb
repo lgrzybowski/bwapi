@@ -1,3 +1,5 @@
+require 'bwapi/client/command_center/displays/users/access'
+
 module BWAPI
   class Client
     module CommandCenter
@@ -47,6 +49,7 @@ module BWAPI
             delete "commandcenter/displays/#{display_id}/users/#{user_id}"
           end
 
+          include BWAPI::Client::CommandCenter::Displays::Users::Access
 
         end
       end

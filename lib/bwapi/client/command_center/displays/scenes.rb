@@ -22,12 +22,12 @@ module BWAPI
             get "commandcenter/displays/#{display_id}/scenes/#{scene_id}"
           end
 
-          # Get an existing display scene subscenes
+          # Get an existing display scene sub scenes
           #
           # @param [Integer] display_id The display id
           # @param [Integer] scene_id The scene id
-          # @return [Hashie::Mash] Specific subscenes for display scene
-          def get_scene display_id, scene_id
+          # @return [Hashie::Mash] Specific sub scenes for display scene
+          def get_scene_with_sub_scenes display_id, scene_id
             get "commandcenter/displays/#{display_id}/scenes/#{scene_id}/subscenes"
           end
 
