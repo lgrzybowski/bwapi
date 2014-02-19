@@ -11,6 +11,7 @@ module BWAPI
           get "commandcenter/client"
         end
 
+      end
     end
   end
 end

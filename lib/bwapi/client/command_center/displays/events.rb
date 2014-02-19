@@ -71,6 +71,7 @@ module BWAPI
             delete "commandcenter/displays/#{display_id}/events/#{event_id}"
           end
 
+        end
       end
     end
   end

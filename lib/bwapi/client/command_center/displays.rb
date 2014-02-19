@@ -68,6 +68,7 @@ module BWAPI
         include BWAPI::Client::CommandCenter::Displays::Screens
         include BWAPI::Client::CommandCenter::Displays::Users
 
+      end
     end
   end
 end

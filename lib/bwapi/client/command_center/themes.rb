@@ -11,6 +11,7 @@ module BWAPI
           get "commandcenter/themes"
         end
 
+      end
     end
   end
 end

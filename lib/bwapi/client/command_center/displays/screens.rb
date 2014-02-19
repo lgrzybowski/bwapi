@@ -72,6 +72,7 @@ module BWAPI
             delete "commandcenter/displays/#{display_id}/screens/#{screen_id}"
           end
 
+        end
       end
     end
   end

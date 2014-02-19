@@ -78,6 +78,7 @@ module BWAPI
             delete "commandcenter/displays/#{display_id}/scenes/#{scene_id}"
           end
 
+        end
       end
     end
   end

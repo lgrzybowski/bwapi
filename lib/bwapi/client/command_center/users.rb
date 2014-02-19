@@ -31,6 +31,7 @@ module BWAPI
 
         include BWAPI::Client::CommandCenter::Users::Access
 
+      end
     end
   end
 end

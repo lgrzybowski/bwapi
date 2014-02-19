@@ -27,6 +27,7 @@ module BWAPI
           get "commandcenter/scenetypes/#{scene_type_id}"
         end
 
+      end
     end
   end
 end

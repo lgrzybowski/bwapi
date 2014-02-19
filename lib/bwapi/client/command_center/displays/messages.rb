@@ -67,6 +67,7 @@ module BWAPI
             delete "commandcenter/displays/#{display_id}/messages/#{message_id}"
           end
 
+        end
       end
     end
   end
