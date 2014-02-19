@@ -1,3 +1,4 @@
+require 'bwapi/client/command_center/displays/events'
 require 'bwapi/client/command_center/displays/messages'
 require 'bwapi/client/command_center/displays/scenes'
 require 'bwapi/client/command_center/displays/screens'
@@ -63,6 +64,7 @@ module BWAPI
           delete "commandcenter/displays/#{display_id}"
         end
 
+        include BWAPI::Client::CommandCenter::Displays::Events
         include BWAPI::Client::CommandCenter::Displays::Messages
         include BWAPI::Client::CommandCenter::Displays::Scenes
         include BWAPI::Client::CommandCenter::Displays::Screens
