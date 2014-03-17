@@ -85,6 +85,7 @@ module BWAPI
       include BWAPI::Client::Projects::DataDownload
       include BWAPI::Client::Projects::Demographics
       include BWAPI::Client::Projects::FacebookQueries
+      include BWAPI::Client::Projects::Group
       include BWAPI::Client::Projects::TwitterQueries
       include BWAPI::Client::Projects::Signals
       include BWAPI::Client::Projects::Summary
