@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/jonathanchrisp/bwapi'
   s.required_ruby_version = ">= 1.9.2"
 
-  s.add_development_dependency 'rspec', '~> 2.13.0'
+  s.add_development_dependency 'rspec', '~> 2.14.1'
 
   s.add_runtime_dependency 'colored', '~> 1.2'
   s.add_runtime_dependency 'faraday', '~> 0.8.7'
