@@ -8,8 +8,8 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @return [Hashie::Mash] Summary of all author groups in project
-          def author_groups_summary project_id
-            get "projects/#{project_id}/group/author/summary"
+          def author_groups_summary project_id, opts={}
+            get "projects/#{project_id}/group/author/summary", opts
           end
 
           # Get a specific author group in project

@@ -8,8 +8,8 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @return [Hashie::Mash] Summary of all location groups in project
-          def location_groups_summary project_id
-            get "projects/#{project_id}/group/location/summary"
+          def location_groups_summary project_id, opts={}
+            get "projects/#{project_id}/group/location/summary", opts
           end
 
           # Get a specific location group in project
