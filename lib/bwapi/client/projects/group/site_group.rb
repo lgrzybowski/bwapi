@@ -9,7 +9,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @return [Hashie::Mash] Summary of all site groups in project
           def site_groups_summary project_id
-            get "projects/#{project_id}/group/site/summaryList"
+            get "projects/#{project_id}/group/site/summary"
           end
 
           # Get a specific site group in project
