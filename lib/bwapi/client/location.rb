@@ -1,7 +1,7 @@
 module BWAPI
   class Client
-    # Languages module for languages endpoints
-    module Languages
+    # Location module for locations endpoints
+    module Location
 
       # Request the information for a given location code
       #

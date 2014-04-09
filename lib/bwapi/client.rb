@@ -9,6 +9,7 @@ require 'bwapi/client/command_center'
 require 'bwapi/client/error_codes'
 require 'bwapi/client/filters'
 require 'bwapi/client/languages'
+require 'bwapi/client/location'
 require 'bwapi/client/logout'
 require 'bwapi/client/me'
 require 'bwapi/client/metrics'
@@ -46,6 +47,7 @@ module BWAPI
     include BWAPI::Client::ErrorCodes
     include BWAPI::Client::Filters
     include BWAPI::Client::Languages
+    include BWAPI::Client::Location
     include BWAPI::Client::Logout
     include BWAPI::Client::Me
     include BWAPI::Client::Metrics
