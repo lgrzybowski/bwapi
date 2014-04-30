@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/authentication'
 require 'bwapi/connection'
 require 'bwapi/request'

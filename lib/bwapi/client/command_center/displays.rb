@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/command_center/displays/events'
 require 'bwapi/client/command_center/displays/messages'
 require 'bwapi/client/command_center/displays/scenes'

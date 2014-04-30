@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'faraday_middleware'
 require 'faraday/response/brandwatch_error'
 

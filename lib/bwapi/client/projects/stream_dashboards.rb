@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/projects/stream_dashboards/streams'
 
 module BWAPI

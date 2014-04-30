@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module BWAPI
   class Client
     # TestSearch module for testSearch endpoint

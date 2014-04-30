@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/version'
 require 'bwapi/configuration'
 require 'bwapi/error'

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module BWAPI
   class Client
     # Me module for me endpoint and helper methods

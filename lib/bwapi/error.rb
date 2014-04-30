@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module BWAPI
   # BW error class to capture BWAPI error responses
   class BWError < StandardError

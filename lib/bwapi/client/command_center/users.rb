@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/command_center/users/access'
 
 module BWAPI

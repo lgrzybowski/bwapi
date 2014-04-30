@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'bwapi/client/projects/group/author_group'
 require 'bwapi/client/projects/group/location_group'
 require 'bwapi/client/projects/group/site_group'

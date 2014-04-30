@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/brandwatch/become'
 require 'bwapi/client/brandwatch/client_modules'
 

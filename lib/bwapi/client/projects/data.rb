@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'bwapi/client/projects/data/mentions'
 require 'bwapi/client/projects/data/volume'
 

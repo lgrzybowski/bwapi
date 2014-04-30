@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/admin/become'
 require 'bwapi/client/admin/search'
 require 'bwapi/client/admin/sub_clients'

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/admin/users/sharing'
 
 module BWAPI
