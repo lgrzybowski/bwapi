@@ -1,3 +1,6 @@
+require 'bwapi/client/projects/bulkactions/mentions'
+require 'bwapi/client/projects/bulkactions/author'
+
 module BWAPI
   class Client
     module Projects
@@ -12,7 +15,7 @@ module BWAPI
         # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] sinceDate the start date to get bulk actions from
         # @return [Hashie::Mash] All bulk actions in project
-        def bulkactions project_id, opts={}
+        def bulk_actions project_id, opts={}
           get "projects/#{project_id}/bulkactions", opts
         end
 
