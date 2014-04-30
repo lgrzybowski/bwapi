@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'bwapi/client/projects/rules/backfill'
 require 'bwapi/client/projects/rules/copy'
 
@@ -6,7 +7,6 @@ module BWAPI
     module Projects
       # Rules module for projects/rules endpoints
       module Rules
-
         # Get all rules in project
         #
         # @param project_id [Integer] The id of project
@@ -16,7 +16,7 @@ module BWAPI
         # @option opts [Integer] page Page Number of results to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All rules in project
-        def rules project_id, opts={}
+        def rules(project_id, opts = {})
           get "projects/#{project_id}/rules", opts
         end
 
@@ -25,10 +25,9 @@ module BWAPI
         # @param project_id [Integer] id The id of project
         # @param rule_id [Integer] id The id of rule
         # @return [Hashie::Mash] Specific rule
-        def get_rule project_id, rule_id
+        def get_rule(project_id, rule_id)
           get "projects/#{project_id}/rules/#{rule_id}"
         end
-        alias :rule :get_rule
 
         # Create a new rule in project
         #
@@ -43,7 +42,7 @@ module BWAPI
         # @option opts [String] queryName The query name the rule is applied to
         # @option opts [String] projectName The project name the rule is applied to
         # @return [Hashie::Mash] New rule
-        def create_rule project_id, opts={}
+        def create_rule(project_id, opts = {})
           post "projects/#{project_id}/rules", opts
         end
 
@@ -60,7 +59,7 @@ module BWAPI
         # @option opts [String] queryName The query name the rule is applied to
         # @option opts [String] projectName The project name the rule is applied to
         # @return [Hashie::Mash] Updated rule
-        def update_rule project_id, rule_id, opts={}
+        def update_rule(project_id, rule_id, opts = {})
           put "projects/#{project_id}/rules/#{rule_id}", opts
         end
 
@@ -69,13 +68,12 @@ module BWAPI
         # @param project_id [Integer] Id The project id
         # @param rule_id [Integer] Id The rule id
         # @return [Hashie::Mash] Deleted rule
-        def delete_rule project_id, rule_id
+        def delete_rule(project_id, rule_id)
           delete "projects/#{project_id}/rules/#{rule_id}"
         end
 
         include BWAPI::Client::Projects::Rules::Backfill
         include BWAPI::Client::Projects::Rules::Copy
-
       end
     end
   end

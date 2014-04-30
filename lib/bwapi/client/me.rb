@@ -1,8 +1,9 @@
+# encoding: utf-8
+
 module BWAPI
   class Client
     # Me module for me endpoint and helper methods
     module Me
-
       # Get user information
       #
       # @return [Hashie::Mash] User information
@@ -37,7 +38,6 @@ module BWAPI
       def user_id
         me.id
       end
-
     end
   end
 end

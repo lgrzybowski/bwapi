@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/client/admin/users/sharing'
 
 module BWAPI
@@ -6,7 +8,6 @@ module BWAPI
       module Clients
         # Users module for admin/users endpoints
         module Users
-
           # Get all users for client
           #
           # @param client_id [Integer] Id of the client
@@ -14,7 +15,7 @@ module BWAPI
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All client users
-          def client_users client_id, opts={}
+          def client_users(client_id, opts = {})
             get "admin/clients/#{client_id}/users", opts
           end
 
@@ -23,7 +24,7 @@ module BWAPI
           # @param client_id [Integer] Id of the client
           # @param user_id [Integer] Id of the user
           # @return [Hashie::Mash] Specific client user
-          def get_client_user client_id, user_id
+          def get_client_user(client_id, user_id)
             get "admin/clients/#{client_id}/users/#{user_id}"
           end
 
@@ -50,7 +51,7 @@ module BWAPI
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
           # @return [Hashie::Mash] New user
-          def create_client_user client_id, opts={}
+          def create_client_user(client_id, opts = {})
             post "admin/clients/#{client_id}/users", opts
           end
 
@@ -78,12 +79,11 @@ module BWAPI
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
           # @return [Hashie::Mash] New user
-          def update_client_user client_id, user_id, opts={}
+          def update_client_user(client_id, user_id, opts = {})
             put "admin/clients/#{client_id}/users/#{user_id}", opts
           end
 
           include BWAPI::Client::Admin::Clients::Users::Sharing
-
         end
       end
     end

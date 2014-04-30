@@ -1,3 +1,4 @@
+# encoding: utf-8
 require 'bwapi/client/projects/data/mentions'
 require 'bwapi/client/projects/data/volume'
 
@@ -6,7 +7,6 @@ module BWAPI
     module Projects
       # Data module for projects/data endpoints
       module Data
-
         # Get all chart data for the requested dimensions
         #
         # @param project_id [Integer] Id of project
@@ -16,7 +16,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] All Chart data mentions
-        def data project_id, aggregate, dimension_one, dimension_two, opts={}
+        def data(project_id, aggregate, dimension_one, dimension_two, opts = {})
           get "projects/#{project_id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
         end
 
@@ -26,13 +26,12 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Hash] filter The filters to apply
         # @return [Hashie::Mash] Headline figures for spedified channels
-        def data_headlines project_id, opts={}
+        def data_headlines(project_id, opts = {})
           get "projects/#{project_id}/data/headlines", opts
         end
 
         include BWAPI::Client::Projects::Data::Mentions
         include BWAPI::Client::Projects::Data::Volume
-
       end
     end
   end

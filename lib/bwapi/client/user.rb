@@ -1,15 +1,16 @@
+# encoding: utf-8
+
 require 'bwapi/client/user/notifications'
 
 module BWAPI
   class Client
     # User module for user endpoints and helper methods
     module User
-
       # Get the current user
       #
       # @return [Hashie::Mash] User information
       def user
-        get "user"
+        get 'user'
       end
 
       # Update the current user
@@ -34,8 +35,8 @@ module BWAPI
       # @option opts [String] mobile The users mobile number
       # @option opts [Date] creationDate Date the user was created on
       # @return [Hashie::Mash] Updated user information
-      def update_user opts={}
-        put "user", opts
+      def update_user(opts = {})
+        put 'user', opts
       end
 
       # Get users api role
@@ -53,7 +54,6 @@ module BWAPI
       end
 
       include BWAPI::Client::User::Notifications
-
     end
   end
 end

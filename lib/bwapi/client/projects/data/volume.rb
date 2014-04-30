@@ -1,10 +1,11 @@
+# encoding: utf-8
+
 module BWAPI
   class Client
     module Projects
       module Data
         # Volume module for projects/data/volume endpoints
         module Volume
-
           # Get all chart data for date ranges broken down by days
           #
           # @param project_id [Integer] Id of project
@@ -12,7 +13,7 @@ module BWAPI
           # @option opts [Hash] filter The filters to apply
           # @option opts [Array] dateRanges Date range ids
           # @return [Hashie::Mash] All Chart data mentions
-          def data_volume_date_ranges_days project_id, opts={}
+          def data_volume_date_ranges_days(project_id, opts = {})
             get "projects/#{project_id}/data/volume/dataRanges/days", opts
           end
 
@@ -20,7 +21,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @option opts [Hash] filter The filters to apply
-          def data_volume_queries_top_sites project_id, opts={}
+          def data_volume_queries_top_sites(project_id, opts = {})
             get "projects/#{project_id}/data/volume/queries/topsites", opts
           end
 
@@ -35,7 +36,7 @@ module BWAPI
           # @option opts [Integer] minVolume The minimum volume (number of mentions) for a topic to be returned
           # @option opts [Integer] limit The limit to return
           # @option opts [Integer] sampleSize The sample size
-          def data_volume_topics_compare project_id, criteria, opts={}
+          def data_volume_topics_compare(project_id, criteria, opts = {})
             get "projects/#{project_id}/data/volume/topics/compare/#{criteria}", opts
           end
 
@@ -46,7 +47,7 @@ module BWAPI
           # @option opts [Integer] limit The limit to return
           # @option opts [String] orderBy Parameter to sort by
           # @option opts [String] orderDirection Direction of sort
-          def data_volume_topics_queries project_id, opts={}
+          def data_volume_topics_queries(project_id, opts = {})
             get "projects/#{project_id}/data/volume/topics/queries", opts
           end
 
@@ -57,7 +58,7 @@ module BWAPI
           # @option opts [Integer] limit The limit to return
           # @option opts [String] orderBy Parameter to sort by
           # @option opts [String] orderDirection Direction of sort
-          def data_volume_top_authors_queries project_id, opts={}
+          def data_volume_top_authors_queries(project_id, opts = {})
             get "projects/#{project_id}/data/volume/topauthors/queries", opts
           end
 
@@ -68,7 +69,7 @@ module BWAPI
           # @option opts [Integer] limit The limit to return
           # @option opts [String] orderBy Parameter to sort by
           # @option opts [String] orderDirection Direction of sort
-          def data_volume_top_authors_queries_alt project_id, opts={}
+          def data_volume_top_authors_queries_alt(project_id, opts = {})
             get "projects/#{project_id}/data/volume/topauthors/queries/alt", opts
           end
 
@@ -79,7 +80,7 @@ module BWAPI
           # @option opts [Integer] limit The limit to return
           # @option opts [String] orderBy Parameter to sort by
           # @option opts [String] orderDirection Direction of sort
-          def data_volume_top_sites_queries project_id, opts={}
+          def data_volume_top_sites_queries(project_id, opts = {})
             get "projects/#{project_id}/data/volume/topsites/queries", opts
           end
 
@@ -90,10 +91,9 @@ module BWAPI
           # @option opts [Integer] limit The limit to return
           # @option opts [String] orderBy Parameter to sort by
           # @option opts [String] orderDirection Direction of sort
-          def data_volume_top_tweeters_queries project_id, opts={}
+          def data_volume_top_tweeters_queries(project_id, opts = {})
             get "projects/#{project_id}/data/volume/toptweeters/queries", opts
           end
-
         end
       end
     end
