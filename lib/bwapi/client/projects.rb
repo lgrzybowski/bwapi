@@ -1,3 +1,4 @@
+require 'bwapi/client/projects/bulkactions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
@@ -80,6 +81,7 @@ module BWAPI
         delete "projects/#{project_id}"
       end
 
+      include BWAPI::Client::Projects::BulkActions
       include BWAPI::Client::Projects::Categories
       include BWAPI::Client::Projects::Data
       include BWAPI::Client::Projects::DataDownload
