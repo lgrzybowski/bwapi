@@ -5,7 +5,6 @@ module BWAPI
   class Client
     # Brandwatch module for brandwatch endpoints
     module Brandwatch
-
       # Create a new data download in project
       #
       # @param project_id [Integer] Id of project
@@ -21,13 +20,12 @@ module BWAPI
       # @option opts [String] downloadLinkCSV The link to download the CSV format
       # @option opts [Array] additionalColumns The additional columns for the data download
       # @return [Hashie::Mash] New data download
-      def brandwatch_data_download project_id, opts={}
+      def brandwatch_data_download(project_id, opts = {})
         post "brandwatch/#{project_id}/datadownload", opts
       end
 
       include BWAPI::Client::Brandwatch::Become
       include BWAPI::Client::Brandwatch::ClientModules
-
     end
   end
 end

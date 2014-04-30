@@ -4,7 +4,6 @@ module BWAPI
       module BulkActions
         # Author module for projects/bulkactions/author endpoints
         module Author
-
           # Create a new bulk action in project for an author
           #
           # @param project_id [Integer] Id of project
@@ -17,7 +16,7 @@ module BWAPI
           # @option opts [Array] interests list<String> Interests to assign
           # @option opts [Array] professions list<AuthorProfessionDTO> Professions to assign
           # @return [Hashie::Mash] New bulk action for mentions
-          def bulk_edit_author project_id, opts={}
+          def bulk_edit_author(project_id, opts = {})
             post "projects/#{project_id}/bulkactions/author", opts
           end
         end

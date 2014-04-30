@@ -4,12 +4,11 @@ module BWAPI
       module Displays
         # Displays module for commandcenter/displays/messages endpoints
         module Messages
-
           # Get the messages for an existing display
           #
           # @param [Integer] display_id The display id
           # @return [Hashie::Mash] All messages for display
-          def messages display_id
+          def messages(display_id)
             get "commandcenter/displays/#{display_id}/messages"
           end
 
@@ -18,7 +17,7 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param [Integer] message_id The message id
           # @return [Hashie::Mash] Specific message for display
-          def get_message display_id, message_id
+          def get_message(display_id, message_id)
             get "commandcenter/displays/#{display_id}/messages/#{message_id}"
           end
 
@@ -36,7 +35,7 @@ module BWAPI
           # @option opts [Boolean] enabled Whether message is enabled
           # @option opts [Array] screenIds ScreenIds where message is shown
           # @return [Hashie::Mash] New display message
-          def create_message display_id, opts={}
+          def create_message(display_id, opts = {})
             post "commandcenter/displays/#{display_id}/message", opts
           end
 
@@ -54,7 +53,7 @@ module BWAPI
           # @option opts [Boolean] enabled Whether message is enabled
           # @option opts [Array] screenIds ScreenIds where message is shown
           # @return [Hashie::Mash] Updated display message
-          def update_message display_id, message_id, opts={}
+          def update_message(display_id, message_id, opts = {})
             put "commandcenter/displays/#{display_id}/messages/#{message_id}", opts
           end
 
@@ -63,10 +62,9 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param [Integer] message_id The message id
           # @return [Hashie::Mash] Deleted display message
-          def delete_message display_id, message_id
+          def delete_message(display_id, message_id)
             delete "commandcenter/displays/#{display_id}/messages/#{message_id}"
           end
-
         end
       end
     end

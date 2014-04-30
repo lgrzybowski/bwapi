@@ -7,7 +7,6 @@ module BWAPI
     module Projects
       # Queries module for projects/queries endpoints
       module Queries
-
         # Get all queries in project
         #
         # @param project_id [Integer] Id of project
@@ -17,7 +16,7 @@ module BWAPI
         # @option opts [Integer] page Page of results to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All queries in project
-        def queries project_id, opts={}
+        def queries(project_id, opts = {})
           get "projects/#{project_id}/queries", opts
         end
 
@@ -25,7 +24,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @return [Hashie::Mash] Summary of all queries in project
-        def queries_summary project_id
+        def queries_summary(project_id)
           get "projects/#{project_id}/queries/summary"
         end
 
@@ -34,10 +33,9 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param query_id [Integer] Id of query
         # @return [Hashie::Mash] Specific query
-        def get_query project_id, query_id
+        def get_query(project_id, query_id)
           get "projects/#{project_id}/queries/#{query_id}"
         end
-        alias :query :get_query
 
         # Create a new query in project
         #
@@ -58,7 +56,7 @@ module BWAPI
         # @option opts [Date] creationDate Date the query was created on
         # @option opts [Date] lastModificationDate Modification date of the query
         # @return [Hashie::Mash] New query
-        def create_query project_id, opts={}
+        def create_query(project_id, opts = {})
           post "projects/#{project_id}/queries", opts
         end
 
@@ -82,7 +80,7 @@ module BWAPI
         # @option opts [Date] creationDate Date the query was created on
         # @option opts [Date] lastModificationDate Modification date of the query
         # @return [Hashie::Mash] Updated query
-        def update_query project_id, query_id, opts={}
+        def update_query(project_id, query_id, opts = {})
           put "projects/#{project_id}/queries/#{query_id}", opts
         end
 
@@ -91,14 +89,13 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param query_id [Integer] Id of query
         # @return [Hashie::Mash] Deleted query
-        def delete_query project_id, query_id
+        def delete_query(project_id, query_id)
           delete "projects/#{project_id}/queries/#{query_id}"
         end
 
         include BWAPI::Client::Projects::Queries::Backfill
         include BWAPI::Client::Projects::Queries::DateRange
         include BWAPI::Client::Projects::Queries::Mentions
-
       end
     end
   end

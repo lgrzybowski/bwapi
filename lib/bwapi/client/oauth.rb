@@ -2,7 +2,6 @@ module BWAPI
   class Client
     # OAuth module for oauth/token endpoint
     module OAuth
-
       # Authenticate a user
       #
       # @param opts [Hash] options hash of parameters
@@ -12,7 +11,7 @@ module BWAPI
       # @option opts [String] client_secret Client secret
       # @option opts [String] client_id Client id
       # @option opts [String] force_urlencoded Force urlencoded
-      def oauth_token opts={}
+      def oauth_token(opts = {})
         opts = {
           username: username,
           password: password,
@@ -24,7 +23,7 @@ module BWAPI
 
         oauth_request opts
       end
-      alias :login :oauth_token
+      alias_method :login, :oauth_token
 
       # Refresh a authenticated users oauth_token
       #
@@ -35,7 +34,7 @@ module BWAPI
       # @option opts [String] refresh_token Users refresh token
       # @option opts [String] client_id Client id
       # @option opts [String] force_urlencoded Force urlencoded
-      def oauth_refresh_token opts={}
+      def oauth_refresh_token(opts = {})
         opts = {
           username: username,
           password: password,
@@ -47,7 +46,7 @@ module BWAPI
 
         oauth_request opts
       end
-      alias :refresh :oauth_refresh_token
+      alias_method :refresh, :oauth_refresh_token
 
       # Determines grant-type used for client
       #
@@ -60,14 +59,13 @@ module BWAPI
       # Sends a oauth request
       #
       # @param opts [Hash] options hash of parameters
-      def oauth_request opts={}
+      def oauth_request(opts = {})
         creds = post 'oauth/token', opts
         self.access_token  = creds.access_token
         self.expires_in    = creds.expires_in
         self.refresh_token = creds.refresh_token if application_client?
         creds
       end
-
     end
   end
 end

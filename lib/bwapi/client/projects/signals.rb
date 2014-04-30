@@ -3,7 +3,6 @@ module BWAPI
     module Projects
       # Signals module for projects/signals endpoints
       module Signals
-
         # Get all signals belonging to user in project
         #
         # @param project_id [Integer] Id of project
@@ -15,7 +14,7 @@ module BWAPI
         # @option opts [String] type Type of signal
         # @option opts [Hash] filter The filter(s) to apply
         # @return [Hashie::Mash] All signals for user in project
-        def signals project_id, opts={}
+        def signals(project_id, opts = {})
           get "projects/#{project_id}/signals", opts
         end
 
@@ -28,10 +27,9 @@ module BWAPI
         # @option opts [String] comment User comment
         # @option opts [Integer] signalId Id of signal
         # @return [Hashie::Mash] Update signal for given user
-        def set_signal_vote project_id, opts={}
+        def set_signal_vote(project_id, opts = {})
           post "projects/#{project_id}/signals/vote", opts
         end
-
       end
     end
   end

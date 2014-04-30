@@ -3,14 +3,13 @@ module BWAPI
     module Projects
       # Tags module for projects/tags endpoints
       module Tags
-
         # Get all tags in project
         #
         # @param project_id [Integer] Id of project
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @return [Hashie::Mash] All tags in project
-        def tags project_id, opts={}
+        def tags(project_id, opts = {})
           get "projects/#{project_id}/tags", opts
         end
 
@@ -19,10 +18,9 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param tag_id [Integer] Id of tag
         # @return [Hashie::Mash] Specific tag
-        def get_tag project_id, tag_id
+        def get_tag(project_id, tag_id)
           get "projects/#{project_id}/tags/#{tag_id}"
         end
-        alias :tag :get_tag
 
         # Create a new tag in project
         #
@@ -31,7 +29,7 @@ module BWAPI
         # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] New tag
-        def create_tag project_id, opts={}
+        def create_tag(project_id, opts = {})
           post "projects/#{project_id}/tags", opts
         end
 
@@ -43,7 +41,7 @@ module BWAPI
         # @option opts [Integer] id Id of the tag
         # @option opts [String] name Name of the tag
         # @return [Hashie::Mash] Updated tag
-        def update_tag project_id, tag_id, opts={}
+        def update_tag(project_id, tag_id, opts = {})
           put "projects/#{project_id}/tags/#{tag_id}", opts
         end
 
@@ -52,10 +50,9 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param tag_id [Integer] Id of tag
         # @return [Hashie::Mash] Deleted tag
-        def delete_tag project_id, tag_id
+        def delete_tag(project_id, tag_id)
           delete "projects/#{project_id}/tags/#{tag_id}"
         end
-
       end
     end
   end

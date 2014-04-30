@@ -4,12 +4,11 @@ module BWAPI
       module Displays
         # Displays module for commandcenter/displays/events endpoints
         module Events
-
           # Get the events for an existing display
           #
           # @param [Integer] display_id The display id
           # @return [Hashie::Mash] All events for display
-          def events display_id
+          def events(display_id)
             get "commandcenter/displays/#{display_id}/events"
           end
 
@@ -18,7 +17,7 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param [Integer] event_id The event id
           # @return [Hashie::Mash] Specific event for display
-          def get_event display_id, event_id
+          def get_event(display_id, event_id)
             get "commandcenter/displays/#{display_id}/events/#{event_id}"
           end
 
@@ -38,7 +37,7 @@ module BWAPI
           # @option opts [Boolean] enabled Whether event is enabled
           # @option opts [Hash] filters Event filter options
           # @return [Hashie::Mash] New display event
-          def create_event display_id, opts={}
+          def create_event(display_id, opts = {})
             post "commandcenter/displays/#{display_id}/events", opts
           end
 
@@ -58,7 +57,7 @@ module BWAPI
           # @option opts [Boolean] enabled Whether event is enabled
           # @option opts [Hash] filters Event filter options
           # @return [Hashie::Mash] Updated display event
-          def update_event display_id, event_id, opts={}
+          def update_event(display_id, event_id, opts = {})
             put "commandcenter/displays/#{display_id}/events/#{event_id}", opts
           end
 
@@ -67,10 +66,9 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param [Integer] event_id The event id
           # @return [Hashie::Mash] Deleted display event
-          def delete_event display_id, event_id
+          def delete_event(display_id, event_id)
             delete "commandcenter/displays/#{display_id}/events/#{event_id}"
           end
-
         end
       end
     end

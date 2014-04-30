@@ -3,7 +3,6 @@ module BWAPI
     module Projects
       # Summary module for projects/summary endpoints
       module Summary
-
         # Summary of projects
         #
         # @param opts [Hash] options hash of parameters
@@ -11,11 +10,9 @@ module BWAPI
         # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] :filter Filter to apply to the query
         # @return [Hashie::Mash] Project summary information
-        def projects_summary opts={}
-          get "projects/summary", opts
+        def projects_summary(opts = {})
+          get 'projects/summary', opts
         end
-        alias :summary :projects_summary
-
       end
     end
   end

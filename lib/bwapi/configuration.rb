@@ -4,7 +4,6 @@ require 'faraday'
 module BWAPI
   # Configuration module to set default and custom client credentials
   module Configuration
-
     OPTION_KEYS = [
       :api_endpoint,
       :user_agent,
@@ -29,9 +28,9 @@ module BWAPI
     DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
     DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
     DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')
-    DEFAULT_LOGGER_FILE   = Logger.new("#{Dir::pwd}/bwapi.log")
+    DEFAULT_LOGGER_FILE   = Logger.new("#{Dir.pwd}/bwapi.log")
 
-    attr_accessor *OPTION_KEYS
+    attr_accessor(*OPTION_KEYS)
 
     # Extend hook
     def self.extended(base)
@@ -45,7 +44,7 @@ module BWAPI
 
     # Convert option_keys to hash and return
     def options
-      OPTION_KEYS.inject({}){|o,k|o.merge!(k => send(k))}
+      OPTION_KEYS.reduce({}) { |a, e| a.merge!(e => send(e)) }
     end
 
     # Reset the configuration options
@@ -66,6 +65,5 @@ module BWAPI
       self.debug               = false
       self.log                 = DEFAULT_LOGGER_FILE
     end
-
   end
 end

@@ -4,7 +4,6 @@ module BWAPI
       module Data
         # Mentions module for projects/data/mentions endpoints
         module Mentions
-
           # Get mentions that fall within the submitted filters
           #
           # @param project_id [Integer] Id of project
@@ -16,7 +15,7 @@ module BWAPI
           # @option opts [String] orderDirection Direction of sort
           # @option opts [Integer] orderByCategory Category to sort by when orderBy category
           # @return [Hashie::Mash] All Mentions
-          def data_mentions project_id, opts={}
+          def data_mentions(project_id, opts = {})
             get "projects/#{project_id}/data/mentions", opts
           end
 
@@ -26,7 +25,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Hash] List The patches to be applied
           # @return [Hashie::Mash] Updated mentions
-          def update_data_mentions project_id, opts={}
+          def update_data_mentions(project_id, opts = {})
             patch "projects/#{project_id}/data/mentions", opts
           end
 
@@ -41,7 +40,7 @@ module BWAPI
           # @option opts [String] orderDirection Direction of sort
           # @option opts [Integer] orderByCategory Category to sort by when orderBy category
           # @return [Hashie::Mash] All Mentions
-          def data_mentions_fulltext project_id, opts={}
+          def data_mentions_fulltext(project_id, opts = {})
             get "projects/#{project_id}/data/mentions/fulltext", opts
           end
 
@@ -56,10 +55,9 @@ module BWAPI
           # @option opts [String] orderDirection Direction of sort
           # @option opts [Integer] orderByCategory Category to sort by when orderBy category
           # @return [Hashie::Mash] All Mentions
-          def data_mentions_tweets project_id, opts={}
+          def data_mentions_tweets(project_id, opts = {})
             get "projects/#{project_id}/data/mentions/tweets", opts
           end
-
         end
       end
     end

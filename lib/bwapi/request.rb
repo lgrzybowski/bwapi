@@ -3,13 +3,12 @@ require 'multi_json'
 module BWAPI
   # Request module to handle all requests to API
   module Request
-
     # Perform a get request
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response body
-    def get path, opts={}
+    def get(path, opts = {})
       request(:get, path, opts).body
     end
 
@@ -18,7 +17,7 @@ module BWAPI
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response body
-    def delete path, opts={}
+    def delete(path, opts = {})
       request(:delete, path, opts).body
     end
 
@@ -27,7 +26,7 @@ module BWAPI
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response body
-    def post path, opts={}
+    def post(path, opts = {})
       request(:post, path, opts).body
     end
 
@@ -36,7 +35,7 @@ module BWAPI
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response body
-    def put path, opts={}
+    def put(path, opts = {})
       request(:put, path, opts).body
     end
 
@@ -45,25 +44,21 @@ module BWAPI
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response body
-    def patch path, opts={}
+    def patch(path, opts = {})
       request(:patch, path, opts).body
     end
 
     private
 
     # Sets connection options
-    #
-    # @param opts [Hash] hash of opts passed
-    # @return [Hash] connection options
-    def connection_options opts
+    def connection_options
       {
-        :headers => {
-          :authorization => access_token ? "bearer #{access_token}" : "",
-          :user_agent => user_agent
+        headers: {
+          authorization: access_token ? "bearer #{access_token}" : '',
+          user_agent: user_agent
         },
-        :force_urlencoded => opts.delete(:force_urlencoded) || false,
-        :url => api_endpoint,
-        :ssl => {:verify => verify_ssl}
+        url: api_endpoint,
+        ssl: { verify: verify_ssl }
       }
     end
 
@@ -73,16 +68,16 @@ module BWAPI
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
-    def request method, path, opts={}
-      conn_options = connection_options opts
-      response = connection(conn_options).send(method) do |request|
+    def request(method, path, opts = {})
+      response = connection(connection_options).send(method) do |request|
         case method
         when :get
           request.url path, opts
         when :delete
           request.url path, opts
         when :patch, :post, :put
-          if conn_options[:force_urlencoded]
+          if opts.key? :force_urlencoded
+            opts.delete(:force_urlencoded)
             request.url path, opts
           else
             request.path = path
@@ -92,12 +87,12 @@ module BWAPI
       end
 
       if debug
-        log.info 'Connection options: %s' % conn_options
-        log.info 'Sending request type: %s' % method
-        log.info 'Request path: /%s' % path
-        log.info 'Request url: %s' % api_endpoint + '/' + path
-        log.info 'Request parameters: %s' % opts.to_json unless opts.nil?
-        log.info 'Response body: %s' % response.env[:body].to_json  unless response.env[:body].nil?
+        log.info "Connection options: #{conn_options}"
+        log.info "Sending request type: #{method}"
+        log.info "Request path: #{path}"
+        log.info "Request url: #{api_endpoint} / #{path}"
+        log.info "Request parameters: #{opts.to_json}" unless opts.nil?
+        log.info "Response body: #{response.env[:body].to_json}" unless response.env[:body].nil?
       end
 
       response
