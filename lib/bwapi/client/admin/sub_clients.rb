@@ -1,10 +1,11 @@
+# encoding: utf-8
+
 module BWAPI
   class Client
     module Admin
       module Clients
         # Subclients module for admin/subclient endpoints
         module SubClients
-
           # Get all sub clients
           #
           # @param client_id [Integer] Id of the client
@@ -12,20 +13,18 @@ module BWAPI
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All sub clients for client
-          def client_sub_clients client_id, opts={}
+          def client_sub_clients(client_id, opts = {})
             get "admin/clients/#{client_id}/subclients", opts
           end
-          alias :sub_clients :client_sub_clients
 
           # Get specific sub client of client
           #
           # @param client_id [Integer] Id of the client
           # @param sub_client_id [Integer] Id of the sub client
           # @return [Hashie::Mash] Specific sub client for client
-          def get_client_sub_client client_id, sub_client_id
+          def get_client_sub_client(client_id, sub_client_id)
             get "admin/clients/#{client_id}/subclients/#{sub_client_id}"
           end
-          alias :sub_client :get_client_sub_client
 
           # Create new subclient
           #
@@ -58,10 +57,9 @@ module BWAPI
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
           # @return [Hashie::Mash] New sub client
-          def create_client_sub_client client_id, opts={}
+          def create_client_sub_client(client_id, opts = {})
             post "admin/clients/#{client_id}/subclients", opts
           end
-          alias :create_sub_client :create_client_sub_client
 
           # Update new subclient
           #
@@ -95,21 +93,18 @@ module BWAPI
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
           # @return [Hashie::Mash] Edited sub client
-          def update_client_sub_client client_id, sub_client_id, opts={}
+          def update_client_sub_client(client_id, sub_client_id, opts = {})
             put "admin/clients/#{client_id}/subclients/#{sub_client_id}", opts
           end
-          alias :update_sub_client :update_client_sub_client
 
           # Delete specific sub client of client
           #
           # @param client_id [Integer] Id of the client
           # @param sub_client_id [Integer] Id of the sub client
           # @return [Hashie::Mash] Specific sub client for client
-          def delete_client_sub_client client_id, sub_client_id
+          def delete_client_sub_client(client_id, sub_client_id)
             delete "admin/clients/#{client_id}/subclients/#{sub_client_id}"
           end
-          alias :delete_sub_client :delete_client_sub_client
-
         end
       end
     end

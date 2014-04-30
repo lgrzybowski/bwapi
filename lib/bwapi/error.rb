@@ -1,68 +1,75 @@
-module BWAPI
+# encoding: utf-8
 
+module BWAPI
   # BW error class to capture BWAPI error responses
   class BWError < StandardError
-    def initialize response = nil
-      errors_object = determine_errors(response)
-      super() if errors_object.nil?
-      super(generate_error_messages(errors_object))
+    def initialize(response = nil)
+      @errors = []
+      valid_response?(response)
+      @errors.empty? ? super() : super(@errors.join(', '))
     end
 
-    # Determines from response and returns error(s)
-    def determine_errors response
+    # Check if response is valid
+    #
+    # @param object [Object] response object to check for errors
+    def valid_response?(response)
       return nil if response.nil?
-      return nil unless response.is_a?(Hash) && response.has_key?(:body)
-      return nil unless response[:body].is_a?(Hash)
+      return nil unless response.body.is_a?(Object) && response.respond_to?(:body)
+      return nil unless response.body.is_a?(Hashie::Mash)
+      body = errors_keys?(response.body)
+      parse_errors(body) unless body.nil?
+    end
 
-      # Determine if response body has known error keys and return
-      if response[:body].has_key?('error') && response[:body].has_key?('error_description')
-        return response[:body]
-      elsif response[:body].has_key?('errors')
-        return response[:body]['errors']
+    # Check if response has known errors keys
+    #
+    # @param object [Object] response object to process for errors
+    def errors_keys?(body)
+      if body.error? && body.error_description?
+        body
+      elsif body.errors?
+        body.errors
       else
-        return nil
+        nil
       end
     end
 
-    # Generates error messsages based on error object passed
+    # Parses errors based on error body passed
     #
-    # @param errors_object [Hash] errors
-    def generate_error_messages errors_object
-      @error_messages = []
-      verify_object_class errors_object
-      return @error_messages.join(', ')
+    # @param body [Hash] errors
+    def parse_errors(body)
+      verify_type body
     end
 
-    # Verifies objects class
+    # Verifies type
     #
-    # @param object [Object] object to determine
-    def verify_object_class object
-      case object
+    # @param object [Object] type to determine
+    def verify_type(type)
+      case type
       when Array
-        split_array_errors(object)
+        split_array_errors type
       when Hash, Hashie::Mash
-        split_hash_errors(object)
+        split_hash_errors type
       when String
-        @error_messages << object
+        @errors << type
       end
     end
 
     # Iterates through errors in array
     #
     # @param array [Array] array to iterate
-    def split_array_errors array
-      array.each_with_index do |e, i|
-        verify_object_class array[i]
+    def split_array_errors(array)
+      array.each_with_index do |_e, i|
+        verify_type array[i]
       end
     end
 
     # Iterates through errors in hash
     #
     # @param hash [Hash] hash to iterate
-    def split_hash_errors hash
+    def split_hash_errors(hash)
       message = []
-      hash.each {|k,v| message << "%s: %s" % [k, v]}
-      @error_messages << message.flatten.join(' with ')
+      hash.each { |k, v| message << "#{k}: #{v}" }
+      @errors << message.flatten.join(' with ')
     end
   end
 

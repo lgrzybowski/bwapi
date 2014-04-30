@@ -1,7 +1,8 @@
+# encoding: utf-8
+
 require 'helper'
 
 describe BWAPI::Client do
-
   before do
     BWAPI.reset
   end
@@ -74,7 +75,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a default_adapter value' do
-          bw = BWAPI::Client.new :adapter => 'custom_adapter'
+          bw = BWAPI::Client.new adapter: 'custom_adapter'
           expect(bw.adapter).to eql('custom_adapter')
         end
       end
@@ -85,29 +86,29 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a user_agent value' do
-          bw = BWAPI::Client.new :user_agent => 'custom_user_agent'
+          bw = BWAPI::Client.new user_agent: 'custom_user_agent'
           expect(bw.user_agent).to eql('custom_user_agent')
         end
       end
 
       describe 'api_endpoint' do
         it 'should have a default api_endpoint value' do
-          expect(BWAPI::Client.new.api_endpoint).to eql("https://newapi.brandwatch.com/")
+          expect(BWAPI::Client.new.api_endpoint).to eql('https://newapi.brandwatch.com/')
         end
 
         it 'should allow a user to set a api_endpoint value' do
-          bw = BWAPI::Client.new :api_endpoint => 'http://newapi.custom.brandwatch.com'
+          bw = BWAPI::Client.new api_endpoint: 'http://newapi.custom.brandwatch.com'
           expect(bw.api_endpoint).to eql('http://newapi.custom.brandwatch.com')
         end
       end
 
       describe 'client_id' do
         it 'should have a default client_id value' do
-          expect(BWAPI::Client.new.client_id).to eql("brandwatch-api-client")
+          expect(BWAPI::Client.new.client_id).to eql('brandwatch-api-client')
         end
 
         it 'should allow a user to set a client_id value' do
-          bw = BWAPI::Client.new :client_id => 'custom_client_id'
+          bw = BWAPI::Client.new client_id: 'custom_client_id'
           expect(bw.client_id).to eql('custom_client_id')
         end
       end
@@ -118,7 +119,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set true for the netrc value' do
-          bw = BWAPI::Client.new :netrc => true, :netrc_file => File.join(fixture_path, '.netrc')
+          bw = BWAPI::Client.new netrc: true, netrc_file: File.join(fixture_path, '.netrc')
           expect(bw.netrc).to eql(true)
         end
       end
@@ -129,7 +130,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a netrc_file value' do
-          bw = BWAPI::Client.new :netrc_file => 'example/.netrc'
+          bw = BWAPI::Client.new netrc_file: 'example/.netrc'
           expect(bw.netrc_file).to eql('example/.netrc')
         end
       end
@@ -140,7 +141,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a username value' do
-          bw = BWAPI::Client.new :username => 'jonathan@brandwatch.com'
+          bw = BWAPI::Client.new username: 'jonathan@brandwatch.com'
           expect(bw.username).to eql('jonathan@brandwatch.com')
         end
       end
@@ -151,7 +152,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a password value' do
-          bw = BWAPI::Client.new :password => 'pa55w0rd'
+          bw = BWAPI::Client.new password: 'pa55w0rd'
           expect(bw.password).to eql('pa55w0rd')
         end
       end
@@ -162,7 +163,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a grant_type value' do
-          bw = BWAPI::Client.new :grant_type => 'custom_grant_type'
+          bw = BWAPI::Client.new grant_type: 'custom_grant_type'
           expect(bw.grant_type).to eql('custom_grant_type')
         end
       end
@@ -173,7 +174,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a access_token value' do
-          bw = BWAPI::Client.new :access_token => 'abcdef-ghijkl-123456-789012'
+          bw = BWAPI::Client.new access_token: 'abcdef-ghijkl-123456-789012'
           expect(bw.access_token).to eql('abcdef-ghijkl-123456-789012')
         end
       end
@@ -184,7 +185,7 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a refresh_token value' do
-          bw = BWAPI::Client.new :refresh_token => 'abcdef-ghijkl-123456-789012'
+          bw = BWAPI::Client.new refresh_token: 'abcdef-ghijkl-123456-789012'
           expect(bw.refresh_token).to eql('abcdef-ghijkl-123456-789012')
         end
       end
@@ -195,11 +196,10 @@ describe BWAPI::Client do
         end
 
         it 'should allow a user to set a client_secret value' do
-          bw = BWAPI::Client.new :client_secret => 'custom_client_secret'
+          bw = BWAPI::Client.new client_secret: 'custom_client_secret'
           expect(bw.client_secret).to eql('custom_client_secret')
         end
       end
     end
-
   end
 end

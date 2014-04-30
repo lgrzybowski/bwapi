@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require 'bwapi/authentication'
 require 'bwapi/connection'
 require 'bwapi/request'
@@ -24,10 +26,9 @@ require 'bwapi/client/user'
 module BWAPI
   # Client class to create BWAPI instances
   class Client
+    attr_accessor(*Configuration::OPTION_KEYS)
 
-    attr_accessor *Configuration::OPTION_KEYS
-
-    def initialize opts={}
+    def initialize(opts = {})
       opts = BWAPI.options.merge opts
       Configuration::OPTION_KEYS.each do |k|
         send "#{k}=", opts[k]

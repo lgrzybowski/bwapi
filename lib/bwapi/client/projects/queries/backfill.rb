@@ -1,10 +1,10 @@
+# encoding: utf-8
 module BWAPI
   class Client
     module Projects
       module Queries
         # Backfill module for projects/queries/backfill endpoints
         module Backfill
-
           # Get all backfills for query
           #
           # @param project_id [Integer] Id of project
@@ -13,7 +13,7 @@ module BWAPI
           # @option opts [Integer] page Page of results to retrieve
           # @option opts [Integer] pageSize Results per page
           # @return [Hashie::Mash] All backfills for query
-          def backfills project_id, query_id, opts={}
+          def backfills(project_id, query_id, opts = {})
             get "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
 
@@ -23,10 +23,9 @@ module BWAPI
           # @param query_id [Integer] Id of query
           # @param backfill_id [Integer] Id of backfill
           # @return [Hashie::Mash] Backfill for query
-          def get_backfill project_id, query_id, backfill_id
+          def get_backfill(project_id, query_id, backfill_id)
             get "projects/#{project_id}/queries/#{query_id}/backfill/#{backfill_id}"
           end
-          alias :backfill :get_backfill
 
           # Create new backfill for query
           #
@@ -43,7 +42,7 @@ module BWAPI
           # @option opts [Integer] queryId Query id of backfill
           # @option opts [String] statusMessages Current status message of backfill
           # @return [Hashie::Mash] New backfill for query
-          def create_backfill project_id, query_id, opts={}
+          def create_backfill(project_id, query_id, opts = {})
             post "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
 
@@ -53,10 +52,9 @@ module BWAPI
           # @param query_id [Integer] Id of query
           # @param backfill_id [Integer] Id of backfill
           # @return [Hashie::Mash] Deleted backfill for query
-          def delete_backfill project_id, query_id, backfill_id
+          def delete_backfill(project_id, query_id, backfill_id)
             delete "projects/#{project_id}/queries/#{query_id}/backfill/#{backfill_id}"
           end
-
         end
       end
     end

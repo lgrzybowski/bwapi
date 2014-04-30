@@ -1,3 +1,4 @@
+# encoding: utf-8
 module BWAPI
   class Client
     module Projects
@@ -8,7 +9,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @return [Hashie::Mash] Summary of all location groups in project
-          def location_groups_summary project_id, opts={}
+          def location_groups_summary(project_id, opts = {})
             get "projects/#{project_id}/group/location/summary", opts
           end
 
@@ -17,10 +18,9 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param location_group_id [Integer] Id of location group
           # @return [Hashie::Mash] Specific location group
-          def get_location_group project_id, location_group_id
+          def get_location_group(project_id, location_group_id)
             get "projects/#{project_id}/group/location/#{location_group_id}"
           end
-          alias :location_group :get_location_group
 
           # Create a new location group in project
           #
@@ -32,7 +32,7 @@ module BWAPI
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] location The location in the group
           # @return [Hashie::Mash] New location group
-          def create_location_group project_id, opts={}
+          def create_location_group(project_id, opts = {})
             post "projects/#{project_id}/group/location", opts
           end
 
@@ -48,7 +48,7 @@ module BWAPI
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] location The location in the group
           # @return [Hashie::Mash] Updated location group
-          def update_location_group project_id, location_group_id, opts={}
+          def update_location_group(project_id, location_group_id, opts = {})
             put "projects/#{project_id}/group/location/#{location_group_id}", opts
           end
 
@@ -57,7 +57,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param location_group_id [Integer] Id of location group
           # @return [Hashie::Mash] Deleted location group
-          def delete_location_group project_id, location_group_id
+          def delete_location_group(project_id, location_group_id)
             delete "projects/#{project_id}/group/location/#{location_group_id}"
           end
         end
