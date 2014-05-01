@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colored', '~> 1.2'
   s.add_runtime_dependency 'faraday', '~> 0.9.0', '>= 0.9.0'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0', '>= 0.9.0'
-  s.add_runtime_dependency 'hashie', '~> 2.0.5', '>= 2.0.5'
+  s.add_runtime_dependency 'hashie', '~> 2.1.1', '>= 2.1.1'
   s.add_runtime_dependency 'multi_json', '~> 1.9.0', '>= 1.9.0'
   s.add_runtime_dependency 'netrc', '~> 0.7.7', '>= 0.7.7'
 
