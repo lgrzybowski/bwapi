@@ -4,7 +4,7 @@ module BWAPI
   class Client
     module Projects
       module Categories
-        # Mentions module for projects/bulkactions/mentions endpoints
+        # Mentions module for projects/categories/copy endpoints
         module Copy
           # Copy and existing category to another project
           #
