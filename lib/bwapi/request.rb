@@ -76,7 +76,7 @@ module BWAPI
         when :delete
           request.url path, opts
         when :patch, :post, :put
-          if opts.key? :force_urlencoded
+          if opts.is_a?(Hash) && opts.key?(:force_urlencoded)
             opts.delete(:force_urlencoded)
             request.url path, opts
           else
