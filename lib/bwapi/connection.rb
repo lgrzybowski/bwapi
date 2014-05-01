@@ -11,10 +11,14 @@ module BWAPI
     # Create a connection to send request
     def connection(opts = {})
       connection = Faraday.new(opts) do |c|
-        c.use FaradayMiddleware::FollowRedirects
+        c.request :json
+
         c.use BrandwatchError
-        c.use FaradayMiddleware::Mashify
-        c.use FaradayMiddleware::ParseJson, content_type: /\bjson$/
+
+        c.response :mashify
+        c.response :follow_redirects
+        c.response :json, content_type: /\bjson$/
+
         c.adapter adapter
       end
       connection.headers[:user_agent] = user_agent

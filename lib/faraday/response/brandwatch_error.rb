@@ -1,7 +1,6 @@
 # encoding: utf-8
 
 require 'faraday'
-require 'multi_json'
 
 # Brandwatch response middleware to handle errors
 class BrandwatchError < Faraday::Response::Middleware
