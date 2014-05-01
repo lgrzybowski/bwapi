@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = 'bwapi'
   s.version     = BWAPI::VERSION
   s.version     = BWAPI::VERSION + ".pre.#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
-  s.date        = '2014-04-30'
+  s.date        = '2014-05-01'
   s.summary     = 'Brandwatch API Wrapper'
   s.description = 'A Ruby wrapper for the Brandwatch API'
   s.author      = 'Jonathan Chrisp'
@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colored', '~> 1.2'
   s.add_runtime_dependency 'faraday', '~> 0.9.0', '>= 0.9.0'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0', '>= 0.9.0'
-  s.add_runtime_dependency 'hashie', '~> 2.0.5', '>= 2.0.5'
+  s.add_runtime_dependency 'hashie', '~> 2.1.1', '>= 2.1.1'
   s.add_runtime_dependency 'multi_json', '~> 1.9.0', '>= 1.9.0'
   s.add_runtime_dependency 'netrc', '~> 0.7.7', '>= 0.7.7'
 
