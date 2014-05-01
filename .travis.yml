@@ -7,6 +7,11 @@ rvm:
 - 1.9.3
 - 1.9.2
 
+matrix:
+  allow_failures:
+    - rvm: ruby-head
+    - rvm: 2.1.0
+
 before_script:
   - chmod 600 spec/fixtures/.netrc
 
