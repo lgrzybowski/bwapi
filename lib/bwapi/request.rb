@@ -89,7 +89,7 @@ module BWAPI
       end
 
       if debug
-        log.info "Connection options: #{conn_options}"
+        log.info "Connection options: #{connection_options}"
         log.info "Sending request type: #{method}"
         log.info "Request path: #{path}"
         log.info "Request url: #{api_endpoint} / #{path}"
