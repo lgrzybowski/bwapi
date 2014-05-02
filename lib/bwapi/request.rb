@@ -57,7 +57,7 @@ module BWAPI
       {
         headers: {
           authorization: access_token ? "bearer #{access_token}" : '',
-          user_agent: user_agent,
+          user_agent: user_agent
         },
         request: {
           params_encoder: Faraday::FlatParamsEncoder
