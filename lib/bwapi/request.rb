@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'faraday'
+
 module BWAPI
   # Request module to handle all requests to API
   module Request
@@ -57,6 +59,9 @@ module BWAPI
           authorization: access_token ? "bearer #{access_token}" : '',
           user_agent: user_agent
         },
+        request: {
+          params_encoder: Faraday::FlatParamsEncoder
+        },
         url: api_endpoint,
         ssl: { verify: verify_ssl }
       }
@@ -69,19 +74,19 @@ module BWAPI
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
     def request(method, path, opts = {})
-      response = connection(connection_options).send(method) do |request|
+      response = connection(connection_options).send(method) do |r|
         case method
         when :get
-          request.url path, opts
+          r.url path, opts
         when :delete
-          request.url path, opts
+          r.url path, opts
         when :patch, :post, :put
-          if opts.key? :force_urlencoded
+          if opts.is_a?(Hash) && opts.key?(:force_urlencoded)
             opts.delete(:force_urlencoded)
-            request.url path, opts
+            r.url path, opts
           else
-            request.path = path
-            request.body = opts
+            r.path = path
+            r.body = opts
           end
         end
       end
