@@ -1,4 +1,7 @@
 # encoding: utf-8
+
+require 'bwapi/client/projects/categories/copy'
+
 module BWAPI
   class Client
     module Projects
@@ -50,6 +53,8 @@ module BWAPI
         def delete_category(project_id, category_id)
           delete "projects/#{project_id}/categories/#{category_id}"
         end
+
+        include BWAPI::Client::Projects::Categories::Copy
       end
     end
   end
