@@ -29,12 +29,13 @@ module BWAPI
     attr_accessor(*Configuration::OPTION_KEYS)
 
     def initialize(opts = {})
-      opts = BWAPI.options.merge opts
-      Configuration::OPTION_KEYS.each do |k|
-        send "#{k}=", opts[k]
-      end
-
+      opts = BWAPI.options.merge(opts)
+      Configuration::OPTION_KEYS.each { |k| send("#{k}=", opts[k]) }
       netrc_credentials opts[:netrc]
+    end
+
+    def destroy
+      Configuration::OPTION_KEYS.each { |k| send("#{k}=", nil) }
     end
 
     include BWAPI::Authentication
