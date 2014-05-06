@@ -7,7 +7,7 @@ module BWAPI
       # Request the information for a given location code
       #
       # @return [Hashie::Mash] Information about the location
-      def locations(location_code)
+      def location(location_code)
         get "locations/#{location_code}"
       end
 
@@ -19,7 +19,7 @@ module BWAPI
       # @option opts [Integer] pageSize of the results to retrieve
       # @return [Hashie::Mash] The list of matching locations
       def locations(opts = {})
-        post 'locations', opts
+        get 'locations', opts
       end
     end
   end
