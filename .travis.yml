@@ -25,5 +25,4 @@ deploy:
   gem: bwapi
   on:
     branch: master
-    branch: staging
     repo: jonathanchrisp/bwapi
