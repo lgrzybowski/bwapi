@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'bwapi/client/projects/data/mentions/notes'
 
 module BWAPI
   class Client
@@ -60,6 +61,8 @@ module BWAPI
           def data_mentions_tweets(project_id, opts = {})
             get "projects/#{project_id}/data/mentions/tweets", opts
           end
+
+          include BWAPI::Client::Projects::Data::Mentions::Notes
         end
       end
     end
