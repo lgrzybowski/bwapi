@@ -30,6 +30,7 @@ module BWAPI
 
         # Update users existing notification
         #
+        # @param notification_id [Integer] Id of notification
         # @param opts [Hash] options hash of parameters
         # @option opts [Boolean] hidden if the notification is hidden from users
         # @option opts [Boolean] read if the notification has been read
@@ -38,7 +39,7 @@ module BWAPI
         # @option opts [String] type the type of notification
         # @return [Hashie::Mash] User notification
         def update_notification(notification_id, opts = {})
-          put 'user/notifications/#{notification_id}', opts
+          put "user/notifications/#{notification_id}", opts
         end
 
         # Patch a users existing notification
@@ -48,7 +49,7 @@ module BWAPI
         # @option opts [Boolean] read if the notification has been read
         # @return [Hashie::Mash] Deleted user notifications
         def patch_notification(notification_id, opts = {})
-          patch "user/notifications/#{notification_id}"
+          patch "user/notifications/#{notification_id}", opts
         end
       end
     end
