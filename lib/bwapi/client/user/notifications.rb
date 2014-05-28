@@ -13,7 +13,7 @@ module BWAPI
         # @option opts [String] body the body text of the notification
         # @option opts [String] subject the subject text of the notification
         # @option opts [String] type the type of notification
-        # @return [Hashie::Mash] User notification
+        # @return [Hashie::Mash] new user notification
         def create_notification(opts = {})
           post 'user/notifications', opts
         end
@@ -23,7 +23,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
-        # @return [Hashie::Mash] User notifications
+        # @return [Hashie::Mash] user notifications
         def notifications(opts = {})
           get 'user/notifications', opts
         end
@@ -37,7 +37,7 @@ module BWAPI
         # @option opts [String] body the body text of the notification
         # @option opts [String] subject the subject text of the notification
         # @option opts [String] type the type of notification
-        # @return [Hashie::Mash] User notification
+        # @return [Hashie::Mash] edited user notification
         def update_notification(notification_id, opts = {})
           put "user/notifications/#{notification_id}", opts
         end
@@ -47,7 +47,7 @@ module BWAPI
         # @param notification_id [Integer] Id of notification
         # @param opts [Hash] options Hash of parameters
         # @option opts [Boolean] read if the notification has been read
-        # @return [Hashie::Mash] Deleted user notifications
+        # @return [Hashie::Mash] patched user notifications
         def patch_notification(notification_id, opts = {})
           patch "user/notifications/#{notification_id}", opts
         end
