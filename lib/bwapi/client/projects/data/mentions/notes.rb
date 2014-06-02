@@ -27,7 +27,7 @@ module BWAPI
             # @param note_id [Integer] Id of the note
             # @return [Hashie::Mash] the selected note
             def mention_note(project_id, resource_id, note_id)
-              get "projects/#{project_id}/data/mentions/#{resource_id}/notes/#{note_id}", opts
+              get "projects/#{project_id}/data/mentions/#{resource_id}/notes/#{note_id}"
             end
 
             # Put an existing note for a mention
