@@ -15,7 +15,7 @@ module BWAPI
           # @option opts [Integer] pageSize Results per page of results
           # @return [Hashie::Mash] All signal groups for project
           def signal_groups(project_id, opts = {})
-            get "/projects/#{projectId}/signals/groups", opts
+            get "/projects/#{project_id}/signals/groups", opts
           end
         end
       end
