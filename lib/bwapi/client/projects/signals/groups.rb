@@ -1,13 +1,12 @@
 # encoding: utf-8
-require 'bwapi/client/projects/signals/group'
+require 'bwapi/client/projects/signals/groups'
 
 module BWAPI
   class Client
     module Projects
-      # Signals module for projects/signals endpoints
       module Signals
-        # Backfill module for projects/rules/backfill endpoint
-        module Backfill
+        # Groups module for projects/signals/groups endpoint
+        module Groups
           # Get all signals belonging to user in project
           #
           # @param project_id [Integer] Id of project
