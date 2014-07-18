@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'bwapi/client/projects/signals/group'
 
 module BWAPI
   class Client
@@ -19,6 +20,8 @@ module BWAPI
         def signals(project_id, opts = {})
           get "projects/#{project_id}/signals", opts
         end
+
+        include BWAPI::Client::Projects::Signals::Group
       end
     end
   end
