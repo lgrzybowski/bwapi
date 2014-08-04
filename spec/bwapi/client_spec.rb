@@ -7,7 +7,7 @@ describe BWAPI::Client do
 
   describe 'when called' do
     it 'should be a client class instance' do
-      BWAPI::Client.new.should be_an_instance_of BWAPI::Client
+      expect(BWAPI::Client.new).to be_an_instance_of BWAPI::Client
     end
   end
 
@@ -151,7 +151,7 @@ describe BWAPI::Client do
       describe 'password' do
         it 'should allow a user to set a password value' do
           bw = BWAPI::Client.new password: 'pa55w0rd'
-          bw.instance_eval { @password }.should eql('pa55w0rd')
+          expect(bw.instance_eval { @password }).to eql('pa55w0rd')
         end
       end
 
@@ -191,7 +191,7 @@ describe BWAPI::Client do
       describe 'client_secret' do
         it 'should allow a user to set a client_secret value' do
           bw = BWAPI::Client.new client_secret: 'custom_client_secret'
-          bw.instance_eval { @client_secret }.should eql('custom_client_secret')
+          expect(bw.instance_eval { @client_secret }).to eql('custom_client_secret')
         end
       end
 
