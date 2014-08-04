@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   class Client
     # Me module for me endpoint and helper methods
@@ -14,21 +12,14 @@ module BWAPI
       # Get users client name
       #
       # @return [String] Users client name
-      def client_name
+      def user_client_name
         me.client.name
       end
 
       # Get users client id
       #
       # @return [String] Users client id
-      def client_id
-        me.client.id
-      end
-
-      # Get users client id
-      #
-      # @return [String] Users client id
-      def client_id
+      def user_client_name
         me.client.id
       end
 

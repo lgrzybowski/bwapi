@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'bwapi/client/user/notifications'
 
 module BWAPI

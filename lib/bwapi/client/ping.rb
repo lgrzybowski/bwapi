@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   class Client
     # Ping module for ping endpoints

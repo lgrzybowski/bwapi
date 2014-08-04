@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'bwapi/client/projects/rules/backfill'
 require 'bwapi/client/projects/rules/copy'
 

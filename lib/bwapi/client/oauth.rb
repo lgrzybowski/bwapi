@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   class Client
     # OAuth module for oauth/token endpoint
@@ -64,7 +62,6 @@ module BWAPI
       def oauth_request(opts = {})
         creds = post 'oauth/token', opts
         self.access_token  = creds.access_token
-        self.expires_in    = creds.expires_in
         self.refresh_token = creds.refresh_token if application_client?
         creds
       end
