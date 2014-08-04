@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'bwapi/client/projects/bulkactions/mentions'
 require 'bwapi/client/projects/bulkactions/author'
 

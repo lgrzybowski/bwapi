@@ -1,42 +1,32 @@
-# encoding: utf-8
-
-require 'logger'
-require 'faraday'
-
 module BWAPI
   # Configuration module to set default and custom client credentials
   module Configuration
-    OPTION_KEYS = [
-      :api_endpoint,
-      :user_agent,
-      :adapter,
-      :username,
-      :password,
-      :grant_type,
-      :access_token,
-      :refresh_token,
-      :expires_in,
-      :client_id,
-      :client_secret,
-      :verify_ssl,
-      :netrc,
-      :netrc_file,
-      :debug,
-      :log
-    ].freeze
+    attr_accessor :access_token, :adapter, :api_endpoint, :client_id, :debug, :grant_type,
+                  :logger, :performance, :refresh_token, :user_agent, :username, :verify_ssl
 
-    DEFAULT_ADAPTER       = Faraday.default_adapter
-    DEFAULT_API_ENDPOINT  = ENV['BWAPI_API_ENDPOINT'] || 'https://newapi.brandwatch.com/'
-    DEFAULT_CLIENT_ID     = 'brandwatch-api-client'
-    DEFAULT_USER_AGENT    = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
-    DEFAULT_NETRC_FILE    = File.join(ENV['HOME'], '.netrc')
-    DEFAULT_LOGGER_FILE   = Logger.new("#{Dir.pwd}/bwapi.log")
+    attr_writer :client_secret, :password
 
-    attr_accessor(*OPTION_KEYS)
-
-    # Extend hook
-    def self.extended(base)
-      base.reset
+    class << self
+      # Configuration keys
+      def keys
+        @keys ||= [
+          :access_token,
+          :adapter,
+          :api_endpoint,
+          :client_id,
+          :client_secret,
+          :connection_options,
+          :debug,
+          :grant_type,
+          :logger,
+          :password,
+          :performance,
+          :refresh_token,
+          :user_agent,
+          :username,
+          :verify_ssl
+        ]
+      end
     end
 
     # Set configuration options using a block
@@ -44,28 +34,22 @@ module BWAPI
       yield self
     end
 
-    # Convert option_keys to hash and return
-    def options
-      OPTION_KEYS.reduce({}) { |a, e| a.merge!(e => send(e)) }
+    def reset
+      BWAPI::Configuration.keys.each { |key| instance_variable_set(:"@#{key}", BWAPI::Default.options[key]) }
+      self
     end
 
-    # Reset the configuration options
-    def reset
-      self.adapter             = DEFAULT_ADAPTER
-      self.user_agent          = DEFAULT_USER_AGENT
-      self.api_endpoint        = DEFAULT_API_ENDPOINT
-      self.username            = nil
-      self.password            = nil
-      self.grant_type          = nil
-      self.access_token        = nil
-      self.refresh_token       = nil
-      self.client_id           = DEFAULT_CLIENT_ID
-      self.client_secret       = nil
-      self.verify_ssl          = true
-      self.netrc               = false
-      self.netrc_file          = DEFAULT_NETRC_FILE
-      self.debug               = false
-      self.log                 = DEFAULT_LOGGER_FILE
+    def destroy
+      BWAPI::Configuration.keys.each { |key| instance_variable_set(:"@#{key}", nil) }
+      self
+    end
+
+    private
+
+    attr_reader :client_secret, :password
+
+    def options
+      Hash[BWAPI::Configuration.keys.map { |key| [key, instance_variable_get(:"@#{key}")] }]
     end
   end
 end
