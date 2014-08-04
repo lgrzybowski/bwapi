@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   # BW error class to capture BWAPI error responses
   class BWError < StandardError
@@ -91,7 +89,7 @@ module BWAPI
   # Raised when Brandwatch returns a 422 HTTP status code
   class UnprocessableEntity < BWError; end
 
-   # Raised when Brandwatch returns a 429 HTTP status code
+  # Raised when Brandwatch returns a 429 HTTP status code
   class TooManyRequests < BWError; end
 
   # Raised when Brandwatch returns a 500 HTTP status code

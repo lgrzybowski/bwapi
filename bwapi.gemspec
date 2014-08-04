@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require File.dirname(__FILE__) + '/lib/bwapi/version'
 
 Gem::Specification.new do |s|
@@ -18,7 +16,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'rspec', '~> 2.14.1', '>= 2.14.1'
   s.add_development_dependency 'rubocop', '~> 0.21.0', '>= 0.21.0'
 
-  s.add_runtime_dependency 'colored', '~> 1.2'
+  s.add_runtime_dependency 'allotment', '~> 1.1.0', '>= 1.1.0'
   s.add_runtime_dependency 'faraday', '~> 0.9.0', '>= 0.9.0'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.0', '>= 0.9.0'
   s.add_runtime_dependency 'hashie', '~> 2.1.1', '>= 2.1.1'

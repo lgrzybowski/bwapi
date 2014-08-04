@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'bwapi/client/projects/queries/backfill'
 require 'bwapi/client/projects/queries/date_range'
 require 'bwapi/client/projects/queries/mentions'

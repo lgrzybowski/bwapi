@@ -1,27 +1,45 @@
-# encoding: utf-8
-
+require 'bwapi/response/error'
+require 'bwapi/response/logger'
+require 'bwapi/response/performance'
 require 'faraday_middleware'
-require 'faraday/response/brandwatch_error'
 
 module BWAPI
-  # Connection module to handle requests
+  # Configuration module to set default and custom client credentials
   module Connection
+    RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
+
     private
 
-    # Create a connection to send request
-    def connection(opts = {})
-      connection = Faraday.new(opts) do |c|
-        c.request :json
+    def connection
+      @connection ||= Faraday.new(faraday_options)
+    end
 
-        c.use BrandwatchError
+    def reset_connection
+      @connection = nil
+    end
 
-        c.response :mashify
-        c.response :follow_redirects
-        c.response :json, content_type: /\bjson$/
+    def faraday_options
+      opts                           = @connection_options
+      opts[:headers][:authorization] = "bearer #{@access_token}" if @access_token
+      opts[:builder]                 = middleware
+      opts[:ssl]                     = { verify: @verify_ssl }
+      opts[:url]                     = @api_endpoint
+      opts
+    end
 
-        c.adapter adapter
+    def middleware
+      RACK_BUILDER_CLASS.new do |builder|
+        builder.use FaradayMiddleware::Mashify
+
+        builder.use BWAPI::Response::Performance, self if debug
+        builder.use BWAPI::Response::Error
+        builder.use BWAPI::Response::Logger, self if debug
+
+        builder.use FaradayMiddleware::FollowRedirects
+        builder.use FaradayMiddleware::ParseJson, content_type: /\bjson$/
+
+        builder.adapter Faraday.default_adapter
       end
-      connection
     end
   end
 end

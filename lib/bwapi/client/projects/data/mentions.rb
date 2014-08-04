@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'bwapi/client/projects/data/mentions/notes'
 
 module BWAPI

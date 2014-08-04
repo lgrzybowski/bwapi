@@ -1,8 +1,7 @@
-# encoding: utf-8
-
-require 'bwapi/authentication'
+require 'bwapi/configuration'
 require 'bwapi/connection'
 require 'bwapi/request'
+require 'bwapi/performance'
 
 require 'bwapi/client/admin'
 require 'bwapi/client/brandwatch'
@@ -22,25 +21,15 @@ require 'bwapi/client/projects'
 require 'bwapi/client/query_validation'
 require 'bwapi/client/test_search'
 require 'bwapi/client/user'
+require 'faraday'
 
 module BWAPI
   # Client class to create BWAPI instances
   class Client
-    attr_accessor(*Configuration::OPTION_KEYS)
-
-    def initialize(opts = {})
-      opts = BWAPI.options.merge(opts)
-      Configuration::OPTION_KEYS.each { |k| send("#{k}=", opts[k]) }
-      netrc_credentials opts[:netrc]
-    end
-
-    def destroy
-      Configuration::OPTION_KEYS.each { |k| send("#{k}=", nil) }
-    end
-
-    include BWAPI::Authentication
+    include BWAPI::Configuration
     include BWAPI::Connection
     include BWAPI::Request
+    include BWAPI::Performance
 
     include BWAPI::Client::Admin
     include BWAPI::Client::Brandwatch
@@ -60,5 +49,65 @@ module BWAPI
     include BWAPI::Client::QueryValidation
     include BWAPI::Client::TestSearch
     include BWAPI::Client::User
+
+    # Initializes Client
+    #
+    # @params options [Hash] the configuration options
+    def initialize(options = {})
+      BWAPI::Configuration.keys.each do |key|
+        instance_variable_set(:"@#{key}", options[key] || BWAPI.instance_variable_get(:"@#{key}"))
+      end
+    end
+
+    # Check if user is authenicated
+    #
+    # @return [Boolean] Authenticated status
+    def authenticated?
+      @access_token ? true : false
+    end
+
+    # Check if user is a brandwatch-application-client type
+    #
+    # @return [Boolean] Application client status
+    def application_client?
+      @client_id == 'brandwatch-application-client' ? true : false
+    end
+
+    # Check if user is a brandwatch-api-client type
+    #
+    # @return [Boolean] Application client status
+    def api_client?
+      @client_id == 'brandwatch-api-client' ? true : false
+    end
+
+    def access_token=(value)
+      reset_connection
+      @access_token = value
+    end
+
+    def api_endpoint=(value)
+      reset_connection
+      @api_endpoint = value
+    end
+
+    def connection_options=(value)
+      reset_connection
+      @connection_options = value
+    end
+
+    def debug=(value)
+      reset_connection
+      @debug = value
+    end
+
+    def logger=(value)
+      reset_connection
+      @logger = value
+    end
+
+    def verify_ssl=(value)
+      reset_connection
+      @verify_ssl = value
+    end
   end
 end
