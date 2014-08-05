@@ -17,14 +17,14 @@ module BWAPI
       end
 
       def call(env)
-        logger.info('Request') { "#{env.method.upcase} - #{env.url}" }
-        logger.debug('Request headers') { dump_output(env.request_headers) }
+        logger.info("Request: #{env.method.upcase} - #{env.url}")
+        logger.debug("Request headers: #{dump_output(env.request_headers)}")
         super
       end
 
       def on_complete(env)
-        logger.info('Response Status') { "#{env.status}" }
-        logger.debug('Response headers') { dump_output(env.response_headers) }
+        logger.info("Response Status: #{env.status}")
+        logger.debug("Response headers: #{dump_output(env.response_headers)}")
       end
 
       def dump_output(object)
