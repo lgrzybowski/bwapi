@@ -1,7 +1,7 @@
 require 'faraday'
 
 module BWAPI
-  # Client class to create BWAPI instances
+  # Request module
   module Request
     RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
 

@@ -2,7 +2,7 @@ require 'allotment'
 require 'hashie'
 
 module BWAPI
-  # Helper methods for performance
+  # Performance module
   module Performance
     def average_response_time
       averages = []
