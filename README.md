@@ -69,12 +69,14 @@ bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', d
 
 ### Performance
 
-When debug mode is running each request/response is timed and stored, to view the stats call the performance method on the client instance:
+When debug mode is running each response time and stored, to view the stats call the performance method on the client instance:
 
 ```ruby
 bw.performance
 {"post_oauth_token"=>[0.125019], "get_me"=> [0.048003, 0.034587, 0.038165, 0.10304]}
 ```
+
+Please note that only successful responses are recorded. Any request which raises an error is ignored.
 
 ## Contributing
 If you would like to contribute to this project please fork, create your new feature and then submit a PR merging into the `staging` branch. Once the feature is merged I'll update the version number and date in the gemspec and merge to master.
