@@ -13,6 +13,8 @@ module BWAPI
 
     CLIENT_ID    = 'brandwatch-api-client'
 
+    GRANT_TYPE   = 'api-password'
+
     USER_AGENT   = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
 
     class << self
@@ -52,11 +54,11 @@ module BWAPI
       end
 
       def debug
-        false
+        ENV['BWAPI_DEBUG'] || false
       end
 
       def grant_type
-        ENV['BWAPI_GRANT_TYPE']
+        ENV['BWAPI_GRANT_TYPE'] || GRANT_TYPE
       end
 
       def logger
@@ -84,7 +86,7 @@ module BWAPI
       end
 
       def verify_ssl
-        ENV['BWAPI_VERIFY_SSL']
+        ENV['BWAPI_VERIFY_SSL'] || false
       end
     end
   end

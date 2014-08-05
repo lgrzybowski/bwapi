@@ -1,5 +1,5 @@
 module BWAPI
-  # Configuration module to set default and custom client credentials
+  # Configuration module
   module Configuration
     attr_accessor :access_token, :adapter, :api_endpoint, :client_id, :debug, :grant_type,
                   :logger, :performance, :refresh_token, :user_agent, :username, :verify_ssl

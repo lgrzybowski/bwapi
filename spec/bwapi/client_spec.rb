@@ -156,8 +156,8 @@ describe BWAPI::Client do
       end
 
       describe 'grant_type' do
-        it 'should have a default value of nil for grant_type' do
-          expect(BWAPI::Client.new.grant_type).to eql(nil)
+        it 'should have a default value of api-password for grant_type' do
+          expect(BWAPI::Client.new.grant_type).to eql('api-password')
         end
 
         it 'should allow a user to set a grant_type value' do

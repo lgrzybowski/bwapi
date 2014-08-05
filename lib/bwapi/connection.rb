@@ -4,7 +4,7 @@ require 'bwapi/response/performance'
 require 'faraday_middleware'
 
 module BWAPI
-  # Configuration module to set default and custom client credentials
+  # Connection module
   module Connection
     RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
 
