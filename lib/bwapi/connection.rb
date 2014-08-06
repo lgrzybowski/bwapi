@@ -37,7 +37,7 @@ module BWAPI
 
         builder.response :mashify
         builder.response :follow_redirects
-        builder.response :json, :content_type => /\bjson$/
+        builder.response :json, content_type: /\bjson$/
 
         builder.adapter Faraday.default_adapter
       end
