@@ -19,7 +19,7 @@ module BWAPI
       # Get users client id
       #
       # @return [String] Users client id
-      def user_client_name
+      def user_client_id
         me.client.id
       end
 
