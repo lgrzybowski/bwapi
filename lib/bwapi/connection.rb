@@ -29,14 +29,15 @@ module BWAPI
 
     def middleware
       RACK_BUILDER_CLASS.new do |builder|
-        builder.use FaradayMiddleware::Mashify
+        builder.request :json
 
         builder.use BWAPI::Response::Performance, self if debug
         builder.use BWAPI::Response::Error
         builder.use BWAPI::Response::Logger, self if debug
 
-        builder.use FaradayMiddleware::FollowRedirects
-        builder.use FaradayMiddleware::ParseJson, content_type: /\bjson$/
+        builder.response :mashify
+        builder.response :follow_redirects
+        builder.response :json, content_type: /\bjson$/
 
         builder.adapter Faraday.default_adapter
       end
