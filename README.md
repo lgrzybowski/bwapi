@@ -64,7 +64,7 @@ bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', d
 Any log output will be written to STDOUT unless you define a logger:
 
 ```ruby
-bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', debug: true, log: Logger.new('main.log'))
+bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', debug: true, logger: Logger.new('main.log'))
 ```
 
 ### Performance
