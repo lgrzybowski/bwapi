@@ -21,7 +21,7 @@ module BWAPI
           # @param group_id [Array] Id of group
           # @return [Hashie::Mash] specific signal group
           def get_signal_group(project_id, group_id)
-            get "/projects/#{project_id}/signals/group/#{group_id}"
+            get "/projects/#{project_id}/signals/groups/#{group_id}"
           end
 
           # Get specific signal group belonging to user in project
