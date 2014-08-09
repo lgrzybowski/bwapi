@@ -19,7 +19,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'allotment', '~> 1.1.0', '>= 1.1.0'
   s.add_runtime_dependency 'faraday', '~> 0.9.0', '>= 0.9.0'
   s.add_runtime_dependency 'faraday_middleware', '~> 0.9.1', '>= 0.9.1'
-  s.add_runtime_dependency 'hashie', '~> 3.2.0', '>= 3.2.0'
+  s.add_runtime_dependency 'faraday_middleware-parse_oj', '~> 0.3.0', '>= 0.3.0'
+  s.add_runtime_dependency 'oj', '~> 2.10.0', '>= 2.10.0'
 
   s.files         = `git ls-files`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }

@@ -26,3 +26,5 @@ module BWAPI
     end
   end
 end
+
+Faraday::Response.register_middleware error: BWAPI::Response::Error
