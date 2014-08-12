@@ -7,7 +7,7 @@ module BWAPI
       module Signals
         # Groups module for projects/signals/groups endpoint
         module Groups
-          # Get all signals groups
+          # Get all signal groups
           # @param projectId [Integer] Id of the existing project
           # @option opts [Integer] page Page of results to retrieve
           # @option opts [Integer] pageSize Results per page of results
@@ -16,15 +16,15 @@ module BWAPI
             get "/projects/#{project_id}/signals/groups", opts
           end
 
-          # Get a specific signals group
-          # @param projectId[Integer] Id of project
-          # @param groupId [Array] Id of group
+          # Get a specific signal group
+          # @param projectId [Integer] Id of project
+          # @param groupId [Integer] Id of group
           # @return [Hashie::Mash] specific signals group
           def get_signal_group(project_id, group_id)
             get "/projects/#{project_id}/signals/groups/#{group_id}"
           end
 
-          # Get a specific signals group
+          # Create a new signal group
           # @param projectId [Integer] Project ID of the Signal Group to be updated
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] projectId Project ID of Signal Group
@@ -39,9 +39,9 @@ module BWAPI
             post "/projects/#{project_id}/signals/groups", opts
           end
 
-          # Get a specific signals group
+          # Update a signal group
           # @param projectId [Integer] Project ID of the Signal Group to be updated
-          # @param groupId [Array] Id of group
+          # @param groupId [Integer] Id of group
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] projectId Project ID of Signal Group
           # @option opts [Array] queryIds List of query IDs in the Signal Group
@@ -55,9 +55,9 @@ module BWAPI
             put "/projects/#{project_id}/signals/groups/#{group_id}", opts
           end
 
-          # Get a specific signals group
+          # Delete a signal group
           # @param projectId [Integer] Id of project
-          # @param groupId [Array] Id of group
+          # @param groupId [Integer] Id of group
           # @return [Hashie::Mash] specific signal group
           def delete_signal_group(project_id, group_id)
             delete "/projects/#{project_id}/signals/groups/#{group_id}"
