@@ -1,3 +1,5 @@
+require 'bwapi/client/projects/signals/groups'
+
 module BWAPI
   class Client
     module Projects
@@ -18,18 +20,7 @@ module BWAPI
           get "projects/#{project_id}/signals", opts
         end
 
-        # Set the vote type and comment of a signal for a given user
-        #
-        # @param project_id [Integer] Id of project
-        # @param opts [Hash] options hash of parameters
-        # @option opts [Integer] userId Id of the user
-        # @option opts [Integer] voteType Type of vote
-        # @option opts [String] comment User comment
-        # @option opts [Integer] signalId Id of signal
-        # @return [Hashie::Mash] Update signal for given user
-        def set_signal_vote(project_id, opts = {})
-          post "projects/#{project_id}/signals/vote", opts
-        end
+        include BWAPI::Client::Projects::Signals::Groups
       end
     end
   end
