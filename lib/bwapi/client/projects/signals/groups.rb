@@ -1,4 +1,3 @@
-# encoding: utf-8
 require 'bwapi/client/projects/signals/groups'
 
 module BWAPI

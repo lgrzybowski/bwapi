@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'bwapi/client/command_center/client'
 require 'bwapi/client/command_center/displays'
 require 'bwapi/client/command_center/scene_types'

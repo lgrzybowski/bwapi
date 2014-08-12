@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 require 'bwapi/client/projects/bulkactions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'

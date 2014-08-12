@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   class Client
     # OAuth module for oauth/token endpoint
@@ -62,11 +60,10 @@ module BWAPI
       #
       # @param opts [Hash] options hash of parameters
       def oauth_request(opts = {})
-        creds = post 'oauth/token', opts
-        self.access_token  = creds.access_token
-        self.expires_in    = creds.expires_in
-        self.refresh_token = creds.refresh_token if application_client?
-        creds
+        response = post('oauth/token', opts)
+        self.access_token  = response['access_token']
+        self.refresh_token = response['refresh_token'] if application_client?
+        response
       end
     end
   end

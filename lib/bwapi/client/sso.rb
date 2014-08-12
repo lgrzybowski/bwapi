@@ -1,5 +1,3 @@
-# encoding: utf-8
-
 module BWAPI
   class Client
     # SSO module for sso endpoint

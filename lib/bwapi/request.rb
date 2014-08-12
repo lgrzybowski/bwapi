@@ -1,10 +1,10 @@
-# encoding: utf-8
-
 require 'faraday'
 
 module BWAPI
-  # Request module to handle all requests to API
+  # Request module
   module Request
+    RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
+
     # Perform a get request
     #
     # @param path [String] URL path to send request
@@ -52,33 +52,16 @@ module BWAPI
 
     private
 
-    # Sets connection options
-    def connection_options
-      {
-        headers: {
-          authorization: access_token ? "bearer #{access_token}" : '',
-          user_agent: user_agent
-        },
-        request: {
-          params_encoder: Faraday::FlatParamsEncoder
-        },
-        url: api_endpoint,
-        ssl: { verify: verify_ssl }
-      }
-    end
-
     # Perform a request
     #
-    # @param method [String] Type of request path
+    # @param method [String] Type of request
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
     # @return [Hashie::Mash] Response
     def request(method, path, opts = {})
-      response = connection(connection_options).send(method) do |r|
+      response = connection.send(method) do |r|
         case method
-        when :get
-          r.url path, opts
-        when :delete
+        when :get, :delete
           r.url path, opts
         when :patch, :post, :put
           if opts.is_a?(Hash) && opts.key?(:force_urlencoded)
@@ -90,16 +73,6 @@ module BWAPI
           end
         end
       end
-
-      if debug
-        log.info "Connection options: #{connection_options}"
-        log.info "Sending request type: #{method}"
-        log.info "Request path: #{path}"
-        log.info "Request url: #{api_endpoint}/#{path}"
-        log.info "Request parameters: #{opts.to_json}" unless opts.nil?
-        log.info "Response body: #{response.env[:body].to_json}" unless response.env[:body].nil?
-      end
-
       response
     end
   end
