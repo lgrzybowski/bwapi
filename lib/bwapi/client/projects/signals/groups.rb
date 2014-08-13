@@ -33,7 +33,7 @@ module BWAPI
           # @option opts [Date] lastModified Last modified date of the Signal Group
           # @option opts [Integer] id ID of Signal Group
           # @option opts [String] creator Creator of the Signal Group
-          # @return [Hashie::Mash] specific signal group
+          # @return [Hashie::Mash] new signal group
           def create_signal_group(project_id, opts = {})
             post "/projects/#{project_id}/signals/groups", opts
           end
@@ -49,7 +49,7 @@ module BWAPI
           # @option opts [Date] lastModified Last modified date of the Signal Group
           # @option opts [Integer] id ID of Signal Group
           # @option opts [String] creator Creator of the Signal Group
-          # @return [Hashie::Mash] specific signal group
+          # @return [Hashie::Mash] updated signal group
           def update_signal_group(project_id, group_id, opts = {})
             put "/projects/#{project_id}/signals/groups/#{group_id}", opts
           end
@@ -57,7 +57,7 @@ module BWAPI
           # Delete a signal group
           # @param projectId [Integer] Id of project
           # @param groupId [Integer] Id of group
-          # @return [Hashie::Mash] specific signal group
+          # @return [Hashie::Mash] deleted signal group
           def delete_signal_group(project_id, group_id)
             delete "/projects/#{project_id}/signals/groups/#{group_id}"
           end
