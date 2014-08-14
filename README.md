@@ -79,9 +79,7 @@ bw.performance
 Please note that only successful responses are recorded. Any request which raises an error is ignored.
 
 ## Contributing
-If you would like to contribute to this project please fork, create your new feature and then submit a PR merging into the `staging` branch. Once the feature is merged I'll update the version number and date in the gemspec and merge to master.
-
-Once the staging branch is merged into master a pre-release gem will automatically be created via travis. Subject to no issues being found the new version of the gem will be pushed to RubyGems.
+If you would like to contribute to this project please see the [contributing guidelines](https://github.com/jonathanchrisp/bwapi/blob/staging/CONTRIBUTING.md).
 
 ## Tests
 There are a number of unit tests which are included as part of this project, please run:
