@@ -7,7 +7,7 @@ module BWAPI
           # Get summary of all site groups in project
           #
           # @param project_id [Integer] Id of project
-          # @return [Hashie::Mash] Summary of all site groups in project
+          # @return [Hash] Summary of all site groups in project
           def site_groups_summary(project_id, opts = {})
             get "projects/#{project_id}/group/site/summary", opts
           end
@@ -16,7 +16,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @param site_group_id [Integer] Id of site group
-          # @return [Hashie::Mash] Specific site group
+          # @return [Hash] Specific site group
           def get_site_group(project_id, site_group_id)
             get "projects/#{project_id}/group/site/#{site_group_id}"
           end
@@ -30,7 +30,7 @@ module BWAPI
           # @option opts [Array] sharedProjectIds The ids of the shared projects
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] sites The sites in the group
-          # @return [Hashie::Mash] New site group
+          # @return [Hash] New site group
           def create_site_group(project_id, opts = {})
             post "projects/#{project_id}/group/site", opts
           end
@@ -46,7 +46,7 @@ module BWAPI
           # @option opts [Array] sharedProjectIds The ids of the shared projects
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] sites The sites in the group
-          # @return [Hashie::Mash] Updated site group
+          # @return [Hash] Updated site group
           def update_site_group(project_id, site_group_id, opts = {})
             put "projects/#{project_id}/group/site/#{site_group_id}", opts
           end
@@ -55,7 +55,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @param site_group_id [Integer] Id of site group
-          # @return [Hashie::Mash] Deleted site group
+          # @return [Hash] Deleted site group
           def delete_site_group(project_id, site_group_id)
             delete "projects/#{project_id}/group/site/#{site_group_id}"
           end

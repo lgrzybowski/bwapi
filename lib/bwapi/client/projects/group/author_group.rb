@@ -7,7 +7,7 @@ module BWAPI
           # Get summary of all author groups in project
           #
           # @param project_id [Integer] Id of project
-          # @return [Hashie::Mash] Summary of all author groups in project
+          # @return [Hash] Summary of all author groups in project
           def author_groups_summary(project_id, opts = {})
             get "projects/#{project_id}/group/author/summary", opts
           end
@@ -16,7 +16,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @param author_group_id [Integer] Id of author group
-          # @return [Hashie::Mash] Specific author group
+          # @return [Hash] Specific author group
           def get_author_group(project_id, author_group_id)
             get "projects/#{project_id}/group/author/#{author_group_id}"
           end
@@ -30,7 +30,7 @@ module BWAPI
           # @option opts [Array] sharedProjectIds The ids of the shared projects
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] authors The authors in the group
-          # @return [Hashie::Mash] New author group
+          # @return [Hash] New author group
           def create_author_group(project_id, opts = {})
             post "projects/#{project_id}/group/author", opts
           end
@@ -46,7 +46,7 @@ module BWAPI
           # @option opts [Array] sharedProjectIds The ids of the shared projects
           # @option opts [String] shared The type of sharing for the group
           # @option opts [Array] authors The authors in the group
-          # @return [Hashie::Mash] Updated author group
+          # @return [Hash] Updated author group
           def update_author_group(project_id, author_group_id, opts = {})
             put "projects/#{project_id}/group/author/#{author_group_id}", opts
           end
@@ -55,7 +55,7 @@ module BWAPI
           #
           # @param project_id [Integer] Id of project
           # @param author_group_id [Integer] Id of author group
-          # @return [Hashie::Mash] Deleted author group
+          # @return [Hash] Deleted author group
           def delete_author_group(project_id, author_group_id)
             delete "projects/#{project_id}/group/author/#{author_group_id}"
           end

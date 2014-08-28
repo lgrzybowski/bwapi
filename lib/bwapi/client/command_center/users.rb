@@ -7,7 +7,7 @@ module BWAPI
       module Users
         # Get the access levels for all users
         #
-        # @return [Hashie::Mash] All users access levels
+        # @return [Hash] All users access levels
         def users_access_levels
           get 'commandcenter/users'
         end
@@ -15,7 +15,7 @@ module BWAPI
         # Get an existing user access level
         #
         # @param [Integer] user_id the user id
-        # @return [Hashie::Mash] Specific user access level
+        # @return [Hash] Specific user access level
         def get_user_access_level(user_id)
           get "commandcenter/users/#{user_id}"
         end
@@ -23,7 +23,7 @@ module BWAPI
         # Delete an existing user access level
         #
         # @param [Integer] user_id the user id
-        # @return [Hashie::Mash] Deleted user access level
+        # @return [Hash] Deleted user access level
         def delete_user_access_level(user_id)
           delete "commandcenter/users/#{user_id}"
         end

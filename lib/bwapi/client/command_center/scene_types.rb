@@ -5,7 +5,7 @@ module BWAPI
       module SceneTypes
         # Get the scene types visible to the user
         #
-        # @return [Hashie::Mash] All scene types
+        # @return [Hash] All scene types
         def scene_types
           get 'commandcenter/scenetypes'
         end
@@ -13,7 +13,7 @@ module BWAPI
         # Get an existing scene type
         #
         # @param [Integer] scene_type_id the scene type id
-        # @return [Hashie::Mash] Specific scene type
+        # @return [Hash] Specific scene type
         def get_scene_type(scene_type_id)
           get "commandcenter/scenetypes/#{scene_type_id}"
         end
@@ -21,7 +21,7 @@ module BWAPI
         # Get an existing scene type
         #
         # @param [Integer] scene_type_id the scene type id
-        # @return [Hashie::Mash] Specific scene type with sub scences
+        # @return [Hash] Specific scene type with sub scences
         def get_scene_type_with_sub_scenes(scene_type_id)
           get "commandcenter/scenetypes/#{scene_type_id}"
         end

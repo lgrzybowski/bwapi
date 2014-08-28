@@ -10,7 +10,7 @@ module BWAPI
           # @param category_id [Integer] Id of query group
           # @param opts [Hash] options hash of parameters
           # @option opts [Hash] destinationProjectId target project id for copy
-          # @return [Hashie::Mash] Copied category
+          # @return [Hash] Copied category
           def copy_category(project_id, category_id, opts = {})
             post "projects/#{project_id}/categories/#{category_id}/copy", opts
           end

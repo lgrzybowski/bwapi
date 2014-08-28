@@ -13,7 +13,7 @@ module BWAPI
             # @option opts [Integer] project_id the id of the project the mention is in
             # @option opts [Integer] resource_id the id of the mention
             # @option opts [String] text the text of the note
-            # @return [Hashie::Mash] the new note
+            # @return [Hash] the new note
             def create_mention_note(project_id, resource_id, opts = {})
               post "projects/#{project_id}/data/mentions/#{resource_id}/notes", opts
             end
@@ -23,7 +23,7 @@ module BWAPI
             # @param project_id [Integer] Id of project
             # @param resource_id [Integer] Id of mention
             # @param note_id [Integer] Id of the note
-            # @return [Hashie::Mash] the selected note
+            # @return [Hash] the selected note
             def mention_note(project_id, resource_id, note_id)
               get "projects/#{project_id}/data/mentions/#{resource_id}/notes/#{note_id}"
             end
@@ -37,7 +37,7 @@ module BWAPI
             # @option opts [Integer] project_id the id of the project the mention is in
             # @option opts [Integer] resource_id the id of the mention
             # @option opts [String] text the text of the note
-            # @return [Hashie::Mash] the edited note
+            # @return [Hash] the edited note
             def update_mention_note(project_id, resource_id, note_id, opts = {})
               put "projects/#{project_id}/data/mentions/#{resource_id}/notes/#{note_id}", opts
             end
@@ -49,7 +49,7 @@ module BWAPI
             # @param note_id [Integer] Id of the note
             # @param opts [Hash] options hash of parameters
             # @option opts [String] prependNote the text of the note
-            # @return [Hashie::Mash] the patched note
+            # @return [Hash] the patched note
             def patch_mention_note(project_id, resource_id, note_id, opts = {})
               patch "projects/#{project_id}/data/mentions/#{resource_id}/notes/#{note_id}", opts
             end

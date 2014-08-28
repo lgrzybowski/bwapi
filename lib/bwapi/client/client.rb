@@ -4,14 +4,14 @@ module BWAPI
     module Client
       # Get the current users client
       #
-      # @return [Hashie::Mash] Client information
+      # @return [Hash] Client information
       def client
         get 'client'
       end
 
       # Get the current users client modules
       #
-      # @return [Hashie::Mash] Client module information
+      # @return [Hash] Client module information
       def client_modules
         get 'client/modules'
       end

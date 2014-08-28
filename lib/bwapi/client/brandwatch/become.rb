@@ -8,7 +8,7 @@ module BWAPI
         # @note must be a super admin user
         #
         # @param user_id [Integer] The user id
-        # @return [Hashie::Mash] User credentials
+        # @return [Hash] User credentials
         def brandwatch_become(user_id)
           get "brandwatch/become/#{user_id}"
         end

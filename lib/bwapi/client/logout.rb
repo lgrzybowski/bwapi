@@ -4,7 +4,7 @@ module BWAPI
     module Logout
       # Logout user
       #
-      # @return [Hashie::Mash] Logout information
+      # @return [Hash] Logout information
       def logout
         get 'logout'
       ensure

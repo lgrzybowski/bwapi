@@ -5,7 +5,7 @@ module BWAPI
       module Themes
         # Get themes for client
         #
-        # @return [Hashie::Mash] All themes
+        # @return [Hash] All themes
         def themes
           get 'commandcenter/themes'
         end
