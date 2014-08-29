@@ -13,14 +13,14 @@ module BWAPI
       # @option opts [Integer] page Page of projects to retrieve
       # @option opts [Integer] pageSize Results per page of results
       # @option opts [Integer] sortBy Filter to sort queries by
-      # @return [Hashie::Mash] All active queries
+      # @return [Hash] All active queries
       def active_queries(opts = {})
         get 'admin/activequeries', opts
       end
 
       # Get the project report of sharing details
       #
-      # @return [Hashie::Mash] Project sharing report
+      # @return [Hash] Project sharing report
       def sharing_report
         get 'admin/sharing-report'
       end

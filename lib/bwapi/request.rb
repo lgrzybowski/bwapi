@@ -9,7 +9,7 @@ module BWAPI
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response body
+    # @return [Hash] Response body
     def get(path, opts = {})
       request(:get, path, opts).body
     end
@@ -18,7 +18,7 @@ module BWAPI
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response body
+    # @return [Hash] Response body
     def delete(path, opts = {})
       request(:delete, path, opts).body
     end
@@ -27,7 +27,7 @@ module BWAPI
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response body
+    # @return [Hash] Response body
     def post(path, opts = {})
       request(:post, path, opts).body
     end
@@ -36,7 +36,7 @@ module BWAPI
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response body
+    # @return [Hash] Response body
     def put(path, opts = {})
       request(:put, path, opts).body
     end
@@ -45,7 +45,7 @@ module BWAPI
     #
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response body
+    # @return [Hash] Response body
     def patch(path, opts = {})
       request(:patch, path, opts).body
     end
@@ -57,7 +57,7 @@ module BWAPI
     # @param method [String] Type of request
     # @param path [String] URL path to send request
     # @param opts [Hash] Request parameters
-    # @return [Hashie::Mash] Response
+    # @return [Hash] Response
     def request(method, path, opts = {})
       response = connection.send(method) do |r|
         case method

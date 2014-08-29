@@ -8,7 +8,7 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
-        # @return [Hashie::Mash] All data downloads in project
+        # @return [Hash] All data downloads in project
         def data_downloads(project_id, opts = {})
           get "projects/#{project_id}/datadownload", opts
         end
@@ -17,7 +17,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param data_download_id [Integer] Id of data download
-        # @return [Hashie::Mash] Specific data download
+        # @return [Hash] Specific data download
         def get_data_download(project_id, data_download_id)
           get "projects/#{project_id}/datadownload/#{data_download_id}"
         end
@@ -37,7 +37,7 @@ module BWAPI
         # @option opts [String] downloadLinkXLS The link to download the XLS format
         # @option opts [String] downloadLinkCSV The link to download the CSV format
         # @option opts [Array] additionalColumns The additional columns for the data download
-        # @return [Hashie::Mash] New data download
+        # @return [Hash] New data download
         def create_data_download(project_id, opts = {})
           post "projects/#{project_id}/datadownload", opts
         end

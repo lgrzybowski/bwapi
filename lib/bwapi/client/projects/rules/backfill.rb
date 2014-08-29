@@ -8,7 +8,7 @@ module BWAPI
           #
           # @param project_id [Integer] id The id of project
           # @param rule_id [Integer] id The id of rule
-          # @return [Hashie::Mash] Specific rule backfill
+          # @return [Hash] Specific rule backfill
           def create_rule_backfill(project_id, rule_id)
             post "projects/#{project_id}/rules/#{rule_id}/backfill"
           end

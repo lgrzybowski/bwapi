@@ -12,7 +12,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
-          # @return [Hashie::Mash] All client users
+          # @return [Hash] All client users
           def client_users(client_id, opts = {})
             get "admin/clients/#{client_id}/users", opts
           end
@@ -21,7 +21,7 @@ module BWAPI
           #
           # @param client_id [Integer] Id of the client
           # @param user_id [Integer] Id of the user
-          # @return [Hashie::Mash] Specific client user
+          # @return [Hash] Specific client user
           def get_client_user(client_id, user_id)
             get "admin/clients/#{client_id}/users/#{user_id}"
           end
@@ -48,7 +48,7 @@ module BWAPI
           # @option opts [String] firstName The users first name
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
-          # @return [Hashie::Mash] New user
+          # @return [Hash] New user
           def create_client_user(client_id, opts = {})
             post "admin/clients/#{client_id}/users", opts
           end
@@ -76,7 +76,7 @@ module BWAPI
           # @option opts [String] firstName The users first name
           # @option opts [String] mobile The users mobile number
           # @option opts [Date] creationDate Date the user was created on
-          # @return [Hashie::Mash] New user
+          # @return [Hash] New user
           def update_client_user(client_id, user_id, opts = {})
             put "admin/clients/#{client_id}/users/#{user_id}", opts
           end

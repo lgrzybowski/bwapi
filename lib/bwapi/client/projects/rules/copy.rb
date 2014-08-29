@@ -10,7 +10,7 @@ module BWAPI
           # @param rule_id [Integer] id The id of rule
           # @param opts [Hash] options Hash of parameters
           # @option opts [Integer] copyToProjectId the target project id
-          # @return [Hashie::Mash] New rule created in project
+          # @return [Hash] New rule created in project
           def create_rule_copy(project_id, rule_id, opts = {})
             post "projects/#{project_id}/rules/#{rule_id}/copy", opts
           end

@@ -6,7 +6,7 @@ module BWAPI
         # Get all facebook queries in a project
         #
         # @param project_id [Integer] Id of project
-        # @return [Hashie::Mash] All facebook queries in project
+        # @return [Hash] All facebook queries in project
         def facebook_queries(project_id)
           get "projects/#{project_id}/facebookqueries"
         end
@@ -15,7 +15,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param query_id [Integer] Id of facebook query
-        # @return [Hashie::Mash] Specific facebook query
+        # @return [Hash] Specific facebook query
         def get_facebook_query(project_id, query_id)
           get "projects/#{project_id}/facebookqueries/#{query_id}"
         end
@@ -43,7 +43,7 @@ module BWAPI
         # @option opts [String] type Query type
         # @option opts [String] facebookConsumerKey Facebook consumer key
         # @option opts [String] facebookAccessToken Facebook access token
-        # @return [Hashie::Mash] New facebook query
+        # @return [Hash] New facebook query
         def create_facebook_query(project_id, opts = {})
           post "projects/#{project_id}/facebookqueries", opts
         end
@@ -55,7 +55,7 @@ module BWAPI
         # @option opts [String] accessToken Facebook access token
         # @option opts [String] consumerKey Facebook consumer key
         # @option opts [Array] queryIds Array of query ids
-        # @return [Hashie::Mash] Authorised facebook queries
+        # @return [Hash] Authorised facebook queries
         def authorise_facebook_queries(project_id, opts = {})
           post "projects/#{project_id}/facebookqueries/authorise", opts
         end
@@ -84,7 +84,7 @@ module BWAPI
         # @option opts [String] type Query type
         # @option opts [String] facebookConsumerKey Facebook consumer key
         # @option opts [String] facebookAccessToken Facebook access token
-        # @return [Hashie::Mash] Updated facebook query
+        # @return [Hash] Updated facebook query
         def update_facebook_query(project_id, query_id, opts = {})
           put "projects/#{project_id}/facebookqueries/#{query_id}", opts
         end

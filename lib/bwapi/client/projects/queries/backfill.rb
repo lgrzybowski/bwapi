@@ -11,7 +11,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] page Page of results to retrieve
           # @option opts [Integer] pageSize Results per page
-          # @return [Hashie::Mash] All backfills for query
+          # @return [Hash] All backfills for query
           def backfills(project_id, query_id, opts = {})
             get "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
@@ -21,7 +21,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param query_id [Integer] Id of query
           # @param backfill_id [Integer] Id of backfill
-          # @return [Hashie::Mash] Backfill for query
+          # @return [Hash] Backfill for query
           def get_backfill(project_id, query_id, backfill_id)
             get "projects/#{project_id}/queries/#{query_id}/backfill/#{backfill_id}"
           end
@@ -40,7 +40,7 @@ module BWAPI
           # @option opts [String] status Status of backfill
           # @option opts [Integer] queryId Query id of backfill
           # @option opts [String] statusMessages Current status message of backfill
-          # @return [Hashie::Mash] New backfill for query
+          # @return [Hash] New backfill for query
           def create_backfill(project_id, query_id, opts = {})
             post "projects/#{project_id}/queries/#{query_id}/backfill", opts
           end
@@ -50,7 +50,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param query_id [Integer] Id of query
           # @param backfill_id [Integer] Id of backfill
-          # @return [Hashie::Mash] Deleted backfill for query
+          # @return [Hash] Deleted backfill for query
           def delete_backfill(project_id, query_id, backfill_id)
             delete "projects/#{project_id}/queries/#{query_id}/backfill/#{backfill_id}"
           end

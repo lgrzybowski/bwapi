@@ -10,7 +10,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] page Page of results to retrieve
           # @option opts [Integer] pageSize Results per page of results
-          # @return [Hashie::Mash] All stream dashboards for project
+          # @return [Hash] All stream dashboards for project
           def get_streams(project_id, stream_dashboard_id)
             get "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams"
           end
@@ -20,7 +20,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param stream_dashboard_id [Integer] Id of stream dashboard
           # @param stream_id [Integer] Id of the stream
-          # @return [Hashie::Mash] Specific stream
+          # @return [Hash] Specific stream
           def get_stream(project_id, stream_dashboard_id, stream_id)
             get "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}"
           end
@@ -36,7 +36,7 @@ module BWAPI
           # @option opts [String] filter Filter of the stream
           # @option opts [String] settings Settings of the stream
           # @option opts [String] lastModified Last modification date of stream
-          # @return [Hashie::Mash] Specific stream
+          # @return [Hash] Specific stream
           def create_stream(project_id, stream_dashboard_id, opts = {})
             post "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams", opts
           end
@@ -53,7 +53,7 @@ module BWAPI
           # @option opts [String] filter Filter of the stream
           # @option opts [String] settings Settings of the stream
           # @option opts [String] lastModified Last modification date of stream
-          # @return [Hashie::Mash] Updated stream
+          # @return [Hash] Updated stream
           def update_stream(project_id, stream_dashboard_id, stream_id, opts = {})
             put "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}", opts
           end
@@ -63,7 +63,7 @@ module BWAPI
           # @param project_id [Integer] Id of project
           # @param stream_dashboard_id [Integer] Id of stream dashboard
           # @param stream_id [Integer] Id of the stream
-          # @return [Hashie::Mash] Deleted stream
+          # @return [Hash] Deleted stream
           def delete_stream(project_id, stream_dashboard_id, stream_id)
             delete "projects/#{project_id}/streamDashboards/#{stream_dashboard_id}/streams/#{stream_id}"
           end

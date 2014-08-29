@@ -4,7 +4,7 @@ module BWAPI
     module Metrics
       # Get the current metrics list
       #
-      # @return [Hashie::Mash] Metrics information
+      # @return [Hash] Metrics information
       def metrics
         get 'metrics'
       end

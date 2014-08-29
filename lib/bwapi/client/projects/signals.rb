@@ -15,7 +15,7 @@ module BWAPI
         # @option opts [Integer] importance Importance of signal
         # @option opts [String] type Type of signal
         # @option opts [Hash] filter The filter(s) to apply
-        # @return [Hashie::Mash] All signals for user in project
+        # @return [Hash] All signals for user in project
         def signals(project_id, opts = {})
           get "projects/#{project_id}/signals", opts
         end

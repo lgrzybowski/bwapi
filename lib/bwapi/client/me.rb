@@ -4,7 +4,7 @@ module BWAPI
     module Me
       # Get user information
       #
-      # @return [Hashie::Mash] User information
+      # @return [Hash] User information
       def me
         get 'me'
       end

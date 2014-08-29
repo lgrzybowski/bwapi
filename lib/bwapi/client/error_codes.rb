@@ -4,7 +4,7 @@ module BWAPI
     module ErrorCodes
       # Get the api error codes
       #
-      # @return [Hashie::Mash] Error codes information
+      # @return [Hash] Error codes information
       def error_codes
         get 'errorCodes'
       end

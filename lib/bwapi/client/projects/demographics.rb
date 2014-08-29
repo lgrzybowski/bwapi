@@ -10,7 +10,7 @@ module BWAPI
         # @param opts [Hash] options Hash of parameters
         # @option opts [Integer] limit The limit to return
         # @option opts [Hash] filter The filters to apply
-        # @return [Hashie::Mash] All data downloads in project
+        # @return [Hash] All data downloads in project
         def demographics(project_id, metric, opts = {})
           get "projects/#{project_id}/demographics/#{metric}", opts
         end
