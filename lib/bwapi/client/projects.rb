@@ -26,7 +26,7 @@ module BWAPI
       # @param opts [Hash] options hash of parameters
       # @option opts [Integer] page Page of results to retrieve
       # @option opts [Integer] pageSize Results per page of results
-      # @return [Hashie::Mash] All projects
+      # @return [Hash] All projects
       def projects(opts = {})
         get 'projects', opts
       end
@@ -34,7 +34,7 @@ module BWAPI
       # Get a specific project
       #
       # @param project_id [Integer] Id of the existing project
-      # @return [Hashie::Mash] Specific project
+      # @return [Hash] Specific project
       def get_project(project_id)
         get "projects/#{project_id}"
       end
@@ -50,7 +50,7 @@ module BWAPI
       # @option opts [Array] defaultLangCodes Default languages of the project
       # @option opts [Date] creationDate Date the project was created on
       # @option opts [Integer] creationUserId User ID of the user who created the project
-      # @return [Hashie::Mash] New project
+      # @return [Hash] New project
       def create_project(opts = {})
         post 'projects', opts
       end
@@ -67,7 +67,7 @@ module BWAPI
       # @option opts [Array] defaultLangCodes Default languages of the project
       # @option opts [Date] creationDate Date the project was created on
       # @option opts [Integer] creationUserId User ID of the user who created the project
-      # @return [Hashie::Mash] Updated project
+      # @return [Hash] Updated project
       def update_project(project_id, opts = {})
         put "projects/#{project_id}", opts
       end
@@ -75,7 +75,7 @@ module BWAPI
       # Delete an existing project
       #
       # @param project_id [Integer] id Id of the existing project
-      # @return [Hashie::Mash] Deleted project
+      # @return [Hash] Deleted project
       def delete_project(project_id)
         delete "projects/#{project_id}"
       end

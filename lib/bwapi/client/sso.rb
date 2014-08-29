@@ -8,7 +8,7 @@ module BWAPI
       # @see oauth_token
       #
       # @param user_id [Integer] The user id
-      # @return [Hashie::Mash] User authorization
+      # @return [Hash] User authorization
       def sso(user_id)
         get "sso/#{user_id}"
       end

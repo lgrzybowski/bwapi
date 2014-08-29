@@ -4,7 +4,7 @@ module BWAPI
     module Languages
       # Get the current language list
       #
-      # @return [Hashie::Mash] Languages information
+      # @return [Hash] Languages information
       def languages
         get 'languages'
       end

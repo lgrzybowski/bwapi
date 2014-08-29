@@ -11,7 +11,7 @@ module BWAPI
           # @option opts [Hash] action <mention patch dto> to apply to these mentions
           # @option opts [Hash] filter <filter dto> to specify what kind of mentions this bulk action should apply to
           # @option opts [Integer] sampleAmount Amount to be sample by this bulk action
-          # @return [Hashie::Mash] New bulk action for mentions
+          # @return [Hash] New bulk action for mentions
           def bulk_edit_mentions(project_id, opts = {})
             post "projects/#{project_id}/bulkactions/mentions", opts
           end

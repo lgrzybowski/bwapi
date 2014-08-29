@@ -10,7 +10,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
-          # @return [Hashie::Mash] All sub clients for client
+          # @return [Hash] All sub clients for client
           def client_sub_clients(client_id, opts = {})
             get "admin/clients/#{client_id}/subclients", opts
           end
@@ -19,7 +19,7 @@ module BWAPI
           #
           # @param client_id [Integer] Id of the client
           # @param sub_client_id [Integer] Id of the sub client
-          # @return [Hashie::Mash] Specific sub client for client
+          # @return [Hash] Specific sub client for client
           def get_client_sub_client(client_id, sub_client_id)
             get "admin/clients/#{client_id}/subclients/#{sub_client_id}"
           end
@@ -54,7 +54,7 @@ module BWAPI
           # @option opts [String] contactName The contact name of the client
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
-          # @return [Hashie::Mash] New sub client
+          # @return [Hash] New sub client
           def create_client_sub_client(client_id, opts = {})
             post "admin/clients/#{client_id}/subclients", opts
           end
@@ -90,7 +90,7 @@ module BWAPI
           # @option opts [String] contactName The contact name of the client
           # @option opts [Integer] maximumSubscribedBrands The maximum subscribed brands for the client
           # @option opts [String] contactMobile The mobile number for the client
-          # @return [Hashie::Mash] Edited sub client
+          # @return [Hash] Edited sub client
           def update_client_sub_client(client_id, sub_client_id, opts = {})
             put "admin/clients/#{client_id}/subclients/#{sub_client_id}", opts
           end
@@ -99,7 +99,7 @@ module BWAPI
           #
           # @param client_id [Integer] Id of the client
           # @param sub_client_id [Integer] Id of the sub client
-          # @return [Hashie::Mash] Specific sub client for client
+          # @return [Hash] Specific sub client for client
           def delete_client_sub_client(client_id, sub_client_id)
             delete "admin/clients/#{client_id}/subclients/#{sub_client_id}"
           end

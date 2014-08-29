@@ -11,7 +11,7 @@ module BWAPI
         # @param opts [Hash] options hash of parameters
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
-        # @return [Hashie::Mash] All categories in project
+        # @return [Hash] All categories in project
         def categories(project_id, opts = {})
           get "projects/#{project_id}/categories", opts
         end
@@ -24,7 +24,7 @@ module BWAPI
         # @option opts [String] name Name of the category
         # @option opts [Array] children The children of the category
         # @option opts [Boolean] multiple Whether multiple sub categories can be selected
-        # @return [Hashie::Mash] New category
+        # @return [Hash] New category
         def create_category(project_id, opts = {})
           post "projects/#{project_id}/categories", opts
         end
@@ -38,7 +38,7 @@ module BWAPI
         # @option opts [String] name Name of the category
         # @option opts [Array] children The children of the category
         # @option opts [Boolean] multiple Whether multiple sub categories can be selected
-        # @return [Hashie::Mash] Updated category
+        # @return [Hash] Updated category
         def update_category(project_id, category_id, opts = {})
           put "projects/#{project_id}/categories/#{category_id}", opts
         end
@@ -47,7 +47,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param category_id [Integer] Id of query group
-        # @return [Hashie::Mash] Deleted category
+        # @return [Hash] Deleted category
         def delete_category(project_id, category_id)
           delete "projects/#{project_id}/categories/#{category_id}"
         end

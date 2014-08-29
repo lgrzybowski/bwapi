@@ -4,7 +4,7 @@ module BWAPI
     module Filters
       # Get the currently supported filters
       #
-      # @return [Hashie::Mash] Current filters
+      # @return [Hash] Current filters
       def filters
         get 'filters'
       end
