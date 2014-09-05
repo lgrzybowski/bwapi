@@ -32,9 +32,9 @@ module BWAPI
       RACK_BUILDER_CLASS.new do |builder|
         builder.request :json
 
-        builder.response :performance, self if debug
-        builder.response :error
-        builder.response :logger, self if debug
+        builder.use BWAPI::Response::Performance, self if debug
+        builder.use BWAPI::Response::Error
+        builder.use BWAPI::Response::Logger, self if debug
 
         builder.response :oj
         builder.response :follow_redirects

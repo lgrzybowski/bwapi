@@ -33,5 +33,3 @@ module BWAPI
     end
   end
 end
-
-Faraday::Response.register_middleware logger: BWAPI::Response::Logger
