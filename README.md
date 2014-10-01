@@ -64,7 +64,7 @@ bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', d
 ```
 
 ### Performance
-When debug mode is running the response performance is stored on each require, to view the stats call the performance method on the client instance:
+When debug mode is running the response performance is stored on each request, to view the stats call the performance method on the client instance:
 
 ```ruby
 bw.performance
