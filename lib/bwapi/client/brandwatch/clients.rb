@@ -47,7 +47,7 @@ module BWAPI
           post 'brandwatch/clients', opts
         end
 
-        # Get specific clients
+        # Get specific client
         #
         # @param client_id [Integer] Id of the client
         # @return [Hash] Specific client
