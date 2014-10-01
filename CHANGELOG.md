@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 9.1.0
+### Added
+* NoTask - added parent client endpoints
+
+## 9.0.1
+### Fixed
+* NoTask - fixed middleware conflict with the bw_status_board_api gem
+
 ## 9.0.0
 ### Added
 * NoTask - updated notifications endpoints to match new structure
