@@ -55,7 +55,7 @@ module BWAPI
           get "brandwatch/clients/#{client_id}"
         end
 
-        # Update a new parent client
+        # Update an existing parent client
         #
         # @param client_id [Integer] Id of the client
         # @param opts [Hash] options Hash of parameters
@@ -86,7 +86,7 @@ module BWAPI
         # @option opts [Hash] tags Tags for the client
         # @option opts [String] theme The theme of the client
         # @option opts [String] website The website for the client
-        # @return [Hash] Newly created parent client
+        # @return [Hash] Updated parent client
         def update_client(client_id, opts = {})
           post "brandwatch/clients/#{client_id}", opts
         end
