@@ -14,7 +14,7 @@ module BWAPI
         # @param dimension_two [String] Dimension 2 value
         # @param opts [Hash] options hash of parameters
         # @option opts [Hash] filter The filters to apply
-        # @return [Hashie::Mash] All Chart data mentions
+        # @return [Hash] All Chart data mentions
         def data(project_id, aggregate, dimension_one, dimension_two, opts = {})
           get "projects/#{project_id}/data/#{aggregate}/#{dimension_one}/#{dimension_two}", opts
         end
@@ -24,7 +24,7 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
         # @option opts [Hash] filter The filters to apply
-        # @return [Hashie::Mash] Headline figures for spedified channels
+        # @return [Hash] Headline figures for spedified channels
         def data_headlines(project_id, opts = {})
           get "projects/#{project_id}/data/headlines", opts
         end

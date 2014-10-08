@@ -8,7 +8,7 @@ module BWAPI
         # @param project_id [Integer] Id of project
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
-        # @return [Hashie::Mash] All query groups in project
+        # @return [Hash] All query groups in project
         def query_groups(project_id, opts = {})
           get "projects/#{project_id}/querygroups", opts
         end
@@ -17,7 +17,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param query_group_id [Integer] Id of query group
-        # @return [Hashie::Mash] Specific query group
+        # @return [Hash] Specific query group
         def get_query_group(project_id, query_group_id)
           get "projects/#{project_id}/querygroups/#{query_group_id}"
         end
@@ -32,7 +32,7 @@ module BWAPI
         # @option opts [Array] users Users which this query group belongs to
         # @option opts [Array] queries Queries within the query group
         # @option opts [Hash] sharedProjectIds Projects which this query group belongs to
-        # @return [Hashie::Mash] New query group
+        # @return [Hash] New query group
         def create_query_group(project_id, opts = {})
           post "projects/#{project_id}/querygroups", opts
         end
@@ -48,7 +48,7 @@ module BWAPI
         # @option opts [Array] users Users which this query group belongs to
         # @option opts [Array] queries Queries within the query group
         # @option opts [Hash] sharedProjectIds Projects which this query group belongs to
-        # @return [Hashie::Mash] New query group
+        # @return [Hash] New query group
         def update_query_group(project_id, query_group_id, opts = {})
           put "projects/#{project_id}/querygroups/#{query_group_id}", opts
         end
@@ -57,7 +57,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param query_group_id [Integer] Id of query group
-        # @return [Hashie::Mash] Deleted query group
+        # @return [Hash] Deleted query group
         def delete_query_group(project_id, query_group_id)
           delete "projects/#{project_id}/querygroups/#{query_group_id}"
         end

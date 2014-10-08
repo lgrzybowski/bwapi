@@ -6,7 +6,7 @@ module BWAPI
     module User
       # Get the current user
       #
-      # @return [Hashie::Mash] User information
+      # @return [Hash] User information
       def user
         get 'user'
       end
@@ -32,7 +32,7 @@ module BWAPI
       # @option opts [String] firstName The users first name
       # @option opts [String] mobile The users mobile number
       # @option opts [Date] creationDate Date the user was created on
-      # @return [Hashie::Mash] Updated user information
+      # @return [Hash] Updated user information
       def update_user(opts = {})
         put 'user', opts
       end

@@ -6,7 +6,7 @@ module BWAPI
         # Get all twitter queries in a project
         #
         # @param project_id [Integer] Id of project
-        # @return [Hashie::Mash] All twitter queries in project
+        # @return [Hash] All twitter queries in project
         def twitter_queries(project_id)
           get "projects/#{project_id}/twitterqueries"
         end
@@ -15,7 +15,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param query_id [Integer] Id of twitter query
-        # @return [Hashie::Mash] Specific twitter query
+        # @return [Hash] Specific twitter query
         def get_twitter_query(project_id, query_id)
           get "projects/#{project_id}/twitterqueries/#{query_id}"
         end
@@ -43,7 +43,7 @@ module BWAPI
         # @option opts [String] type Query type
         # @option opts [String] twitterLimit Twitter limit
         # @option opts [String] twitterScreenName Twitter screen name
-        # @return [Hashie::Mash] New twitter query
+        # @return [Hash] New twitter query
         def create_twitter_query(project_id, opts = {})
           post "projects/#{project_id}/twitterqueries", opts
         end
@@ -72,7 +72,7 @@ module BWAPI
         # @option opts [String] type Query type
         # @option opts [String] twitterLimit Twitter limit
         # @option opts [String] twitterScreenName Twitter screen name
-        # @return [Hashie::Mash] Updated twitter query
+        # @return [Hash] Updated twitter query
         def update_twitter_query(project_id, query_id, opts = {})
           put "projects/#{project_id}/twitterqueries/#{query_id}", opts
         end

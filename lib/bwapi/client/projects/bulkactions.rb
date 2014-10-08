@@ -13,7 +13,7 @@ module BWAPI
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] sinceDate the start date to get bulk actions from
-        # @return [Hashie::Mash] All bulk actions in project
+        # @return [Hash] All bulk actions in project
         def bulk_actions(project_id, opts = {})
           get "projects/#{project_id}/bulkactions", opts
         end

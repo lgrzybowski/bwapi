@@ -9,7 +9,7 @@ module BWAPI
         # @option opts [Integer] page Page of projects to retrieve
         # @option opts [Integer] pageSize Results per page of results
         # @option opts [String] :filter Filter to apply to the query
-        # @return [Hashie::Mash] Project summary information
+        # @return [Hash] Project summary information
         def projects_summary(opts = {})
           get 'projects/summary', opts
         end

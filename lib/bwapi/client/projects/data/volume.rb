@@ -10,7 +10,7 @@ module BWAPI
           # @param opts [Hash] options hash of parameters
           # @option opts [Hash] filter The filters to apply
           # @option opts [Array] dateRanges Date range ids
-          # @return [Hashie::Mash] All Chart data mentions
+          # @return [Hash] All Chart data mentions
           def data_volume_date_ranges_days(project_id, opts = {})
             get "projects/#{project_id}/data/volume/dataRanges/days", opts
           end

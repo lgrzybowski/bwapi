@@ -1,5 +1,6 @@
 require 'bwapi/client/brandwatch/become'
 require 'bwapi/client/brandwatch/client_modules'
+require 'bwapi/client/brandwatch/clients'
 
 module BWAPI
   class Client
@@ -19,13 +20,14 @@ module BWAPI
       # @option opts [String] downloadLinkXLS The link to download the XLS format
       # @option opts [String] downloadLinkCSV The link to download the CSV format
       # @option opts [Array] additionalColumns The additional columns for the data download
-      # @return [Hashie::Mash] New data download
+      # @return [Hash] New data download
       def brandwatch_data_download(project_id, opts = {})
         post "brandwatch/#{project_id}/datadownload", opts
       end
 
       include BWAPI::Client::Brandwatch::Become
       include BWAPI::Client::Brandwatch::ClientModules
+      include BWAPI::Client::Brandwatch::Clients
     end
   end
 end

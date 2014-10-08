@@ -5,16 +5,13 @@
 [![Coverage Status](https://coveralls.io/repos/jonathanchrisp/bwapi/badge.png?branch=master)](https://coveralls.io/r/jonathanchrisp/bwapi?branch=master)
 
 # bwapi
-
-__PLEASE NOTE THAT THIS PROJECT IS NOT OFFICIALLY SUPPORTED BY BRANDWATCH__
-
-A Ruby interface to the Brandwatch V2 API.
+A Ruby interface to the Brandwatch API.
 
 ## Documentation
 http://rubydoc.info/gems/bwapi/
 
 ## Getting Started
-All Brandwatch API calls at present require you to be authenticated, therefore you'll need to create an instance of a client and call login immediately:
+All Brandwatch API calls at present require you to be authenticated, therefore you'll need to create an instance of a bwapi client and call the login method immediately:
 
 ```ruby
 bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd')
@@ -24,35 +21,35 @@ bw.login
 The API returns the oauth/token response with your authentication details.
 
 ## Examples
+Once authenticated, you are then able to make additional requests. The bwapi gem will automatically add your access token to subsequent request headers.
 
-Once authenticated, you are then able to make additional requests. The bwapi gem will automatically add your clients access token to the request header. Please see some examples of API requests below:
+Please see an example projects response below:
 
-### Request all projects
 ```ruby
 bw.projects
-=> #<Hashie::Mash results=[#<Hashie::Mash clientId=1856278873 clientName="JC BWAPI Demo" creationDate="2013-07-24T17:56:31.074+0000" creatorUserId=158304410 defaultIndustry="general-(recommended)" defaultLangCodes=["en"] description=nil id=1856280126 links=#<Hashie::Mash queries="http://newapi.brandwatch.com//projects/1856280126/queries.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"> name="Demo Project">] resultsPage=-1 resultsPageSize=-1 resultsTotal=-1>
-```
-
-### Request a specific project
-```ruby
-bw.project 1856280126
-=> #<Hashie::Mash clientId=1856278873 clientName="JC BWAPI Demo" creationDate="2013-07-24T17:56:31.074+0000" creatorUserId=158304410 defaultIndustry="general-(recommended)" defaultLangCodes=["en"] description=nil id=1856280126 links=#<Hashie::Mash queries="http://newapi.brandwatch.com//projects/1856280126/queries.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"> name="Demo Project">
-```
-
-### Request a project queries summary
-```ruby
-bw.queries_summary 1856280126
-=> #<Hashie::Mash results=[#<Hashie::Mash id=1856280351 name="LA Lakers">] resultsPage=-1 resultsPageSize=-1 resultsTotal=-1>
-```
-
-### Request user information
-```ruby
-bw.me
-=> #<Hashie::Mash client=#<Hashie::Mash id=1856278873 name="JC BWAPI Demo" parentId=-1 railsEnabled=false theme="brandwatch"> firstName="BWAPI" id=158304410 lastName="Demo" links=#<Hashie::Mash logout="http://newapi.brandwatch.com/logout?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f" user="http://newapi.brandwatch.com//user.json?access_token=bd405bd7-9d1f-4c3d-ab5c-64b77791ae7f"> tags=#<Hashie::Mash notify="true"> uiRole="admin" username="bwapi_demo=jonathan@brandwatch.com">
+{
+  "resultsTotal"=>-1,
+  "resultsPage"=>-1,
+  "resultsPageSize"=>-1,
+  "results"=>[
+    { "id"=>1856280126,
+      "name"=>"Demo Project",
+      "description"=>nil,
+      "clientId"=>1856278873,
+      "defaultLangCodes"=>["en"],
+      "defaultIndustry"=>"general-(recommended)",
+      "creatorUserId"=>158304410,
+      "creationDate"=>"2013-07-24T17:56:31.074+0000",
+      "links"=> {
+        "queries"=>"http://newapi.brandwatch.com//projects/1856280126/queries.json?access_token=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+      },
+      "clientName"=>"JC BWAPI Demo"
+    }
+  ]
+}
 ```
 
 ## Debug Mode
-
 In order to see additional logging and performance information you can enable debug mode by passing this in as an option when creating your client instance:
 
 ```ruby
@@ -60,7 +57,6 @@ bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', d
 ```
 
 ### Logging
-
 Any log output will be written to STDOUT unless you define a logger:
 
 ```ruby
@@ -68,12 +64,14 @@ bw = BWAPI::Client.new(username: 'username@example.com', password: 'pa$$w0rd', d
 ```
 
 ### Performance
-
-When debug mode is running each response time and stored, to view the stats call the performance method on the client instance:
+When debug mode is running the response performance is stored on each request, to view the stats call the performance method on the client instance:
 
 ```ruby
 bw.performance
-{"post_oauth_token"=>[0.125019], "get_me"=> [0.048003, 0.034587, 0.038165, 0.10304]}
+{
+  "post_oauth_token"=>[0.125019],
+  "get_me"=> [0.048003, 0.034587, 0.038165, 0.10304]
+}
 ```
 
 Please note that only successful responses are recorded. Any request which raises an error is ignored.

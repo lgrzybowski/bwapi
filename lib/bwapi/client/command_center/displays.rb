@@ -11,7 +11,7 @@ module BWAPI
       module Displays
         # Get the displays visible to the user
         #
-        # @return [Hashie::Mash] All displays
+        # @return [Hash] All displays
         def displays
           get 'commandcenter/displays'
         end
@@ -19,7 +19,7 @@ module BWAPI
         # Get an existing display
         #
         # @param [Integer] display_id the display id
-        # @return [Hashie::Mash] Specific display
+        # @return [Hash] Specific display
         def get_display(display_id)
           get "commandcenter/displays/#{display_id}"
         end
@@ -34,7 +34,7 @@ module BWAPI
         # @option opts [Boolean] active Whether display is active
         # @option opts [String] created Date display was created
         # @option opts [Boolean] enabled Whether display is enabled
-        # @return [Hashie::Mash] New display
+        # @return [Hash] New display
         def create_display(opts = {})
           post 'commandcenter/displays', opts
         end
@@ -50,7 +50,7 @@ module BWAPI
         # @option opts [Boolean] active Whether display is active
         # @option opts [String] created Date display was created
         # @option opts [Boolean] enabled Whether display is enabled
-        # @return [Hashie::Mash] Updated display
+        # @return [Hash] Updated display
         def update_display(display_id, opts = {})
           put "commandcenter/displays/#{display_id}", opts
         end
@@ -58,7 +58,7 @@ module BWAPI
         # Delete an existing display
         #
         # @param [Integer] display_id the display id
-        # @return [Hashie::Mash] Deleted display
+        # @return [Hash] Deleted display
         def delete_display(display_id)
           delete "commandcenter/displays/#{display_id}"
         end

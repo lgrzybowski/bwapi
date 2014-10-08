@@ -13,19 +13,18 @@ module BWAPI
     def valid_response?(response)
       return nil if response.nil?
       return nil unless response.body.is_a?(Object) && response.respond_to?(:body)
-      return nil unless response.body.is_a?(Hashie::Mash)
-      body = errors_keys?(response.body)
-      parse_errors(body) unless body.nil?
+      return nil unless response.body.is_a?(Hash)
+      parse_errors(errors_keys?(response.body)) unless response.body.nil?
     end
 
     # Check if response has known errors keys
     #
     # @param object [Object] response object to process for errors
     def errors_keys?(body)
-      if body.error? && body.error_description?
+      if body.key?('error') && body.key?('error_description')
         body
-      elsif body.errors?
-        body.errors
+      elsif body.key?('errors')
+        body['errors']
       else
         nil
       end
@@ -44,9 +43,9 @@ module BWAPI
     def verify_type(type)
       case type
       when Array
-        split_array_errors type
-      when Hash, Hashie::Mash
-        split_hash_errors type
+        split_array_errors(type)
+      when Hash
+        split_hash_errors(type)
       when String
         @errors << type
       end
@@ -56,9 +55,7 @@ module BWAPI
     #
     # @param array [Array] array to iterate
     def split_array_errors(array)
-      array.each_with_index do |_e, i|
-        verify_type array[i]
-      end
+      array.each_with_index { |_e, i| verify_type array[i] }
     end
 
     # Iterates through errors in hash
