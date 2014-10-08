@@ -1,4 +1,4 @@
-require 'bwapi/client/admin/users/sharing'
+require 'bwapi/client/admin/clients/users/sharing'
 
 module BWAPI
   class Client

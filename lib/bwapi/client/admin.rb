@@ -1,7 +1,8 @@
 require 'bwapi/client/admin/become'
 require 'bwapi/client/admin/search'
-require 'bwapi/client/admin/sub_clients'
-require 'bwapi/client/admin/users'
+require 'bwapi/client/admin/clients/sub_clients'
+require 'bwapi/client/admin/clients/users'
+require 'bwapi/client/admin/clients/user_groups'
 
 module BWAPI
   class Client
@@ -25,10 +26,11 @@ module BWAPI
         get 'admin/sharing-report'
       end
 
-      include BWAPI::Client::Admin::Clients::Become
+      include BWAPI::Client::Admin::Become
+      include BWAPI::Client::Admin::Search
       include BWAPI::Client::Admin::Clients::SubClients
-      include BWAPI::Client::Admin::Clients::Search
       include BWAPI::Client::Admin::Clients::Users
+      include BWAPI::Client::Admin::Clients::UserGroups
     end
   end
 end
