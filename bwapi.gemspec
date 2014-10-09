@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'bwapi'
   s.version     = BWAPI::VERSION
   s.version     = BWAPI::VERSION + ".pre.#{ENV['TRAVIS_BUILD_NUMBER']}" if ENV['TRAVIS']
-  s.date        = '2014-10-01'
+  s.date        = '2014-10-09'
   s.summary     = 'Brandwatch API Wrapper'
   s.description = 'A Ruby wrapper for the Brandwatch API'
   s.author      = 'Jonathan Chrisp'
