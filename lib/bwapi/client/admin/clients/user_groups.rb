@@ -9,8 +9,8 @@ module BWAPI
           # @param client_id [Integer] Id of the client
           # @option opts [Integer] page Page of projects to retrieve
           # @option opts [Integer] pageSize Results per page of results
-          def client_user_groups(client_id, opts = {})
-            get "admin/clients/#{client_id}/usergroups", opts
+          def client_user_groups(client_id)
+            get "admin/clients/#{client_id}/usergroups"
           end
 
           # Create new user group
