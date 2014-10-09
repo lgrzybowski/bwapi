@@ -22,7 +22,7 @@ module BWAPI
             post "admin/clients/#{client_id}/usergroups", opts
           end
 
-          # Update existing user groups
+          # Update existing user group
           #
           # @param client_id [Integer] Id of the client
           # @param user_group_id [Integer] Id of the user group
@@ -30,7 +30,7 @@ module BWAPI
             put "admin/clients/#{client_id}/usergroups/#{user_group_id}", opts
           end
 
-          # Delete specific user groups of client
+          # Delete specific user group
           #
           # @param client_id [Integer] Id of the client
           # @param user_group_id [Integer] Id of the user group
