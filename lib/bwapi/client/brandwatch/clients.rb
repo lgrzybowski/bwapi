@@ -88,7 +88,7 @@ module BWAPI
         # @option opts [String] website The website for the client
         # @return [Hash] Updated parent client
         def update_client(client_id, opts = {})
-          post "brandwatch/clients/#{client_id}", opts
+          put "brandwatch/clients/#{client_id}", opts
         end
       end
     end
