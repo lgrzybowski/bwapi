@@ -3,8 +3,6 @@ require 'faraday'
 module BWAPI
   # Request module
   module Request
-    RACK_BUILDER_CLASS = defined?(Faraday::RackBuilder) ? Faraday::RackBuilder : Faraday::Builder
-
     # Perform a get request
     #
     # @param path [String] URL path to send request
