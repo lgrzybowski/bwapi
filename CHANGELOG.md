@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 ## 9.2.0
 ### Added
 * NoTask - added admin clients usergroups endpoints
+* Fix - parent client update_client method
 
 ## 9.1.0
 ### Added
