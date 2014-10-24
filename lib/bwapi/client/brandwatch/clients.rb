@@ -1,4 +1,5 @@
 require 'bwapi/client/brandwatch/clients/modules'
+
 module BWAPI
   class Client
     module Brandwatch
