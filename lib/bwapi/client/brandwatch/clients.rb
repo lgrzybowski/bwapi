@@ -1,3 +1,5 @@
+require 'bwapi/client/brandwatch/clients/users'
+
 module BWAPI
   class Client
     module Brandwatch
@@ -5,14 +7,18 @@ module BWAPI
       module Clients
         # Get specific clients
         #
+        # @note must be a super admin user
+        #
         # @param opts [Hash] options Hash of parameters
         # @options opts [String] nameContains Client name search (case insensitive)
         # @return [Hash] List of filtered clients
-        def clients(opts = {})
+        def brandwatch_clients(opts = {})
           get 'brandwatch/clients', opts
         end
 
         # Create a new parent client
+        #
+        # @note must be a super admin user
         #
         # @param opts [Hash] options Hash of parameters
         # @option opts [String] address1 Address line one of the client
@@ -43,19 +49,23 @@ module BWAPI
         # @option opts [String] theme The theme of the client
         # @option opts [String] website The website for the client
         # @return [Hash] Newly created parent client
-        def create_client(opts = {})
+        def brandwatch_create_client(opts = {})
           post 'brandwatch/clients', opts
         end
 
         # Get specific client
         #
+        # @note must be a super admin user
+        #
         # @param client_id [Integer] Id of the client
         # @return [Hash] Specific client
-        def get_client(client_id)
+        def brandwatch_get_client(client_id)
           get "brandwatch/clients/#{client_id}"
         end
 
         # Update an existing parent client
+        #
+        # @note must be a super admin user
         #
         # @param client_id [Integer] Id of the client
         # @param opts [Hash] options Hash of parameters
@@ -87,9 +97,11 @@ module BWAPI
         # @option opts [String] theme The theme of the client
         # @option opts [String] website The website for the client
         # @return [Hash] Updated parent client
-        def update_client(client_id, opts = {})
+        def brandwatch_update_client(client_id, opts = {})
           put "brandwatch/clients/#{client_id}", opts
         end
+
+        include BWAPI::Client::Brandwatch::Clients::Users
       end
     end
   end
