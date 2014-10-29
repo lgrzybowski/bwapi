@@ -14,10 +14,12 @@ module BWAPI
 
           # Update brandwatch client modules
           #
+          # @param client_id [Integer] Id of the client
           # @param opts [Hash] options Hash of parameters
-          # @option opts [Array] brandwatch/client/modules Client Modules to edit
+          # @param opts [Integer] client_id Id of the client
+          # @option opts [Array] modules Client Modules to update
           # @return [Hash] Updated client modules
-          def update_brandwatch_client_modules(opts = {})
+          def update_brandwatch_client_modules(client_id, opts = {})
             put "brandwatch/clients/#{client_id}/modules", opts
           end
         end
