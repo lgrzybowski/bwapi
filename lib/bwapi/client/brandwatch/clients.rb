@@ -1,4 +1,5 @@
 require 'bwapi/client/brandwatch/clients/users'
+require 'bwapi/client/brandwatch/clients/modules'
 
 module BWAPI
   class Client
@@ -102,6 +103,7 @@ module BWAPI
         end
 
         include BWAPI::Client::Brandwatch::Clients::Users
+        include BWAPI::Client::Brandwatch::Clients::Modules
       end
     end
   end
