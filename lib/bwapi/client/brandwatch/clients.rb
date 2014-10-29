@@ -1,3 +1,5 @@
+require 'bwapi/client/brandwatch/clients/modules'
+
 module BWAPI
   class Client
     module Brandwatch
@@ -90,6 +92,8 @@ module BWAPI
         def update_client(client_id, opts = {})
           put "brandwatch/clients/#{client_id}", opts
         end
+
+        include BWAPI::Client::Brandwatch::Clients::Modules
       end
     end
   end
