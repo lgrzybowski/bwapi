@@ -2,6 +2,7 @@ require 'bwapi/response/error'
 require 'bwapi/response/logger'
 require 'bwapi/response/performance'
 require 'faraday_middleware'
+require 'faraday_middleware/parse_csv'
 require 'faraday_middleware/parse_oj'
 
 module BWAPI
@@ -37,6 +38,7 @@ module BWAPI
         builder.use BWAPI::Response::Logger, self if debug
 
         builder.response :oj
+        builder.response :csv, parser: { encoding: 'bom|utf-8' }
         builder.response :follow_redirects
         builder.adapter Faraday.default_adapter
       end

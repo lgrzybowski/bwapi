@@ -59,12 +59,25 @@ module BWAPI
     def request(method, path, opts = {})
       connection.send(method) do |req|
         case method
-        when :get, :delete
+        when :get
+          path = request_extension(path, opts)
+          request_url(req, path, opts)
+        when :delete
           request_url(req, path, opts)
         when :patch, :post, :put
           request_body(req, path, opts)
         end
       end
+    end
+
+    # Appends the request extension to the path
+    #
+    # @param path [String] URL path to send request
+    # @param opts [Hash] Request parameters
+    # @return [String] path appended with request extension
+    def request_extension(path, opts)
+      extension = key?(opts, :request_extension)
+      extension ? [path, extension].join('.') : path
     end
 
     # Configures url encoded request unless force_body key is passed
@@ -98,7 +111,6 @@ module BWAPI
     #
     # @param opts [Hash] Request parameters
     # @param key [Symbol] The key to check for
-    # @return [Boolean] false or key value
     def key?(opts, key)
       return false unless opts.is_a?(Hash) && opts.key?(key)
       opts.delete(key)
