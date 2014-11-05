@@ -1,3 +1,4 @@
+require 'date'
 require File.dirname(__FILE__) + '/lib/bwapi/version'
 
 Gem::Specification.new do |s|
