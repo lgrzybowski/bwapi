@@ -57,21 +57,63 @@ module BWAPI
     # @param opts [Hash] Request parameters
     # @return [Hash] Response
     def request(method, path, opts = {})
-      response = connection.send(method) do |r|
+      connection.send(method) do |req|
         case method
-        when :get, :delete
-          r.url path, opts
+        when :get
+          path = request_extension(path, opts)
+          request_url(req, path, opts)
+        when :delete
+          request_url(req, path, opts)
         when :patch, :post, :put
-          if opts.is_a?(Hash) && opts.key?(:force_urlencoded)
-            opts.delete(:force_urlencoded)
-            r.url path, opts
-          else
-            r.path = path
-            r.body = opts
-          end
+          request_body(req, path, opts)
         end
       end
-      response
+    end
+
+    # Appends the request extension to the path
+    #
+    # @param path [String] URL path to send request
+    # @param opts [Hash] Request parameters
+    # @return [String] path appended with request extension
+    def request_extension(path, opts)
+      extension = key?(opts, :request_extension)
+      extension ? [path, extension].join('.') : path
+    end
+
+    # Configures url encoded request unless force_body key is passed
+    #
+    # @param req [Object] the request object
+    # @param path [String] URL path to send request
+    # @param opts [Hash] Request parameters
+    def request_url(req, path, opts)
+      if key?(opts, :force_body)
+        req.path, req.body = path, opts
+      else
+        req.url path, opts
+      end
+    end
+
+    # Configures body request unless force_urlencoded key is passed
+    #
+    # @param req [Object] the request object
+    # @param path [String] URL path to send request
+    # @param opts [Hash] Request parameters
+    def request_body(req, path, opts)
+      if key?(opts, :force_urlencoded)
+        req.url path, opts
+      else
+        req.path, req.body = path, opts
+      end
+    end
+
+    # Checks if a request options has a given key
+    # Deletes the key if it is present
+    #
+    # @param opts [Hash] Request parameters
+    # @param key [Symbol] The key to check for
+    def key?(opts, key)
+      return false unless opts.is_a?(Hash) && opts.key?(key)
+      opts.delete(key)
     end
   end
 end

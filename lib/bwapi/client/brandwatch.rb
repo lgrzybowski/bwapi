@@ -1,5 +1,4 @@
 require 'bwapi/client/brandwatch/become'
-require 'bwapi/client/brandwatch/client_modules'
 require 'bwapi/client/brandwatch/clients'
 
 module BWAPI
@@ -26,7 +25,6 @@ module BWAPI
       end
 
       include BWAPI::Client::Brandwatch::Become
-      include BWAPI::Client::Brandwatch::ClientModules
       include BWAPI::Client::Brandwatch::Clients
     end
   end
