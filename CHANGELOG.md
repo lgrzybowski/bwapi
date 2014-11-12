@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 10.0.0
+### Added
+* NoTask - added brandwatch client user post method
+* NoTask - updated brandwatch client modules endpoint
+* NoTask - updated travis.yml to create pre release gem on staging branch
+* NoTask - Refactored request to break out request options logic
+* NoTask - Added csv middleware and the ability to include a response extension
+
+### Fixed
+* NoTask - Added missing client_id for PUT brandwatch/clients/client_id/modules
+* 158 - fixed small bug where options could not be passed in client_user_groups method
+
 ## 9.2.0
 ### Added
 * NoTask - added admin clients usergroups endpoints
