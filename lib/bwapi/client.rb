@@ -4,6 +4,7 @@ require 'bwapi/request'
 require 'bwapi/performance'
 
 require 'bwapi/client/admin'
+require 'bwapi/client/aggregates'
 require 'bwapi/client/brandwatch'
 require 'bwapi/client/client'
 require 'bwapi/client/command_center'
@@ -32,6 +33,7 @@ module BWAPI
     include BWAPI::Performance
 
     include BWAPI::Client::Admin
+    include BWAPI::Client::Aggregates
     include BWAPI::Client::Brandwatch
     include BWAPI::Client::Client
     include BWAPI::Client::CommandCenter
