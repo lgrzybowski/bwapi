@@ -5,8 +5,6 @@ module BWAPI
       module Become
         # Become user
         #
-        # @note must be a super admin user
-        #
         # @param user_id [Integer] The user id
         # @return [Hash] User credentials
         def brandwatch_become(user_id)

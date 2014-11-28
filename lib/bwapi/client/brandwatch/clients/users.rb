@@ -6,8 +6,6 @@ module BWAPI
         module Users
           # Create a new client user
           #
-          # @note must be a super admin user
-          #
           # @param client_id [Integer] Id of the client
           # @param opts [Hash] options Hash of parameters
           # @option opts [String] address The users address

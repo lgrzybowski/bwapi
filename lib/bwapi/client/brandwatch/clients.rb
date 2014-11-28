@@ -8,8 +8,6 @@ module BWAPI
       module Clients
         # Get specific clients
         #
-        # @note must be a super admin user
-        #
         # @param opts [Hash] options Hash of parameters
         # @options opts [String] nameContains Client name search (case insensitive)
         # @return [Hash] List of filtered clients
@@ -18,8 +16,6 @@ module BWAPI
         end
 
         # Create a new parent client
-        #
-        # @note must be a super admin user
         #
         # @param opts [Hash] options Hash of parameters
         # @option opts [String] address1 Address line one of the client
@@ -56,8 +52,6 @@ module BWAPI
 
         # Get specific client
         #
-        # @note must be a super admin user
-        #
         # @param client_id [Integer] Id of the client
         # @return [Hash] Specific client
         def brandwatch_get_client(client_id)
@@ -65,8 +59,6 @@ module BWAPI
         end
 
         # Update an existing parent client
-        #
-        # @note must be a super admin user
         #
         # @param client_id [Integer] Id of the client
         # @param opts [Hash] options Hash of parameters
