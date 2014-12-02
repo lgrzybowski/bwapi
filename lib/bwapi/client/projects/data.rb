@@ -1,3 +1,4 @@
+require 'bwapi/client/projects/data/headlines'
 require 'bwapi/client/projects/data/mentions'
 require 'bwapi/client/projects/data/volume'
 
@@ -29,6 +30,7 @@ module BWAPI
           get "projects/#{project_id}/data/headlines", opts
         end
 
+        include BWAPI::Client::Projects::Data::Headlines
         include BWAPI::Client::Projects::Data::Mentions
         include BWAPI::Client::Projects::Data::Volume
       end
