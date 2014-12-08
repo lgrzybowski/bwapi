@@ -1,5 +1,10 @@
+require 'bwapi/client/projects/data/audience'
+require 'bwapi/client/projects/data/audience_activity'
+require 'bwapi/client/projects/data/channel_metrics'
 require 'bwapi/client/projects/data/headlines'
+require 'bwapi/client/projects/data/impressions'
 require 'bwapi/client/projects/data/mentions'
+require 'bwapi/client/projects/data/owner_activity'
 require 'bwapi/client/projects/data/volume'
 
 module BWAPI
@@ -30,8 +35,13 @@ module BWAPI
           get "projects/#{project_id}/data/headlines", opts
         end
 
+        include BWAPI::Client::Projects::Data::Audience
+        include BWAPI::Client::Projects::Data::AudienceActivity
+        include BWAPI::Client::Projects::Data::ChannelMetrics
         include BWAPI::Client::Projects::Data::Headlines
+        include BWAPI::Client::Projects::Data::Impressions
         include BWAPI::Client::Projects::Data::Mentions
+        include BWAPI::Client::Projects::Data::OwnerActivity
         include BWAPI::Client::Projects::Data::Volume
       end
     end
