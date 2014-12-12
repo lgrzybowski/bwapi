@@ -9,6 +9,7 @@ require 'bwapi/client/author'
 require 'bwapi/client/brandwatch'
 require 'bwapi/client/client'
 require 'bwapi/client/command_center'
+require 'bwapi/client/dimensions'
 require 'bwapi/client/error_codes'
 require 'bwapi/client/filters'
 require 'bwapi/client/languages'
@@ -39,6 +40,7 @@ module BWAPI
     include BWAPI::Client::Brandwatch
     include BWAPI::Client::Client
     include BWAPI::Client::CommandCenter
+    include BWAPI::Client::Dimensions
     include BWAPI::Client::ErrorCodes
     include BWAPI::Client::Filters
     include BWAPI::Client::Languages
