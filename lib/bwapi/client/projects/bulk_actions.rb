@@ -1,5 +1,5 @@
-require 'bwapi/client/projects/bulkactions/mentions'
-require 'bwapi/client/projects/bulkactions/author'
+require 'bwapi/client/projects/bulk_actions/mentions'
+require 'bwapi/client/projects/bulk_actions/author'
 
 module BWAPI
   class Client
