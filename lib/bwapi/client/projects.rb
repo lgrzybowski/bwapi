@@ -1,4 +1,4 @@
-require 'bwapi/client/projects/bulkactions'
+require 'bwapi/client/projects/bulk_actions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
