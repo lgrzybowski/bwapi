@@ -1,10 +1,14 @@
 require 'bwapi/client/projects/data/audience'
 require 'bwapi/client/projects/data/audience_activity'
 require 'bwapi/client/projects/data/channel_metrics'
+require 'bwapi/client/projects/data/emoticons'
+require 'bwapi/client/projects/data/hashtags'
 require 'bwapi/client/projects/data/headlines'
+require 'bwapi/client/projects/data/mentioned_authors'
 require 'bwapi/client/projects/data/impressions'
 require 'bwapi/client/projects/data/mentions'
 require 'bwapi/client/projects/data/owner_activity'
+require 'bwapi/client/projects/data/urls'
 require 'bwapi/client/projects/data/volume'
 
 module BWAPI
@@ -38,10 +42,14 @@ module BWAPI
         include BWAPI::Client::Projects::Data::Audience
         include BWAPI::Client::Projects::Data::AudienceActivity
         include BWAPI::Client::Projects::Data::ChannelMetrics
+        include BWAPI::Client::Projects::Data::Emoticons
+        include BWAPI::Client::Projects::Data::Hashtags
         include BWAPI::Client::Projects::Data::Headlines
         include BWAPI::Client::Projects::Data::Impressions
+        include BWAPI::Client::Projects::Data::MentionedAuthors
         include BWAPI::Client::Projects::Data::Mentions
         include BWAPI::Client::Projects::Data::OwnerActivity
+        include BWAPI::Client::Projects::Data::Urls
         include BWAPI::Client::Projects::Data::Volume
       end
     end

@@ -19,9 +19,9 @@ require 'bwapi/client/me'
 require 'bwapi/client/metrics'
 require 'bwapi/client/oauth'
 require 'bwapi/client/ping'
-require 'bwapi/client/sso'
 require 'bwapi/client/projects'
 require 'bwapi/client/query_validation'
+require 'bwapi/client/sso'
 require 'bwapi/client/test_search'
 require 'bwapi/client/user'
 require 'faraday'
@@ -51,8 +51,8 @@ module BWAPI
     include BWAPI::Client::OAuth
     include BWAPI::Client::Ping
     include BWAPI::Client::Projects
-    include BWAPI::Client::SSO
     include BWAPI::Client::QueryValidation
+    include BWAPI::Client::SSO
     include BWAPI::Client::TestSearch
     include BWAPI::Client::User
 
