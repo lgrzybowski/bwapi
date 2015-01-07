@@ -1,4 +1,5 @@
 require 'bwapi/client/admin/become'
+require 'bwapi/client/admin/demographics'
 require 'bwapi/client/admin/search'
 require 'bwapi/client/admin/clients/sub_clients'
 require 'bwapi/client/admin/clients/users'
@@ -27,6 +28,7 @@ module BWAPI
       end
 
       include BWAPI::Client::Admin::Become
+      include BWAPI::Client::Admin::Demographics
       include BWAPI::Client::Admin::Search
       include BWAPI::Client::Admin::Clients::SubClients
       include BWAPI::Client::Admin::Clients::Users
