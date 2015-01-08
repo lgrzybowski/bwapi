@@ -61,7 +61,8 @@ module BWAPI
       # @param opts [Hash] options hash of parameters
       def oauth_request(opts = {})
         response = post('oauth/token', opts)
-        self.access_token  = response['access_token']
+        self.access_token = response['access_token']
+        self.access_token_expiry = Time.at(Time.now.to_i + response['expires_in']).iso8601
         self.refresh_token = response['refresh_token'] if application_client?
         response
       end

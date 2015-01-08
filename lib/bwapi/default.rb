@@ -26,8 +26,12 @@ module BWAPI
         ENV['BWAPI_ACCESS_TOKEN']
       end
 
+      def access_token_expiry
+        nil
+      end
+
       def adapter
-        ENV['BWAPI_ADAPTER'] || ADAPTER
+        ENV['BWAPI_ADAPTER'].is_a?(String) ? ENV['BWAPI_ADAPTER'].to_sym : ADAPTER
       end
 
       def api_endpoint
@@ -54,7 +58,7 @@ module BWAPI
       end
 
       def debug
-        ENV['BWAPI_DEBUG'] || false
+        ENV['BWAPI_DEBUG'] == 'true' ? true : false
       end
 
       def grant_type
@@ -86,7 +90,7 @@ module BWAPI
       end
 
       def verify_ssl
-        ENV['BWAPI_VERIFY_SSL'] || false
+        ENV['BWAPI_VERIFY_SSL'] == 'true' ? true : false
       end
     end
   end
