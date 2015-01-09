@@ -10,20 +10,22 @@ module BWAPI
           # @param projectId [Integer] Id of the existing project
           # @option opts [Integer] page Page of results to retrieve
           # @option opts [Integer] pageSize Results per page of results
-          # @return [Hash] All signal groups for project
+          # @return [Hash] Returns All signal groups for project
           def signal_groups(project_id, opts = {})
             get "/projects/#{project_id}/signals/groups", opts
           end
 
           # Get a specific signal group
+          #
           # @param projectId [Integer] Id of project
           # @param groupId [Integer] Id of group
-          # @return [Hash] specific signals group
+          # @return [Hash] Returns a specific signals group
           def get_signal_group(project_id, group_id)
             get "/projects/#{project_id}/signals/groups/#{group_id}"
           end
 
           # Create a new signal group
+          #
           # @param projectId [Integer] Project ID of the Signal Group to be updated
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] projectId Project ID of Signal Group
@@ -33,12 +35,13 @@ module BWAPI
           # @option opts [Date] lastModified Last modified date of the Signal Group
           # @option opts [Integer] id ID of Signal Group
           # @option opts [String] creator Creator of the Signal Group
-          # @return [Hash] new signal group
+          # @return [Hash] Retuns the new signal group
           def create_signal_group(project_id, opts = {})
             post "/projects/#{project_id}/signals/groups", opts
           end
 
           # Update a signal group
+          #
           # @param projectId [Integer] Project ID of the Signal Group to be updated
           # @param groupId [Integer] Id of group
           # @param opts [Hash] options hash of parameters
@@ -49,17 +52,27 @@ module BWAPI
           # @option opts [Date] lastModified Last modified date of the Signal Group
           # @option opts [Integer] id ID of Signal Group
           # @option opts [String] creator Creator of the Signal Group
-          # @return [Hash] updated signal group
+          # @return [Hash] Returns the updated signal group
           def update_signal_group(project_id, group_id, opts = {})
             put "/projects/#{project_id}/signals/groups/#{group_id}", opts
           end
 
           # Delete a signal group
+          #
           # @param projectId [Integer] Id of project
           # @param groupId [Integer] Id of group
-          # @return [Hash] deleted signal group
+          # @return [Hash] Returns the deleted signal group
           def delete_signal_group(project_id, group_id)
             delete "/projects/#{project_id}/signals/groups/#{group_id}"
+          end
+
+          # Get all signals for a specific group
+          #
+          # @param projectId [Integer] Id of project
+          # @param groupId [Integer] Id of group
+          # @return [Hash] Returns a specific signal group signals
+          def get_signal_group_signals(project_id, group_id)
+            get "/projects/#{project_id}/signals/groups/#{group_id}/signals"
           end
         end
       end

@@ -35,7 +35,7 @@ module BWAPI
           # @param [Integer] display_id The display id
           # @param opts [Hash] options hash of parameters
           # @option opts [Integer] id The id of scene
-          # @option opts String] name The name of the scene
+          # @option opts [String] name The name of the scene
           # @option opts [Integer] projectId The project id
           # @option opts [Integer] displayId The display id
           # @option opts [Hash] options Scene options
