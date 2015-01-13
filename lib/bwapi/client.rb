@@ -65,11 +65,19 @@ module BWAPI
       end
     end
 
+    # Check is access token has expired
+    #
+    # @return [Boolean] access token expiry status
+    def access_token_expired?
+      return true if @access_token.nil? || @access_token_expiry.nil?
+      seconds_until_access_token_expires <= 0
+    end
+
     # Check if user is authenicated
     #
     # @return [Boolean] Authenticated status
     def authenticated?
-      @access_token ? true : false
+      (@access_token && !access_token_expired?) ? true : false
     end
 
     # Check if user is a brandwatch-application-client type
@@ -114,6 +122,15 @@ module BWAPI
     def verify_ssl=(value)
       reset_connection
       @verify_ssl = value
+    end
+
+    private
+
+    # Returns the number of seconds until the access token expires
+    #
+    # @return [Integer] seconds until expiry
+    def seconds_until_access_token_expires
+      DateTime.parse(@access_token_expiry).to_time.to_i - Time.now.to_i
     end
   end
 end
