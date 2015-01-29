@@ -1,5 +1,6 @@
 require 'bwapi/client/brandwatch/become'
 require 'bwapi/client/brandwatch/clients'
+require 'bwapi/client/brandwatch/ditto_brands'
 require 'bwapi/client/brandwatch/log_level'
 require 'bwapi/client/brandwatch/price_structures'
 require 'bwapi/client/brandwatch/usage_report'
@@ -29,6 +30,7 @@ module BWAPI
 
       include BWAPI::Client::Brandwatch::Become
       include BWAPI::Client::Brandwatch::Clients
+      include BWAPI::Client::Brandwatch::DittoBrands
       include BWAPI::Client::Brandwatch::LogLevel
       include BWAPI::Client::Brandwatch::PriceStructures
       include BWAPI::Client::Brandwatch::UsageReport

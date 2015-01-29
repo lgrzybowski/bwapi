@@ -3,6 +3,7 @@ require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
 require 'bwapi/client/projects/demographics'
+require 'bwapi/client/projects/ditto_queries'
 require 'bwapi/client/projects/facebook_queries'
 require 'bwapi/client/projects/group'
 require 'bwapi/client/projects/queries'
@@ -86,6 +87,7 @@ module BWAPI
       include BWAPI::Client::Projects::Data
       include BWAPI::Client::Projects::DataDownload
       include BWAPI::Client::Projects::Demographics
+      include BWAPI::Client::Projects::DittoQueries
       include BWAPI::Client::Projects::FacebookQueries
       include BWAPI::Client::Projects::Group
       include BWAPI::Client::Projects::Queries
