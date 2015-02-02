@@ -1,7 +1,7 @@
 module BWAPI
   class Client
     module CommandCenter
-      # Displays module for commandcenter/scenetypes endpoints
+      # SceneTypes module for commandcenter/scenetypes endpoints
       module SceneTypes
         # Get the scene types visible to the user
         #
@@ -23,7 +23,7 @@ module BWAPI
         # @param [Integer] scene_type_id the scene type id
         # @return [Hash] Specific scene type with sub scences
         def get_scene_type_with_sub_scenes(scene_type_id)
-          get "commandcenter/scenetypes/#{scene_type_id}"
+          get "commandcenter/scenetypes/#{scene_type_id}/subscenes"
         end
       end
     end
