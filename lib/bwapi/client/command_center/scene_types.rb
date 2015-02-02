@@ -18,7 +18,7 @@ module BWAPI
           get "commandcenter/scenetypes/#{scene_type_id}"
         end
 
-        # Get an existing scene type
+        # Get an existing scene type sub scene types
         #
         # @param [Integer] scene_type_id the scene type id
         # @return [Hash] Specific scene type with sub scences
