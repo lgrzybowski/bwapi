@@ -1,3 +1,4 @@
+require 'bwapi/client/user/instagram_credentials'
 require 'bwapi/client/user/notifications'
 
 module BWAPI
@@ -51,6 +52,7 @@ module BWAPI
         user.uiRole
       end
 
+      include BWAPI::Client::User::InstagramCredentials
       include BWAPI::Client::User::Notifications
     end
   end
