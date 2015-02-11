@@ -1,19 +1,20 @@
-require 'bwapi/client/projects/bulkactions'
+require 'bwapi/client/projects/bulk_actions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
 require 'bwapi/client/projects/demographics'
 require 'bwapi/client/projects/facebook_queries'
-require 'bwapi/client/projects/twitter_queries'
 require 'bwapi/client/projects/group'
-require 'bwapi/client/projects/signals'
-require 'bwapi/client/projects/summary'
-require 'bwapi/client/projects/sharing'
-require 'bwapi/client/projects/stream_dashboards'
 require 'bwapi/client/projects/queries'
+require 'bwapi/client/projects/query/mentionfind'
 require 'bwapi/client/projects/query_groups'
 require 'bwapi/client/projects/rules'
+require 'bwapi/client/projects/sharing'
+require 'bwapi/client/projects/signals'
+require 'bwapi/client/projects/stream_dashboards'
+require 'bwapi/client/projects/summary'
 require 'bwapi/client/projects/tags'
+require 'bwapi/client/projects/twitter_queries'
 require 'bwapi/client/projects/users'
 require 'bwapi/client/projects/workflow'
 
@@ -87,15 +88,16 @@ module BWAPI
       include BWAPI::Client::Projects::Demographics
       include BWAPI::Client::Projects::FacebookQueries
       include BWAPI::Client::Projects::Group
-      include BWAPI::Client::Projects::TwitterQueries
-      include BWAPI::Client::Projects::Signals
-      include BWAPI::Client::Projects::Summary
-      include BWAPI::Client::Projects::Sharing
-      include BWAPI::Client::Projects::StreamDashboards
       include BWAPI::Client::Projects::Queries
+      include BWAPI::Client::Projects::Query::MentionFind
       include BWAPI::Client::Projects::QueryGroups
       include BWAPI::Client::Projects::Rules
+      include BWAPI::Client::Projects::Sharing
+      include BWAPI::Client::Projects::Signals
+      include BWAPI::Client::Projects::StreamDashboards
+      include BWAPI::Client::Projects::Summary
       include BWAPI::Client::Projects::Tags
+      include BWAPI::Client::Projects::TwitterQueries
       include BWAPI::Client::Projects::Users
       include BWAPI::Client::Projects::Workflow
     end

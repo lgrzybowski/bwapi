@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 11.0.0
+### Added
+* NoTask - Add aggregates endpoint
+* NoTask - Adding price structures endpoints
+* NoTask - Adding data headlines endpoint
+* NoTask - Added specific data aggregate endpoints
+* NoTask - Added /author endpoints
+* QA-1746 - Added Dimensions endpoint
+* QA-720 - Added new emoticons, hashtags, mentioned authors and urls endpoints
+* NoTask - Added demographics classify endpoint
+* 162 - access token expiry_ins time
+* QA-752 - Added log level, usage reports and mention find endpoints
+* NoTask - Added missing /commandcenter endpoints
+* NoTask - Added missing /brandwatch command center endpoints
+* NoTask - Added instagram endpoints
+
+### Fixed
+* NoTask - removing instances of super admin from comments
+* NoTask Added options to category colour and tag colour endpoints
+
 ## 10.0.0
 ### Added
 * NoTask - added brandwatch client user post method

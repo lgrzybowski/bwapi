@@ -31,7 +31,7 @@ module BWAPI
             patch "projects/#{project_id}/data/mentions", opts
           end
 
-          # Get mentions that fall within the submitted filters with fulltext
+          # Get mentions that fall within the submitted filters with full text
           #
           # @param project_id [Integer] Id of project
           # @param opts [Hash] options hash of parameters
@@ -42,7 +42,7 @@ module BWAPI
           # @option opts [String] orderDirection Direction of sort
           # @option opts [Integer] orderByCategory Category to sort by when orderBy category
           # @return [Hash] All Mentions
-          def data_mentions_fulltext(project_id, opts = {})
+          def data_mentions_full_text(project_id, opts = {})
             get "projects/#{project_id}/data/mentions/fulltext", opts
           end
 
@@ -59,6 +59,36 @@ module BWAPI
           # @return [Hash] All Mentions
           def data_mentions_tweets(project_id, opts = {})
             get "projects/#{project_id}/data/mentions/tweets", opts
+          end
+
+          # Get mentions that fall within the submitted filters for all facebook posts
+          #
+          # @param project_id [Integer] Id of project
+          # @param opts [Hash] options hash of parameters
+          # @option opts [Hash] filter The filters to apply
+          # @option opts [Integer] page Page of projects to retrieve
+          # @option opts [Integer] pageSize Results per page of results
+          # @option opts [String] orderBy Parameter to sort by
+          # @option opts [String] orderDirection Direction of sort
+          # @option opts [Integer] orderByCategory Category to sort by when orderBy category
+          # @return [Hash] All Mentions
+          def data_mentions_facebook_posts(project_id, opts = {})
+            get "projects/#{project_id}/data/mentions/facebookposts", opts
+          end
+
+          # Get mentions that fall within the submitted filters for all facebook comments
+          #
+          # @param project_id [Integer] Id of project
+          # @param opts [Hash] options hash of parameters
+          # @option opts [Hash] filter The filters to apply
+          # @option opts [Integer] page Page of projects to retrieve
+          # @option opts [Integer] pageSize Results per page of results
+          # @option opts [String] orderBy Parameter to sort by
+          # @option opts [String] orderDirection Direction of sort
+          # @option opts [Integer] orderByCategory Category to sort by when orderBy category
+          # @return [Hash] All Mentions
+          def data_mentions_facebook_comments(project_id, opts = {})
+            get "projects/#{project_id}/data/mentions/facebookcomments", opts
           end
 
           include BWAPI::Client::Projects::Data::Mentions::Notes

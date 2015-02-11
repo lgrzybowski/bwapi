@@ -1,8 +1,8 @@
 module BWAPI
   # Configuration module
   module Configuration
-    attr_accessor :access_token, :adapter, :api_endpoint, :client_id, :debug, :grant_type,
-                  :logger, :performance, :refresh_token, :user_agent, :username, :verify_ssl
+    attr_accessor :access_token, :access_token_expiry, :adapter, :api_endpoint, :client_id, :debug,
+                  :grant_type, :logger, :performance, :refresh_token, :user_agent, :username, :verify_ssl
 
     attr_writer :client_secret, :password
 
@@ -11,6 +11,7 @@ module BWAPI
       def keys
         @keys ||= [
           :access_token,
+          :access_token_expiry,
           :adapter,
           :api_endpoint,
           :client_id,

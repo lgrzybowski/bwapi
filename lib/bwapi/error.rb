@@ -25,8 +25,6 @@ module BWAPI
         body
       elsif body.key?('errors')
         body['errors']
-      else
-        nil
       end
     end
 
