@@ -21,15 +21,15 @@ module BWAPI
           # Define the colour for a category
           #
           # TODO: Add parameters documentation
-          def create_category_colour(project_id)
-            post "/commandcenter/projects/#{project_id}/categoryColours"
+          def create_category_colour(project_id, opts = {})
+            post "/commandcenter/projects/#{project_id}/categoryColours", opts
           end
 
           # Update the colour for a category
           #
           # TODO: Add parameters documentation
-          def update_category_colour(project_id, category_id)
-            put "/commandcenter/projects/#{project_id}/categoryColours/#{category_id}"
+          def update_category_colour(project_id, category_id, opts = {})
+            put "/commandcenter/projects/#{project_id}/categoryColours/#{category_id}", opts
           end
 
           # Remove the colour for a category

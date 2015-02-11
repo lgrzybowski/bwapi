@@ -21,15 +21,15 @@ module BWAPI
           # Define the colour for a tag
           #
           # TODO: Add parameters documentation
-          def create_tag_colour(project_id)
-            post "/commandcenter/projects/#{project_id}/tagColours"
+          def create_tag_colour(project_id, opts = {})
+            post "/commandcenter/projects/#{project_id}/tagColours", opts
           end
 
           # Update the colour for a tag
           #
           # TODO: Add parameters documentation
-          def update_tag_colour(project_id, tag_name)
-            put "/commandcenter/projects/#{project_id}/tagColours/#{tag_name}"
+          def update_tag_colour(project_id, tag_name, opts = {})
+            put "/commandcenter/projects/#{project_id}/tagColours/#{tag_name}", opts
           end
 
           # Remove the colour for a tag
