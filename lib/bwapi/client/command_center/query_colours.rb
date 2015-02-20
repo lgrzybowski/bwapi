@@ -20,8 +20,8 @@ module BWAPI
         # Get colours defined for queries in current client
         #
         # TODO: Add parameters documentation
-        def update_query_colour(query_id)
-          put "/commandcenter/queryColours/#{query_id}"
+        def update_query_colour(query_id, opts = {})
+          put "/commandcenter/queryColours/#{query_id}", opts
         end
 
         # Get colours defined for queries in current client
