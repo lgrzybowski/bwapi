@@ -7,7 +7,7 @@ module BWAPI
   class Client
     module Brandwatch
       module Clients
-        # CommandCenter module for brandwatch/client/{client_id}/commandcenter endpoints
+        # CommandCenter module for brandwatch/clients/{client_id}/commandcenter endpoints
         module CommandCenter
           include BWAPI::Client::Brandwatch::Clients::CommandCenter::Limits
           include BWAPI::Client::Brandwatch::Clients::CommandCenter::SceneTypes

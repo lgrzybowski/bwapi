@@ -3,7 +3,7 @@ module BWAPI
     module Brandwatch
       module Clients
         module CommandCenter
-          # SceneTypes module for brandwatch/client/{client_id}/commandcenter/scenetypes endpoints
+          # SceneTypes module for brandwatch/clients/{client_id}/commandcenter/scenetypes endpoints
           module SceneTypes
             # Fetch all scene types enabled for given client
             #
