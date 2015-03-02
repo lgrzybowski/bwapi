@@ -3,7 +3,7 @@ module BWAPI
     module Brandwatch
       module Clients
         module CommandCenter
-          # Limits module for brandwatch/client/{client_id}/commandcenter/limits endpoints
+          # Limits module for brandwatch/clients/{client_id}/commandcenter/limits endpoints
           module Limits
             # Fetch configured limits for a Vizia client
             #

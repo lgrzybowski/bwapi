@@ -2,7 +2,7 @@ module BWAPI
   class Client
     module Brandwatch
       module Clients
-        # Clientmodules module for brandwatch/client/modules endpoints
+        # Clientmodules module for brandwatch/clients/{client_id}/modules endpoints
         module Modules
           # Get a specific clients modules
           #
