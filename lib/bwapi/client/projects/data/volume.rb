@@ -12,7 +12,7 @@ module BWAPI
           # @option opts [Array] dateRanges Date range ids
           # @return [Hash] All Chart data mentions
           def data_volume_date_ranges_days(project_id, opts = {})
-            get "projects/#{project_id}/data/volume/dataRanges/days", opts
+            get "projects/#{project_id}/data/volume/dateRanges/days", opts
           end
 
           # Get a sub (top 10, by volume) items of the sites dimension
@@ -60,17 +60,6 @@ module BWAPI
             get "projects/#{project_id}/data/volume/topauthors/queries", opts
           end
 
-          # Get top authors for given query IDs alternative
-          #
-          # @param project_id [Integer] Id of project
-          # @option opts [Hash] filter The filters to apply
-          # @option opts [Integer] limit The limit to return
-          # @option opts [String] orderBy Parameter to sort by
-          # @option opts [String] orderDirection Direction of sort
-          def data_volume_top_authors_queries_alt(project_id, opts = {})
-            get "projects/#{project_id}/data/volume/topauthors/queries/alt", opts
-          end
-
           # Get top sites for given query IDs
           #
           # @param project_id [Integer] Id of project
@@ -91,6 +80,13 @@ module BWAPI
           # @option opts [String] orderDirection Direction of sort
           def data_volume_top_tweeters_queries(project_id, opts = {})
             get "projects/#{project_id}/data/volume/toptweeters/queries", opts
+          end
+
+          # Returns top facebook users for given query IDs
+          #
+          # TODO: Add parameters documentation
+          def data_volume_top_facebook_users_queries(project_id, opts = {})
+            get "/projects/#{project_id}/data/volume/topfacebookusers/queries", opts
           end
         end
       end

@@ -76,6 +76,13 @@ module BWAPI
         def update_twitter_query(project_id, query_id, opts = {})
           put "projects/#{project_id}/twitterqueries/#{query_id}", opts
         end
+
+        # Delete a Twitter query
+        #
+        # TODO: Add parameters documentation
+        def delete_twitter_query(project_id, query_id)
+          delete "/projects/#{project_id}/twitterqueries/#{query_id}"
+        end
       end
     end
   end

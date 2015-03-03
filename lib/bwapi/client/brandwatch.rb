@@ -30,6 +30,27 @@ module BWAPI
         post "brandwatch/#{project_id}/datadownload", opts
       end
 
+      # Alter the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def update_token_log_level(opts = {})
+        put '/brandwatch/token-log-level', opts
+      end
+
+      # Get the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def get_token_log_level(access_token)
+        get "/brandwatch/token-log-level/#{access_token}"
+      end
+
+      # Remove the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def delete_token_log_level(access_token)
+        delete "/brandwatch/token-log-level/#{access_token}"
+      end
+
       include BWAPI::Client::Brandwatch::Become
       include BWAPI::Client::Brandwatch::Clients
       include BWAPI::Client::Brandwatch::CommandCenter

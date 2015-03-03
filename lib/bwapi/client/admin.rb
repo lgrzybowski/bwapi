@@ -1,9 +1,8 @@
 require 'bwapi/client/admin/become'
+require 'bwapi/client/admin/clients'
 require 'bwapi/client/admin/demographics'
+require 'bwapi/client/admin/reseller'
 require 'bwapi/client/admin/search'
-require 'bwapi/client/admin/clients/sub_clients'
-require 'bwapi/client/admin/clients/users'
-require 'bwapi/client/admin/clients/user_groups'
 
 module BWAPI
   class Client
@@ -27,12 +26,18 @@ module BWAPI
         get 'admin/sharing-report'
       end
 
+      # Retrieve a list of pricing options
+      #
+      # TODO: Add parameters documentation
+      def pricing_options
+        get 'admin/pricingoptions'
+      end
+
       include BWAPI::Client::Admin::Become
+      include BWAPI::Client::Admin::Clients
       include BWAPI::Client::Admin::Demographics
+      include BWAPI::Client::Admin::Reseller
       include BWAPI::Client::Admin::Search
-      include BWAPI::Client::Admin::Clients::SubClients
-      include BWAPI::Client::Admin::Clients::Users
-      include BWAPI::Client::Admin::Clients::UserGroups
     end
   end
 end

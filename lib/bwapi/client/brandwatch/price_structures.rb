@@ -10,6 +10,13 @@ module BWAPI
           get 'brandwatch/pricestructures'
         end
 
+        # Get the price structures available for a client
+        #
+        # TODO: Add parameters documentation
+        def get_client_price_structures(client_id)
+          get "/brandwatch/pricestructures/clients/#{client_id}"
+        end
+
         # Create a new price structure
         #
         # @param opts [Hash] options Hash of parameters
