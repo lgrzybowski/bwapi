@@ -88,6 +88,13 @@ module BWAPI
         def update_facebook_query(project_id, query_id, opts = {})
           put "projects/#{project_id}/facebookqueries/#{query_id}", opts
         end
+
+        # Delete a Facebook query
+        #
+        # TODO: Add parameters documentation
+        def delete_facebook_query(project_id, query_id)
+          delete "/projects/#{project_id}/facebookqueries/#{query_id}"
+        end
       end
     end
   end

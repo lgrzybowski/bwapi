@@ -8,15 +8,22 @@ module BWAPI
             # Get Vizia themes enabled for client
             #
             # TODO: Add parameters documentation
-            def brandwatch_themes(client_id)
+            def brandwatch_client_themes(client_id)
               get "brandwatch/clients/#{client_id}/commandcenter/themes"
             end
 
-            # Alter Vizia themes enabled for client
+            # Add Vizia themes to a client
             #
             # TODO: Add parameters documentation
-            def brandwatch_update_themes(client_id, opts = {})
-              get "brandwatch/clients/#{client_id}/commandcenter/themes", opts
+            def brandwatch_client_create_themes(client_id, theme_id)
+              post "brandwatch/clients/#{client_id}/commandcenter/themes/#{theme_id}"
+            end
+
+            # Remove Vizia themes from a client
+            #
+            # TODO: Add parameters documentation
+            def brandwatch_client_delete_themes(client_id, theme_id)
+              delete "brandwatch/clients/#{client_id}/commandcenter/themes/#{theme_id}"
             end
           end
         end

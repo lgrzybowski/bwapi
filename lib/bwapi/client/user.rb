@@ -1,5 +1,8 @@
+require 'bwapi/client/user/facebook'
 require 'bwapi/client/user/instagram_credentials'
 require 'bwapi/client/user/notifications'
+require 'bwapi/client/user/tokens'
+require 'bwapi/client/user/twitter_credentials'
 
 module BWAPI
   class Client
@@ -38,6 +41,62 @@ module BWAPI
         put 'user', opts
       end
 
+      # Change password
+      #
+      # TODO: Add parameters documentation
+      def change_password(opts = {})
+        put '/user/changePassword', opts
+      end
+
+      # Reset password for user
+      #
+      # TODO: Add parameters documentation
+      def reset_password(opts = {})
+        post '/user/resetPassword', opts
+      end
+
+      # Send reset password email
+      #
+      # TODO: Add parameters documentation
+      def send_reset_password_email(opts = {})
+        post '/user/sendResetPasswordEmail', opts
+      end
+
+      # Generate 2FA key for the current user
+      #
+      # TODO: Add parameters documentation
+      def generate_two_factor_auth(opts = {})
+        post '/user/generateTwoFactorAuthKey', opts
+      end
+
+      # Enable 2FA for current user
+      #
+      # TODO: Add parameters documentation
+      def enable_two_factor_auth(opts = {})
+        post '/user/enableTwoFactorAuth', opts
+      end
+
+      # Verify OTP code
+      #
+      # TODO: Add parameters documentation
+      def verify_code(opts = {})
+        get '/user/verifyCode', opts
+      end
+
+      # Send authentication code
+      #
+      # TODO: Add parameters documentation
+      def send_code(opts = {})
+        post '/user/sendCode', opts
+      end
+
+      # Get Spredfast integration for current user
+      #
+      # TODO: Add parameters documentation
+      def user_spredfast
+        get '/user/spredfast'
+      end
+
       # Get users api role
       #
       # @return [String] Users api role
@@ -52,8 +111,11 @@ module BWAPI
         user.uiRole
       end
 
+      include BWAPI::Client::User::Facebook
       include BWAPI::Client::User::InstagramCredentials
       include BWAPI::Client::User::Notifications
+      include BWAPI::Client::User::Tokens
+      include BWAPI::Client::User::TwitterCredentials
     end
   end
 end
