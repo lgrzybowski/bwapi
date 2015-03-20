@@ -1,3 +1,5 @@
+require 'bwapi/client/brandwatch/price_structures/clients'
+
 module BWAPI
   class Client
     module Brandwatch
@@ -46,6 +48,8 @@ module BWAPI
         def delete_price_structure(price_structure_id)
           delete "brandwatch/pricestructures/#{price_structure_id}"
         end
+
+        include BWAPI::Client::Brandwatch::PriceStructures::Clients
       end
     end
   end
