@@ -4,6 +4,13 @@ module BWAPI
       module Clients
         # Users module for brandwatch/users endpoints
         module Users
+          # List all users in a client
+          #
+          # TODO: Add parameters documentation
+          def brandwatch_get_client_users(client_id, opts = {})
+            get "brandwatch/clients/#{client_id}/users", opts
+          end
+
           # Create a new client user
           #
           # @param client_id [Integer] Id of the client
@@ -32,6 +39,20 @@ module BWAPI
           # @return [Hash] New user
           def brandwatch_create_client_user(client_id, opts = {})
             post "brandwatch/clients/#{client_id}/users", opts
+          end
+
+          # Get a user in a client
+          #
+          # TODO: Add parameters documentation
+          def brandwatch_get_client_user(client_id, user_id, opts = {})
+            get "brandwatch/clients/#{client_id}/users/#{user_id}", opts
+          end
+
+          # Update a user in a client
+          #
+          # TODO: Add parameters documentation
+          def brandwatch_update_client_user(client_id, user_id, opts = {})
+            put "brandwatch/clients/#{client_id}/users/#{user_id}", opts
           end
         end
       end
