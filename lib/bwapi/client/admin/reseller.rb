@@ -6,8 +6,8 @@ module BWAPI
         # Requests reseller usage report
         #
         # TODO: Add parameters documentation
-        def reseller_mention_usage_report
-          get '/admin/reseller/requestMentionUsageReport'
+        def reseller_mention_usage_report(opts = {})
+          get '/admin/reseller/requestMentionUsageReport', opts
         end
 
         # Requests reseller usage summaries
