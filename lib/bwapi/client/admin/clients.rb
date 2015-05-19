@@ -14,6 +14,13 @@ module BWAPI
           get "admin/clients/#{client_id}/login-report", opts
         end
 
+        # Retrieve the daily usage for the given client
+        #
+        # TODO: Add parameters documentation
+        def daily_usage(client_id, opts = {})
+          get "admin/clients/#{client_id}/usage/daily", opts
+        end
+
         include BWAPI::Client::Admin::Clients::SubClients
         include BWAPI::Client::Admin::Clients::Users
         include BWAPI::Client::Admin::Clients::UserGroups
