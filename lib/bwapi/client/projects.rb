@@ -1,3 +1,4 @@
+require 'bwapi/client/projects/alerts'
 require 'bwapi/client/projects/bulk_actions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
@@ -97,6 +98,7 @@ module BWAPI
         get "/projects/#{project_id}/twitteraudiencesummary", opts
       end
 
+      include BWAPI::Client::Projects::Alerts
       include BWAPI::Client::Projects::BulkActions
       include BWAPI::Client::Projects::Categories
       include BWAPI::Client::Projects::Data
