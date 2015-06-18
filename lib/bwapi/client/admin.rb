@@ -3,6 +3,7 @@ require 'bwapi/client/admin/clients'
 require 'bwapi/client/admin/demographics'
 require 'bwapi/client/admin/reseller'
 require 'bwapi/client/admin/search'
+require 'bwapi/client/admin/client'
 
 module BWAPI
   class Client
@@ -35,6 +36,7 @@ module BWAPI
 
       include BWAPI::Client::Admin::Become
       include BWAPI::Client::Admin::Clients
+      include BWAPI::Client::Admin::Client
       include BWAPI::Client::Admin::Demographics
       include BWAPI::Client::Admin::Reseller
       include BWAPI::Client::Admin::Search
