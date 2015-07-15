@@ -4,6 +4,7 @@ require 'bwapi/client/admin/demographics'
 require 'bwapi/client/admin/reseller'
 require 'bwapi/client/admin/search'
 require 'bwapi/client/admin/client'
+require 'bwapi/client/admin/pricing_upgrades'
 
 module BWAPI
   class Client
@@ -40,6 +41,7 @@ module BWAPI
       include BWAPI::Client::Admin::Demographics
       include BWAPI::Client::Admin::Reseller
       include BWAPI::Client::Admin::Search
+      include BWAPI::Client::Admin::PricingUpgrades
     end
   end
 end
