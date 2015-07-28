@@ -11,6 +11,13 @@ module BWAPI
         get 'client'
       end
 
+      # Get the current users client subclients
+      #
+      # @return [Hash] All sub clients information for user's client
+      def client_subclients
+        get 'client/subclients'
+      end
+
       # Get the current users client modules
       #
       # @return [Hash] Client module information
