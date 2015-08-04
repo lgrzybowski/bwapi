@@ -96,6 +96,13 @@ module BWAPI
       @client_id == 'brandwatch-api-client' ? true : false
     end
 
+    # Check if user is a brandwatch-api-superadmin-client type
+    #
+    # @return [Boolean] Application client status
+    def api_super_admin_client?
+      @client_id == 'brandwatch-api-superadmin-client' ? true : false
+    end
+
     def access_token=(value)
       reset_connection
       @access_token = value
