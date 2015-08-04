@@ -64,6 +64,17 @@ describe BWAPI::Client do
     end
   end
 
+  describe '.api_super_admin_client?' do
+    it 'returns true when client is a brandwatch-api-superadmin-client' do
+      bw = BWAPI::Client.new client_id: 'brandwatch-api-superadmin-client'
+      expect(bw.api_super_admin_client?).to eql(true)
+    end
+
+    it 'returns false when a client is not a brandwatch-api-superadmin-client' do
+      expect(BWAPI::Client.new.api_super_admin_client?).to eql(false)
+    end
+  end
+
   describe '.seconds_until_access_token_expires' do
     it 'should return the number of seconds until the access token expires' do
       bw = BWAPI::Client.new access_token_expiry: (Time.now + 3600).iso8601
