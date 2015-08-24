@@ -1,4 +1,5 @@
 require 'bwapi/client/client/grant_types'
+require 'bwapi/client/client/sub_clients'
 
 module BWAPI
   class Client
@@ -40,6 +41,7 @@ module BWAPI
       end
 
       include BWAPI::Client::Client::GrantTypes
+      include BWAPI::Client::Client::SubClients
     end
   end
 end
