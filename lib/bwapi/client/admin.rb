@@ -29,13 +29,6 @@ module BWAPI
         get 'admin/sharing-report'
       end
 
-      # Retrieve a list of pricing options
-      #
-      # TODO: Add parameters documentation
-      def pricing_options
-        get 'admin/pricingoptions'
-      end
-
       include BWAPI::Client::Admin::Become
       include BWAPI::Client::Admin::Clients
       include BWAPI::Client::Admin::Client
