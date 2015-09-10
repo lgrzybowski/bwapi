@@ -32,8 +32,8 @@ describe BWAPI::Default do
         api_endpoint: 'https://newapi.brandwatch.com/',
         client_id: 'brandwatch-api-client',
         client_secret: nil,
-        connection_options:  {
-          headers:  {
+        connection_options: {
+          headers: {
             user_agent: 'BWAPI Ruby Gem 11.0.1'
           },
           request: {

@@ -87,7 +87,8 @@ module BWAPI
     # @param opts [Hash] Request parameters
     def request_url(req, path, opts)
       if key?(opts, :force_body)
-        req.path, req.body = path, opts
+        req.path = path
+        req.body = opts
       else
         req.url path, opts
       end
@@ -102,7 +103,8 @@ module BWAPI
       if key?(opts, :force_urlencoded)
         req.url path, opts
       else
-        req.path, req.body = path, opts
+        req.path = path
+        req.body = opts
       end
     end
 
