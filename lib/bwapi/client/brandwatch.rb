@@ -1,5 +1,8 @@
 require 'bwapi/client/brandwatch/become'
 require 'bwapi/client/brandwatch/clients'
+require 'bwapi/client/brandwatch/command_center'
+require 'bwapi/client/brandwatch/ditto_brands'
+require 'bwapi/client/brandwatch/host_location_overrides'
 require 'bwapi/client/brandwatch/log_level'
 require 'bwapi/client/brandwatch/price_structures'
 require 'bwapi/client/brandwatch/usage_report'
@@ -27,8 +30,32 @@ module BWAPI
         post "brandwatch/#{project_id}/datadownload", opts
       end
 
+      # Alter the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def update_token_log_level(opts = {})
+        put '/brandwatch/token-log-level', opts
+      end
+
+      # Get the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def get_token_log_level(access_token)
+        get "/brandwatch/token-log-level/#{access_token}"
+      end
+
+      # Remove the logging level override for given access token
+      #
+      # TODO: Add parameters documentation
+      def delete_token_log_level(access_token)
+        delete "/brandwatch/token-log-level/#{access_token}"
+      end
+
       include BWAPI::Client::Brandwatch::Become
       include BWAPI::Client::Brandwatch::Clients
+      include BWAPI::Client::Brandwatch::CommandCenter
+      include BWAPI::Client::Brandwatch::DittoBrands
+      include BWAPI::Client::Brandwatch::HostLocationOverrides
       include BWAPI::Client::Brandwatch::LogLevel
       include BWAPI::Client::Brandwatch::PriceStructures
       include BWAPI::Client::Brandwatch::UsageReport

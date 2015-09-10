@@ -5,8 +5,8 @@ module BWAPI
       # Request the information for a given location code
       #
       # @return [Hash] Information about the location
-      def location(location_code)
-        get "locations/#{location_code}"
+      def location(id)
+        get "locations/#{id}"
       end
 
       # Locations a location name with candidates

@@ -15,6 +15,13 @@ module BWAPI
           def bulk_edit_mentions(project_id, opts = {})
             post "projects/#{project_id}/bulkactions/mentions", opts
           end
+
+          # Create a mention delete bulk action
+          #
+          # TODO: Add parameters documentation
+          def bulk_delete_mentions(project_id, opts = {})
+            delete "/projects/#{project_id}/bulkactions/mentions", opts
+          end
         end
       end
     end

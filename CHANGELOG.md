@@ -1,6 +1,28 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## 12.0.0
+### Added
+* NoTask - Added ditto endpoint
+* NoTask - Added host location overrides endpoint
+* NoTask - Added brandwatch commandcenter module
+* NoTask - Added client sublcient,users and usergroups endpoints
+* QA-2458 - Added client price structures endpoint
+* NoTask - Added additional client users endpoint
+* NoTask - Added reseller mention usage report endpoint
+* QA-685 - Added options for twitter credentials endpoint
+* ENT-1048 - Added client usage endpoint
+* NRP-3051 - Added alerts endpoint
+* ENT-940 - Added client usage report endpoint
+* ENT-939 - Added pricing upgrades endpoint
+* NRP-3198 - Added move query endpoint
+* ENT-1477 - Added additional client subclients endpoint
+* ENT-1454 - Added moving clients endpoint
+* NoTask - Added move pricing options endpoint
+
+### Fixed
+* NoTask - Fixed typo in client/users endpoint
+
 ## 11.0.0
 ### Added
 * NoTask - Add aggregates endpoint

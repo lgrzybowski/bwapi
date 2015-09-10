@@ -2,7 +2,7 @@ module BWAPI
   class Client
     module CommandCenter
       module Displays
-        # Displays module for commandcenter/displays/messages endpoints
+        # Displays module for commandcenter/displays/message endpoints
         module Messages
           # Get the messages for an existing display
           #
@@ -54,7 +54,7 @@ module BWAPI
           # @option opts [Array] screenIds ScreenIds where message is shown
           # @return [Hash] Updated display message
           def update_message(display_id, message_id, opts = {})
-            put "commandcenter/displays/#{display_id}/messages/#{message_id}", opts
+            put "commandcenter/displays/#{display_id}/message/#{message_id}", opts
           end
 
           # Delete an existing display message
@@ -63,7 +63,7 @@ module BWAPI
           # @param [Integer] message_id The message id
           # @return [Hash] Deleted display message
           def delete_message(display_id, message_id)
-            delete "commandcenter/displays/#{display_id}/messages/#{message_id}"
+            delete "commandcenter/displays/#{display_id}/message/#{message_id}"
           end
         end
       end

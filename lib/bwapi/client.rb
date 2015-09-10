@@ -20,6 +20,7 @@ require 'bwapi/client/metrics'
 require 'bwapi/client/oauth'
 require 'bwapi/client/ping'
 require 'bwapi/client/projects'
+require 'bwapi/client/public'
 require 'bwapi/client/query_validation'
 require 'bwapi/client/sso'
 require 'bwapi/client/test_search'
@@ -51,6 +52,7 @@ module BWAPI
     include BWAPI::Client::OAuth
     include BWAPI::Client::Ping
     include BWAPI::Client::Projects
+    include BWAPI::Client::Public
     include BWAPI::Client::QueryValidation
     include BWAPI::Client::SSO
     include BWAPI::Client::TestSearch
@@ -92,6 +94,13 @@ module BWAPI
     # @return [Boolean] Application client status
     def api_client?
       @client_id == 'brandwatch-api-client' ? true : false
+    end
+
+    # Check if user is a brandwatch-api-superadmin-client type
+    #
+    # @return [Boolean] Application client status
+    def api_super_admin_client?
+      @client_id == 'brandwatch-api-superadmin-client' ? true : false
     end
 
     def access_token=(value)

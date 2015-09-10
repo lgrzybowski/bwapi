@@ -11,14 +11,14 @@ module BWAPI
             #
             # TODO: Add parameters documentation
             def brandwatch_users_access_levels(client_id)
-              get "brandwatch/client/#{client_id}/commandcenter/users"
+              get "brandwatch/clients/#{client_id}/commandcenter/users"
             end
 
             # Fetch a single user's Vizia access level
             #
             # TODO: Add parameters documentation
             def brandwatch_user_access_level(client_id, user_id)
-              get "brandwatch/client/#{client_id}/commandcenter/users/#{user_id}"
+              get "brandwatch/clients/#{client_id}/commandcenter/users/#{user_id}"
             end
 
             include BWAPI::Client::Brandwatch::Clients::CommandCenter::Users::Access

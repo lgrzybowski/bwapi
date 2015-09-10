@@ -1,6 +1,7 @@
 require 'bwapi/client/projects/queries/backfill'
 require 'bwapi/client/projects/queries/date_range'
 require 'bwapi/client/projects/queries/mentions'
+require 'bwapi/client/projects/queries/move'
 
 module BWAPI
   class Client
@@ -96,6 +97,7 @@ module BWAPI
         include BWAPI::Client::Projects::Queries::Backfill
         include BWAPI::Client::Projects::Queries::DateRange
         include BWAPI::Client::Projects::Queries::Mentions
+        include BWAPI::Client::Projects::Queries::Move
       end
     end
   end

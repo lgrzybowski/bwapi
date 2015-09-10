@@ -1,9 +1,11 @@
 require 'bwapi/client/admin/become'
+require 'bwapi/client/admin/clients'
 require 'bwapi/client/admin/demographics'
+require 'bwapi/client/admin/reseller'
 require 'bwapi/client/admin/search'
-require 'bwapi/client/admin/clients/sub_clients'
-require 'bwapi/client/admin/clients/users'
-require 'bwapi/client/admin/clients/user_groups'
+require 'bwapi/client/admin/client'
+require 'bwapi/client/admin/pricing_upgrades'
+require 'bwapi/client/admin/projects'
 
 module BWAPI
   class Client
@@ -28,11 +30,13 @@ module BWAPI
       end
 
       include BWAPI::Client::Admin::Become
+      include BWAPI::Client::Admin::Clients
+      include BWAPI::Client::Admin::Client
       include BWAPI::Client::Admin::Demographics
+      include BWAPI::Client::Admin::Reseller
       include BWAPI::Client::Admin::Search
-      include BWAPI::Client::Admin::Clients::SubClients
-      include BWAPI::Client::Admin::Clients::Users
-      include BWAPI::Client::Admin::Clients::UserGroups
+      include BWAPI::Client::Admin::PricingUpgrades
+      include BWAPI::Client::Admin::Projects
     end
   end
 end

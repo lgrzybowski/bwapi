@@ -1,3 +1,5 @@
+require 'bwapi/client/brandwatch/price_structures/clients'
+
 module BWAPI
   class Client
     module Brandwatch
@@ -8,6 +10,13 @@ module BWAPI
         # @return [Array] List of all price structures
         def get_price_structures
           get 'brandwatch/pricestructures'
+        end
+
+        # Get the price structures available for a client
+        #
+        # TODO: Add parameters documentation
+        def get_client_price_structures(client_id)
+          get "/brandwatch/pricestructures/clients/#{client_id}"
         end
 
         # Create a new price structure
@@ -39,6 +48,8 @@ module BWAPI
         def delete_price_structure(price_structure_id)
           delete "brandwatch/pricestructures/#{price_structure_id}"
         end
+
+        include BWAPI::Client::Brandwatch::PriceStructures::Clients
       end
     end
   end

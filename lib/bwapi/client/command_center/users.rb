@@ -25,7 +25,7 @@ module BWAPI
         # @param [Integer] user_id the user id
         # @return [Hash] Deleted user access level
         def delete_user_access_level(user_id)
-          delete "commandcenter/users/#{user_id}"
+          delete "commandcenter/users/#{user_id}/"
         end
 
         include BWAPI::Client::CommandCenter::Users::Access

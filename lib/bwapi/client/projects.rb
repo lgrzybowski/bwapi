@@ -1,10 +1,13 @@
+require 'bwapi/client/projects/alerts'
 require 'bwapi/client/projects/bulk_actions'
 require 'bwapi/client/projects/categories'
 require 'bwapi/client/projects/data'
 require 'bwapi/client/projects/data_download'
 require 'bwapi/client/projects/demographics'
+require 'bwapi/client/projects/ditto_queries'
 require 'bwapi/client/projects/facebook_queries'
 require 'bwapi/client/projects/group'
+require 'bwapi/client/projects/preview_search'
 require 'bwapi/client/projects/queries'
 require 'bwapi/client/projects/query/mentionfind'
 require 'bwapi/client/projects/query_groups'
@@ -81,13 +84,30 @@ module BWAPI
         delete "projects/#{project_id}"
       end
 
+      # Given a query id retrieve the twitter audience csv associated with said query
+      #
+      # TODO: Add parameters documentation
+      def project_audiences(project_id, opts = {})
+        get "/projects/#{project_id}/audiences", opts
+      end
+
+      # Given a query id retrieve summary statistics for the given Twitter audience
+      #
+      # TODO: Add parameters documentation
+      def project_twitter_audience_summary(project_id, opts = {})
+        get "/projects/#{project_id}/twitteraudiencesummary", opts
+      end
+
+      include BWAPI::Client::Projects::Alerts
       include BWAPI::Client::Projects::BulkActions
       include BWAPI::Client::Projects::Categories
       include BWAPI::Client::Projects::Data
       include BWAPI::Client::Projects::DataDownload
       include BWAPI::Client::Projects::Demographics
+      include BWAPI::Client::Projects::DittoQueries
       include BWAPI::Client::Projects::FacebookQueries
       include BWAPI::Client::Projects::Group
+      include BWAPI::Client::Projects::PreviewSearch
       include BWAPI::Client::Projects::Queries
       include BWAPI::Client::Projects::Query::MentionFind
       include BWAPI::Client::Projects::QueryGroups

@@ -21,6 +21,13 @@ module BWAPI
             get "projects/#{project_id}/data/mentions", opts
           end
 
+          # Retrieve the total count of mentions for the requested queries
+          #
+          # TODO: Add parameters documentation
+          def data_mentions_count(project_id, opts = {})
+            get "/projects/#{project_id}/data/mentions/count", opts
+          end
+
           # Update mentions for project
           #
           # @param project_id [Integer] Id of project

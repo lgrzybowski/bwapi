@@ -16,10 +16,10 @@ module BWAPI
         # Get a specific data download in project
         #
         # @param project_id [Integer] Id of project
-        # @param data_download_id [Integer] Id of data download
+        # @param download_id [Integer] Id of data download
         # @return [Hash] Specific data download
-        def get_data_download(project_id, data_download_id)
-          get "projects/#{project_id}/datadownload/#{data_download_id}"
+        def get_data_download(project_id, download_id)
+          get "projects/#{project_id}/datadownload/#{download_id}"
         end
 
         # Create a new data download in project
