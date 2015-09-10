@@ -34,7 +34,7 @@ describe BWAPI::Default do
         client_secret: nil,
         connection_options: {
           headers: {
-            user_agent: 'BWAPI Ruby Gem 11.0.1'
+            user_agent: 'BWAPI Ruby Gem 12.0.0'
           },
           request: {
             params_encoder: Faraday::FlatParamsEncoder
@@ -46,7 +46,7 @@ describe BWAPI::Default do
         password: nil,
         performance: {},
         refresh_token: nil,
-        user_agent: 'BWAPI Ruby Gem 11.0.1',
+        user_agent: 'BWAPI Ruby Gem 12.0.0',
         username: nil,
         verify_ssl: false
       )
@@ -128,7 +128,7 @@ describe BWAPI::Default do
     it 'should return the default hash values' do
       expect(BWAPI::Default.connection_options).to eql(
         headers: {
-          user_agent: 'BWAPI Ruby Gem 11.0.1'
+          user_agent: 'BWAPI Ruby Gem 12.0.0'
         },
         request: {
           params_encoder: Faraday::FlatParamsEncoder
