@@ -91,6 +91,17 @@ module BWAPI
         get "/projects/#{project_id}/audiences", opts
       end
 
+      # Copy Published Projects into current user account
+      #
+      # @param project_id [Integer] Id of project
+      # @param opts [Hash] options hash of parameters
+      # @option opts [Hash] structureOnly should copy only the structure (no backfills)
+      # backfills should be run reperatly
+      # @return [Hash] Copied project
+      def copy_project(project_id, opts = {})
+        post "projects/#{project_id}/copy", opts
+      end
+
       # Given a query id retrieve summary statistics for the given Twitter audience
       #
       # TODO: Add parameters documentation
