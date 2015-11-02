@@ -69,6 +69,10 @@ module BWAPI
         nil
       end
 
+      def open_timeout
+        ENV['OPEN_TIMEOUT'] || 30
+      end
+
       def password
         ENV['BWAPI_PASSWORD']
       end
@@ -79,6 +83,10 @@ module BWAPI
 
       def refresh_token
         ENV['BWAPI_REFRESH_TOKEN']
+      end
+
+      def timeout
+        ENV['TIMEOUT'] || 60
       end
 
       def user_agent

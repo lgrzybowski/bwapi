@@ -240,9 +240,11 @@ describe BWAPI::Configuration do
         :debug,
         :grant_type,
         :logger,
+        :open_timeout,
         :password,
         :performance,
         :refresh_token,
+        :timeout,
         :user_agent,
         :username,
         :verify_ssl
@@ -262,8 +264,10 @@ describe BWAPI::Configuration do
         c.debug = true
         c.grant_type = 'test-grant'
         c.logger = Logger.new(STDOUT)
+        c.open_timeout = 60
         c.password = 'password123'
         c.refresh_token = '1234-5678-9010-1112'
+        c.timeout = 120
         c.user_agent = 'Test User Agent'
         c.username = 'testing@brandwatch.com'
         c.verify_ssl = true
@@ -305,7 +309,11 @@ describe BWAPI::Configuration do
     end
 
     it 'should set the configured logger' do
-      expect(bwapi.logger).to be_an_instance_of Logger
+      expect(bwapi.logger).to be_an_instance_of(Logger)
+    end
+
+    it 'should set the configured open timeout' do
+      expect(bwapi.open_timeout).to eql(60)
     end
 
     it 'should set the configured password' do
@@ -314,6 +322,10 @@ describe BWAPI::Configuration do
 
     it 'should set the configured refresh_token' do
       expect(bwapi.refresh_token).to eql('1234-5678-9010-1112')
+    end
+
+    it 'should set the configured timeout' do
+      expect(bwapi.timeout).to eql(120)
     end
 
     it 'should set the configured user agent' do
@@ -372,6 +384,10 @@ describe BWAPI::Configuration do
       expect(bwapi.logger).to eql(nil)
     end
 
+    it 'should reset the open timeout' do
+      expect(bwapi.open_timeout).to eql(30)
+    end
+
     it 'should reset the password value' do
       expect(bwapi.instance_variable_get(:@password)).to eql(nil)
     end
@@ -384,8 +400,12 @@ describe BWAPI::Configuration do
       expect(bwapi.refresh_token).to eql(nil)
     end
 
+    it 'should reset the timeout' do
+      expect(bwapi.timeout).to eql(60)
+    end
+
     it 'should reset the user_agent value' do
-      expect(bwapi.user_agent).to eql('BWAPI Ruby Gem 12.0.0')
+      expect(bwapi.user_agent).to eql('BWAPI Ruby Gem 12.1.0')
     end
 
     it 'should reset the username value' do
@@ -440,6 +460,10 @@ describe BWAPI::Configuration do
       expect(bwapi.logger).to eql(nil)
     end
 
+    it 'should reset the open timeout' do
+      expect(bwapi.open_timeout).to eql(nil)
+    end
+
     it 'should reset the password value' do
       expect(bwapi.instance_variable_get(:@password)).to eql(nil)
     end
@@ -450,6 +474,10 @@ describe BWAPI::Configuration do
 
     it 'should reset the refresh_token value' do
       expect(bwapi.refresh_token).to eql(nil)
+    end
+
+    it 'should reset the timeout' do
+      expect(bwapi.open_timeout).to eql(nil)
     end
 
     it 'should reset the user_agent value' do
@@ -478,7 +506,7 @@ describe BWAPI::Configuration do
         client_secret: nil,
         connection_options: {
           headers: {
-            user_agent: 'BWAPI Ruby Gem 12.0.0'
+            user_agent: 'BWAPI Ruby Gem 12.1.0'
           },
           request: {
             params_encoder: Faraday::FlatParamsEncoder
@@ -487,10 +515,12 @@ describe BWAPI::Configuration do
         debug: false,
         grant_type: 'api-password',
         logger: nil,
+        open_timeout: 30,
         password: nil,
         performance: {},
         refresh_token: nil,
-        user_agent: 'BWAPI Ruby Gem 12.0.0',
+        timeout: 60,
+        user_agent: 'BWAPI Ruby Gem 12.1.0',
         username: nil,
         verify_ssl: false
       )
