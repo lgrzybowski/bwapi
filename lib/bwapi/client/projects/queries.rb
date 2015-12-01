@@ -42,7 +42,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [String] id Id of the query
+        # @option opts [Integer] id Id of the query
         # @option opts [String] name Name of the project
         # @option opts [Integer] dailyLimit Daily limit of the query
         # @option opts [Integer] twitterLimit Twitter limit of the query
@@ -65,7 +65,7 @@ module BWAPI
         #
         # @param project_id [Integer] Id of project
         # @param opts [Hash] options hash of parameters
-        # @option opts [String] id Id of the query
+        # @option opts [Integer] id Id of the query
         # @option opts [String] name Name of the project
         # @option opts [Integer] dailyLimit Daily limit of the query
         # @option opts [Integer] twitterLimit Twitter limit of the query
