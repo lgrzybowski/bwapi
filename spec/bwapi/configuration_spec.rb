@@ -229,26 +229,28 @@ describe BWAPI::Configuration do
 
   describe '.keys' do
     it 'should return the correct list of keys' do
-      expect(BWAPI::Configuration.keys).to eql([
-        :access_token,
-        :access_token_expiry,
-        :adapter,
-        :api_endpoint,
-        :client_id,
-        :client_secret,
-        :connection_options,
-        :debug,
-        :grant_type,
-        :logger,
-        :open_timeout,
-        :password,
-        :performance,
-        :refresh_token,
-        :timeout,
-        :user_agent,
-        :username,
-        :verify_ssl
-      ])
+      expect(BWAPI::Configuration.keys).to eql(
+        [
+          :access_token,
+          :access_token_expiry,
+          :adapter,
+          :api_endpoint,
+          :client_id,
+          :client_secret,
+          :connection_options,
+          :debug,
+          :grant_type,
+          :logger,
+          :open_timeout,
+          :password,
+          :performance,
+          :refresh_token,
+          :timeout,
+          :user_agent,
+          :username,
+          :verify_ssl
+        ]
+      )
     end
   end
 

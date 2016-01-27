@@ -9,11 +9,11 @@ module BWAPI
   module Default
     ADAPTER      = Faraday.default_adapter
 
-    API_ENDPOINT = 'https://newapi.brandwatch.com/'
+    API_ENDPOINT = 'https://newapi.brandwatch.com/'.freeze
 
-    CLIENT_ID    = 'brandwatch-api-client'
+    CLIENT_ID    = 'brandwatch-api-client'.freeze
 
-    GRANT_TYPE   = 'api-password'
+    GRANT_TYPE   = 'api-password'.freeze
 
     USER_AGENT   = "BWAPI Ruby Gem #{BWAPI::VERSION}".freeze
 
