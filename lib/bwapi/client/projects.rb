@@ -85,13 +85,6 @@ module BWAPI
         delete "projects/#{project_id}"
       end
 
-      # Given a query id retrieve the twitter audience csv associated with said query
-      #
-      # TODO: Add parameters documentation
-      def project_audiences(project_id, opts = {})
-        get "/projects/#{project_id}/audiences", opts
-      end
-
       # Copy Published Projects into current user account
       #
       # @param project_id [Integer] Id of project
